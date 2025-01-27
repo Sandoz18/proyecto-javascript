@@ -46,10 +46,10 @@ console.log('productosConDescuento');
 
 //creo una clase y uso el constructor  de producto para asignarle parámetros//
 class Producto {
-    constructor(nombre, colores, precioLista, Id, descripcion) {
+    constructor(nombre, colores, precio, Id, descripcion) {
         this.nombre = nombre
         this.colores = colores
-        this.precioLista = precioLista
+        this.precio = precio
         this.Id = Id
         this.descripcion = descripcion
     }    
@@ -58,24 +58,21 @@ class Producto {
 //creo un nuevo objeto "Producto"//
 
 const producto1 = new Producto();
-console.log(typeof producto1);
+console.log(producto1);
 
 const producto2 = new Producto();
-console.log(typeof producto2);
+console.log(producto2);
 
 const producto3 = new Producto();
-console.log(typeof producto3);
+console.log( producto3);
 
 
-
-let precioLista = parseInt(prompt);
-console.log(typeof precioLista);
 
 
 //porcentaje de descuento incompleto ver como soluciono una vez tenga creados los productos//
-let porcentajeDescuento = parseInt(prompt);
+let descuento = [];
 
-precioFinalDescuento =(parseInt (precioLista - porcentajeDescuento)) ;
+precioFinalDescuento =(parseInt (precio - descuento)) ;
 console.log("El precio del producto con descuento es:" + precioFinalDescuento);
 
 
