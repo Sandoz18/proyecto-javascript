@@ -1,3 +1,18 @@
+/*navbar*/
+.navbar-nav{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  li{
+    margin: 0 25px;
+  }
+}
+
+#carrito{
+  align-self: flex-end;
+}
 
 main .principal {
  background-image: url(../assets/banner-01-01.png);
@@ -11,7 +26,7 @@ main .principal .marquesina {
   white-space: nowrap;
   width: auto;
 }
-main .principal .marquesina .marquee-item {
+ .marquee-item {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -24,6 +39,19 @@ main .principal .marquesina .marquee-item {
   100% {
     transform: translateX(-100%);
   }
+}
+
+#carrito{
+  color: #fafafa;
+  text-decoration: none !important;
+  width: 1.5rem;
+  background-color: cadetblue;
+}
+
+
+ img{
+  width: 100%;
+  background-color: aqua;
 }
 main .principal .banner .texto_principal {
   width: 65%;
@@ -45,12 +73,12 @@ main .principal .banner .texto_principal h2 {
 main .principal .banner .texto_principal .rebajas {
   font-size: 3.5rem;
   font-weight: 500;
-  color: #ffffff;
+  color: #fafafa;
   letter-spacing: 10px;
   margin-top: 8rem;
 }
 main .principal .banner .texto_principal .hasta {
-  color: #ffffff;
+  color: #fafafa;
   font-size: 2rem;
 }
 main .principal .banner .texto_principal #ofertas {
@@ -63,13 +91,22 @@ main .principal .banner .texto_principal .porciento {
   line-height: 2.5rem;
 }
 main .principal .banner .texto_principal .shop {
-  color: #f0f0f0;
+  color: #fafafa;
   text-decoration: underline;
 }
 main .principal .banner .texto_principal .shop .btn {
-  color: #ffffff;
+  color: #fafafa;
+
 }
-main .principal .banner .texto_principal .destacados {
+
+/*zoom con javascript*/
+.boton-shop {
+  background-color: #df1515;
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+main .principal .banner .texto_principal .titulo-productos {
   color: #000000;
 }
 main .principal .banner .texto_principal .envios {
@@ -84,7 +121,7 @@ main .principal .banner .texto_principal font-family:Verdana,
 main .principal .banner .texto_principal Geneva,
 main .principal .banner .texto_principal Tahoma,
 main .principal .banner .texto_principal sans-serif .card:hover {
-  background-color: #f0f0f0;
+  background-color: #fafafa;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.0117647059);
 }
 
@@ -114,8 +151,24 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 /*partial cards*/
 .card {
+  width:25rem !important;
+height: 40rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.521);
   text-align: center;
+
 }
+
+
+.card-img{
+  width: 100%;
+  height: 60%;
+    }
+
+    .card .div{
+      display: flex;
+      flex-direction: column;      
+      gap: 1px;
+    }
 
 .btn-primary {
   background-color: #df1515;
@@ -127,19 +180,27 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 .envios {
-  height: 6rem;
-  background-color: #df1515;
+  height: 4rem;
+  background-color: #e8e6dd;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  
+
+
+  
+#gratis {
+  font-size: 1.8rem !important;
+  font-weight: 100;
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
+  justify-content: space-between;
+ 
+}
 }
 
-.envios p {
-  font-size: 2rem !important;
-  font-weight: 200;
-}
-
-font-family:Verdana,
-Geneva,
-Tahoma,
-sans-serif .card:hover {
+ .card:hover {
   background-color: #f0f0f0;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.0117647059);
 }
