@@ -20,16 +20,25 @@
 <body>
     <div class="container-fluid gx-0">
         <header>
-            <nav class="navbar navbar-dark bg-dark fixed-top mt-1 pt-5">
+            <nav class="navbar navbar-dark fixed-top mt-1 pt-5" id="navbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">logo</a>
+                    <a class="navbar-brand" href="#">
+                        <img src="/assets/solcito-01.png" class="nav-img" alt="logo">
+                    </a>
                     <!--uso un id para seleccionar el elemento desde js-->
-                    <ul class="navbar-nav  bg-warning" id="nav-menu">
+                    <ul class="navbar-nav" id="nav-menu">
                         <!---desde js-->
+                       
                     </ul>
-                    <!------imagen carrito compras + span para agregar productos------->
-                    <a href="carrito.html" img src="assets/bag-02.png" id="carrito" alt="imagen-carrito-compras">
-                        <span id="cuenta-carrito">0</span></a>
+                    <div class="container-login bg-danger">
+                          <!------imagen carrito compras + span para agregar productos------->
+                    <a href="carrito.html"><img class="imagen-carrito" src="assets/iconos-02.png" id="carrito" alt="imagen-carrito-compras">
+                        <span id="cuenta-carrito"></span></a>
+                        
+                        <a href="#"><img class="imagen-login" src="assets/iconos-01.png" id="login" alt="imagen-login">
+                           </a> 
+                    </div>
+                  
                 </div>
             </nav>
         </header>
@@ -55,11 +64,8 @@
                     INTERÉS EN
                     COMPRAS SUPERIORES A $600.000</span>
             </div>
-            <!-------muestra h2 con javascript----->
-            <div class="banner container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="col bg-dark">
+            <!-------muestra h2 con javascript--
+              <div class="col bg-dark">
                             <div class="fixed-modal">
                                 <div id="unModal" class="modal">
                                     Modal javascript, necesito que abra
@@ -69,13 +75,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="texto_principal text-center">
-                            <h1>marca</h1>
-                            <h4 class="rebajas">REBAJAS
-                                <h4 />
+            --->
+            <div class="banner container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                      
+
+                        <div class="texto_principal text-center mt-5">                          
+                                  <h1>REBAJAS</h1>                   
                                 <div class="container d-flex
                     justify-content-center align-items-center text-center">
-                                    <div class="hasta">HASTA</div>
+                                    <h4 class="hasta">HASTA</h4>
                                     <!--javascript-->
                                     <h2 id="ofertas"></h2>
                                     <div class="porciento">
@@ -88,10 +98,8 @@
                                     En productos Seleccionados
                                 </p>
                                 <div class="shop text-white">
-                                    <!--acá algún efecto copado para el bóton-->
-                                    
-                                    <a class="boton-shop btn  btn-lg" href="#" role="button">Comprá
-                                        Ahora!</a>
+                                    <!--acá algún efecto copado para el bóton-->                                    
+                                    <button id="nuevo-evento" class="boton-shop btn btn-lg" href="/carrito.html">Comprar Ahora</button>
                                 </div>
                         </div>
 

@@ -42,6 +42,16 @@ menuItems.forEach(item => {
 navList.style.display = 'flex';
 navList.style.justifyContent = 'space-between';
 
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) { 
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
 /********************************banner***************************************************/
 
 //declaro e inicializo la variable ofertas que se muestra
@@ -116,15 +126,15 @@ const productos = [
 
 //Creo contenedor de las cards que conecta con el card-container de html
 const container = document.getElementById('productos-contenedores');
-
+container.style.display = 'flex';
 
 /*para cada producto itero y creo una nueva tarjeta y le paso un producto*/
 productos.forEach((producto)=>{
   //createElement crea un un nuevo elemento html de manera dinamica
   const card= document.createElement('div');
 //classList.add nos permite añadir clases
-card.classList.add('col-lg-4');
-card.classList.add('card');
+card.classList.add( 'card');
+
 const img= document.createElement('img');
 card.classList.add('src');
 card.classList.add('alt');
@@ -143,6 +153,14 @@ container.appendChild(card);
 card.appendChild(img);
 }  );
 
+const nuevoEvento = document.getElementById('nuevo-evento'); 
+nuevoEvento.addEventListener('click', () =>{
+ alert('Esto es un nuevo evento!')
+ });
+ nuevoEvento.addEventListener('mousemove', () =>{
+ console.log('se aplica un zoom en el botón cuando muevo el mouse!');
+  });
+ 
 
 
 /*primero creo la variable cards y le paso el método querySelectorAll
@@ -157,9 +175,20 @@ cards.forEach(card => {
   });
 });
 
+/*eventos de mouse
+click
+dbl click
+mouseover
+mouseout
+mousemove
 
+eventos de teclado
+keydown se presiona una tecla
+*/
 
-const unBoton = document.getElementById('');
+//const unBoton = document.getElementById('');
+
+//addEventListener//
 
 //Ver cómo agrego las imagenes!//
 
