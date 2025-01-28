@@ -1,3 +1,5 @@
+
+
 /*navbar*/
 .navbar-nav{
   display:flex;
@@ -8,10 +10,6 @@
   li{
     margin: 0 25px;
   }
-}
-
-#carrito{
-  align-self: flex-end;
 }
 
 main .principal {
@@ -48,9 +46,9 @@ main .principal .marquesina {
   background-color: cadetblue;
 }
 
-
  img{
   width: 100%;
+  height: auto;
   background-color: aqua;
 }
 main .principal .banner .texto_principal {
@@ -150,24 +148,37 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 /*partial cards*/
-.card {
-  width:25rem !important;
-height: 40rem !important;
-  border: 1px solid rgba(0, 0, 0, 0.521);
-  text-align: center;
 
+.productos-destacados{
+  font-weight: 500;
+}
+
+#productos-contenedores{
+  display: flex;
+  background-color: #df1515; 
+  align-content: center;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.521);
+  box-shadow: 2px, 2px, 5px rgba(219, 222, 222, 0.867);
+  text-align: center;
+width: 26rem;
+height: 24rem;
 }
 
 
 .card-img{
   width: 100%;
   height: 60%;
+  object-fit: contain;
     }
 
     .card .div{
       display: flex;
       flex-direction: column;      
       gap: 1px;
+      justify-content: center;
     }
 
 .btn-primary {

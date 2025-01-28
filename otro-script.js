@@ -1,19 +1,84 @@
+const tituloCards = document.getElementsByClassName('titulo-productos');
 
 
+//creo un array de productos**************************************************
+const productos = [
+  {id: '1',
+    nombre:'lentes de sol',
+    descripcion: 'Esto es una descripción',
+          colores:["verde", "azul", "negro"],
+          stock: 4,
+          imagen:'img/src'},
+
+          {id: '2',
+            nombre:'Lentes',
+            descripcion: 'otra descripción',
+                  colores:["verde", "rosa", "negro"],
+                  stock: 14,
+                  imagen:'img/src'},
+
+                  {id: '3',
+                    nombre:'jsjs',
+                    descripcion: 'lLll',
+                          colores:["verde", "azul", "negro"],
+                          stock: 4,
+                          imagen:'img/src'},
+                          {id: '4',
+                            nombre:'jsjs',
+                            descripcion: 'lLll',
+                                  colores:["verde", "azul", "negro"],
+                                  stock: 4,
+                                  imagen:'img/src'},
+]
+
+/*******************************cards**********************/ 
+//Creo contenedor de las cards que conecta con el card-container de html
+const container = document.getElementById('productos-contenedores');
+
+/*para cada producto itero y creo una nueva tarjeta y le paso un producto*/
+productos.forEach((producto)=>{
+  //createElement crea un un nuevo elemento html de manera dinamica
+  const card= document.createElement('div');
+//classList.add nos permite añadir clases
+ 
+card.classList.add('card');
+
+//Con la propiedad inner.HTML inserto código html
+card.innerHTML =`
+
+   <div class="card">
+                    <img src="assets/03.png" class="card-img-top" alt="imagen">                  
+                      <h4 class="card-text">${producto.nombre}</h4>
+                      <p>precio: ${producto.precio}</p>
+                       <p>unidades: ${producto.stock}</p>
+                      <p>precio: ${producto.precio}</p>                   
+                  
+                </div>
+
+               
+`;
 
 
-/*creo const parrafos me sirve para todos los p del documento y le doy especificidad para manipular solo
-los de la marquesina*/
-const parrafos = document.querySelectorAll("#gratis p");
+container.appendChild(card)    
+   
+     
+
+  });
+
+
 
 /*Creo una función flecha  parrafos.forEach(parrafo => {}); le paso algunos estilos 
 si le paso muchos estilos o si tengo muchos elementos, esto afecta el tiempo de carga?*/ 
-parrafos.forEach(parrafo => {
-    parrafo.style.color = "#ffffff";
-    parrafo.style.fontFamily = "manrope";    
-});
 
-
+/*
+<div class="card">
+      <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+      <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">${producto.descripcion}</p>
+        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+      </div>
+    </div>*/
 /*creo un Array de productos Existentes 
 let productos = [
     { nombre: 'vanity', colores: ['rosa', 'verde', 'negro'], precioLista: 15000, productId: '1231', descripcionProducto: 'Lentes de sol de acetato y plata' },
