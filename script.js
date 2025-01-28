@@ -42,7 +42,7 @@ menuItems.forEach(item => {
 navList.style.display = 'flex';
 navList.style.justifyContent = 'space-between';
 
-/********************************banner**********************************************/
+/********************************banner***************************************************/
 
 //declaro e inicializo la variable ofertas que se muestra
 //  en mi html a traves de document.getElementById//
@@ -56,8 +56,81 @@ ofertas.style.fontWeight = "500";
 ofertas.style.fontSize = "12rem";
 console.log('ofertas');
 
+/*****************************************carrito*****************************************/
 
-/*creo un Array de productos Existentes //
+function creartarjeta(producto){ 
+  const card= document.createElement('div');  
+  card.classList.add('col-lg-4', 'd-flex');  
+  const cardContent = `
+ <div class="card">
+      <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+      <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">${producto.descripcion}</p>
+        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+      </div>
+    </div>
+  `
+
+  card.innerHTML = cardContent ;
+  return card;
+}
+
+//Creo la variable para levantar el contenedor del html
+const contenedorCards= document.querySelector('.card-container')
+
+// ficha producto
+//creo una clase y uso el constructor  de producto para asignarle parámetros//
+class Producto {
+  constructor(nombre, colores, precioLista, Id, descripcion, imagen) {
+    this.nombre = nombre
+    this.colores = colores
+    this.precioLista = precioLista
+    this.Id = Id
+    this.descripcion = descripcion
+    this.imagen = imagen
+  }
+
+}
+
+
+
+
+
+/*creo un nuevo objeto "Producto"*/
+const producto1 = new Producto("sasasa", "verde", 14000, 47, "Lentes de Sol",);
+console.log(producto1);
+
+const producto2 = new Producto("pepepe", "verde", 14000, 74, "Lentes de Sol");
+console.log(producto2);
+
+const producto3 = new Producto("jdjdjd", "verde", 14000, 97, "Lentes de Sol");
+console.log(producto3);
+
+const producto4 = new Producto("kfhgxd", "verde", 14000, 697, "Lentes de Sol");
+console.log(producto4);
+
+const producto5 = new Producto("fggdd", "verde", 14000, 897, "Lentes de Sol");
+console.log(producto5);
+
+const producto6 = new Producto("safgggg", "verde", 14000, 497, "Lentes de Sol");
+console.log(producto6);
+
+const productos = [producto1, producto2, producto3, producto4, producto5, producto6];
+
+
+
+productos.forEach(producto=>{
+  const nuevaTarjeta = creartarjeta(producto);
+  contenedorCards.appendChild(nuevaTarjeta);  
+  });
+  
+
+
+/*
+
+
+
 let productos = [
     { nombre: 'vanity', colores: ['rosa', 'verde', 'negro'], precioLista: 15000, productId: '1231', descripcionProducto: 'Lentes de sol de acetato y plata' },
     { nombre: 'lotus_flower', colores: ['verde', 'negro'], precioLista: 19000, productId: '1238', descripcionProducto: 'Lentes de sol de acetato y plata' },
@@ -69,10 +142,10 @@ let productos = [
     { nombre: 'bubble', colores: ['verde', 'negro'], precioLista: 32000, productId: '1245', descripcionProducto: 'Lentes de sol de acetato y plata' },
     { nombre: 'linger', colores: ['negro', 'amarillo', 'azul'], precioLista: 28000, productId: '1246', descripcionProducto: 'Lentes de sol de acetato y plata' }
 
-];*/
+];
 
 //muestro el array de productos//
-console.log(productos);
+console.log(productos);*/
 
 
 
@@ -89,45 +162,18 @@ let productosConDescuento = [
 ];
 console.log('productosConDescuento');
 
-//creo una clase y uso el constructor  de producto para asignarle parámetros//
-class Producto {
-    constructor(nombre, colores, precioLista, Id, descripcion) {
-        this.nombre = nombre
-        this.colores = colores
-        this.precioLista = precioLista
-        this.Id = Id
-        this.descripcion = descripcion
-    }    
-}
 
-/*creo un nuevo objeto "Producto"
-
-const producto1 = new Producto();
-console.log(typeof producto1);
-
-const producto2 = new Producto();
-console.log(typeof producto2);
-
-const producto3 = new Producto();
-console.log(typeof producto3);
-
-
-
+/*
 let precioLista = parseInt(prompt);
 console.log(typeof precioLista);
 
-
 //porcentaje de descuento incompleto ver como soluciono una vez tenga creados los productos//
 let porcentajeDescuento = parseInt(prompt);
-
 precioFinalDescuento =(parseInt (precioLista - porcentajeDescuento)) ;
 console.log("El precio del producto con descuento es:" + precioFinalDescuento);
 
-
-
 function buscadorProducto(nombre, precio_lista, precio_final, color) {
-    const resultadosBusqueda = [];
-}
+    const resultadosBusqueda = [];}
 
 //cards ocultar y mostrar contenido de product//
 /*primero creo la variable cards y le paso el método querySelectorAll
@@ -143,29 +189,8 @@ cards.forEach(card => {
 });
 
 
-// ficha producto
-//creo una clase y uso el constructor  de producto para asignarle parámetros//
-class Producto {
-  constructor(nombre, colores, precioLista, Id, descripcion, imagen) {
-    this.nombre = nombre
-    this.colores = colores
-    this.precioLista = precioLista
-    this.Id = Id
-    this.descripcion = descripcion
-    this.imagen = imagen
-  }
 
-}
 
-/*creo un nuevo objeto "Producto"*/
-const producto1 = new Producto("sasasa", "verde", 14000, 47, "Lentes de Sol",);
-console.log(producto1);
-
-const producto2 = new Producto("pepepe", "verde", 14000, 74, "Lentes de Sol");
-console.log(producto2.nombre);
-
-const producto3 = new Producto("jdjdjd", "verde", 14000, 97, "Lentes de Sol");
-console.log(producto3);
 
 //Ver cómo agrego las imagenes!//
 
@@ -218,37 +243,6 @@ menuItems.forEach(item => {
 navList.style.display = 'flex';
 navList.style.justifyContent = 'space-between';
 
-/********************************banner
-
-//declaro e inicializo la variable ofertas que se muestra
-//  en mi html a traves de document.getElementById//
-let ofertas = document.getElementById('ofertas');
-
-//le doy estilo con propiedades de js y le paso el contenido del texto"//
-ofertas.textContent = "50";
-ofertas.style.color = "#df1515";
-ofertas.style.fontFamily = "manrope";
-ofertas.style.fontWeight = "500";
-ofertas.style.fontSize = "12rem";
-console.log('ofertas');
-
-
-//creo un Array de productos Existentes //
-let productos = [
-    { nombre: 'vanity', colores: ['rosa', 'verde', 'negro'], precioLista: 15000, productId: '1231', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'lotus_flower', colores: ['verde', 'negro'], precioLista: 19000, productId: '1238', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'redox', colores: ['rosa', 'verde', 'azul'], precioLista: 28000, productId: '1235', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'summertime', colores: ['rosa', 'rojo', 'negro'], precioLista: 1900, productId: '1234', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'focus', colores: ['verde', 'negro'], precioLista: 260000, productId: '1232', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'rocket', colores: ['rosa', 'verde', 'violeta'], precioLista: 38000, productId: '1239', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'shali', colores: ['rosa', 'verde', 'negro'], precioLista: 50000, productId: '1244', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'bubble', colores: ['verde', 'negro'], precioLista: 32000, productId: '1245', descripcionProducto: 'Lentes de sol de acetato y plata' },
-    { nombre: 'linger', colores: ['negro', 'amarillo', 'azul'], precioLista: 28000, productId: '1246', descripcionProducto: 'Lentes de sol de acetato y plata' }
-
-];
-
-//muestro el array de productos//
-console.log(productos);
 
 
 
@@ -307,8 +301,8 @@ function buscadorProducto(nombre, precio_lista, precio_final, color) {
 
 //cards ocultar y mostrar contenido de product//
 /*primero creo la variable cards y le paso el método querySelectorAll
- que va a levantar todos los elementos de html que coincidan con el nombre de la variable*/ 
-const cards = document.querySelectorAll("card");
+ que va a levantar todos los elementos de html que coincidan con el nombre de la variable
+const cardsHover = document.querySelectorAll("card");
 cards.forEach(card => {
   card.addEventListener('mouseover', () => {
     card.classList.add('hover');
@@ -359,3 +353,4 @@ botonShop.addEventListener('mouseover', () => {
   });*/
 
 
+//display flex para los items
