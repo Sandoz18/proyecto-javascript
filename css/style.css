@@ -5,21 +5,15 @@
   display:flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: chocolate;
-
-
- 
 
   li{
     margin: 0 30px;
-   background-color: blueviolet;
-   
-
+ 
   }
 }
 
 .nav-img{
-  background-color: chartreuse;
+  
   width: 60%;
   margin-left: 3rem;
 }
@@ -91,8 +85,8 @@ width: 2rem;
 main .principal .banner .texto_principal {
   width: 50%;
   display: block;
-  height: 100vh;
-  margin-top: 5px;
+  height: 73vh;
+  margin-top: 6px;
 }
 main .principal .banner .texto_principal h1 {
  
@@ -106,7 +100,7 @@ main .principal .banner .texto_principal h2 {
   font-weight: 900;
 }
 main .principal .banner .texto_principal .rebajas {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 500;
   color: #fafafa;
   letter-spacing: 10px;
@@ -115,9 +109,6 @@ main .principal .banner .texto_principal .rebajas {
 main .principal .banner .texto_principal .hasta {
   color: #fafafa;
   font-size: 2rem;
-}
-main .principal .banner .texto_principal #ofertas {
-  color: aqua;
 }
 main .principal .banner .texto_principal .porciento {
   color: #df1515;
@@ -131,7 +122,7 @@ main .principal .banner .texto_principal .shop {
 }
 main .principal .banner .texto_principal .shop .btn {
   color: #fafafa;
-
+background-color: #df1515;
 }
 
 /*zoom con javascript*/
@@ -140,6 +131,7 @@ main .principal .banner .texto_principal .shop .btn {
   transition: transform 0.3s ease;
   transform: scale(1.1);
 }
+
 
 main .principal .banner .texto_principal .titulo-productos {
   color: #000000;
@@ -186,6 +178,14 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 /*partial cards*/
 
+.titulo-productos{
+
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .productos-destacados{
   font-weight: 500;
   background-color: aliceblue;
@@ -193,7 +193,8 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 #productos-contenedores{
  
-  background-color: #df1515; 
+ 
+  flex-wrap: wrap;
  
 }
 
@@ -201,8 +202,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   border: 1px solid rgba(0, 0, 0, 0.521);
   box-shadow: 2px, 2px, 5px rgba(219, 222, 222, 0.867);
   text-align: center;
-width: 26rem;
-height: 24rem;
+    height: 24rem;
 }
 
 
@@ -224,8 +224,8 @@ height: 24rem;
   border: none !important;
 }
 
-.destacados {
-  color: #000000;
+.titulo-productos {
+  color: #ff1515;
 }
 
 .envios {
