@@ -20,10 +20,10 @@
 <body>
     <div class="container-fluid gx-0">
         <header>
-            <nav class="navbar navbar-dark fixed-top mt-1 pt-5" id="navbar">
+            <nav class="navbar navbar-dark fixed-top mt-3 pt-5" id="navbar">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
-                        <img src="/assets/solcito-01.png" class="nav-img" alt="logo">
+                        <img src="assets/solcito-01.png" class="nav-img" alt="logo">
                     </a>
                     <!--uso un id para seleccionar el elemento desde js-->
                     <ul class="navbar-nav" id="nav-menu">
@@ -35,7 +35,7 @@
                         <a href="#"><img class="imagen-carrito" src="assets/iconos-02.png" id="carrito"
                                 alt="imagen-carrito-compras">
                             <span id="carrito-container"></span></a>
-                            <!--meter un modal para mostrar los articulos sleccionados-->
+                        <!--meter un modal para mostrar los articulos sleccionados-->
                         <a href="#"><img class="imagen-login" src="assets/iconos-01.png" id="login" alt="imagen-login">
                         </a>
                     </div>
@@ -45,7 +45,7 @@
         </header>
     </div>
 
-    <main>
+    <main class="container-flexbox">
         <section class="principal">
             <div class="marquesina fixed-top py-2 bg-light">
                 <span class="marquee-item">3 CUOTAS SIN INTERÉS EN
@@ -81,8 +81,8 @@
                 <div class="row">
                     <div class="col-12">
 
-                        <div class="texto_principal text-center mt-5">
-                            <h1>REBAJAS</h1>
+                        <div class="texto_principal text-center">
+                            <h1 class="mb-0">DESCUENTOS</h1>
                             <div class="container d-flex
                     justify-content-center align-items-center text-center">
                                 <h4 class="hasta">HASTA</h4>
@@ -110,7 +110,7 @@
             </div>
 
         </section>
-        <section class="envios">            
+        <section class="envios pt-3">
             <div id="gratis">
                 <!--acá hacer algo con js-->
                 <p>ENVIOS GRATIS</p>
@@ -124,15 +124,15 @@
         </section>
 
 
-       <section class="container">
-          <div class="row text-center" id="productos-contenedores">
-            <h3 class="titulo-productos my-5">PRODUCTOS DESTACADOS</h3>
-       </div>
-       </section>
-     
+        <section class="container">
+            <div class="row text-center" id="productos-contenedores">
+                <h3 class="titulo-productos my-5">Productos Destacados</h3>
+            </div>
+        </section>
+
 
     </main>
-
+    <!--
     <section class="form-wrap">
         <div class="container">
             <div class="col-md-10"> 
@@ -181,7 +181,7 @@
             </div>
         </div>
        
-    </section>
+    </section>-->
     <footer>
         <footer class="text-center text-lg-start bg-dark text-white">
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
