@@ -79,10 +79,6 @@ document.getElementById('nav-menu').appendChild(li);
 });
 
 
-
-
-
-
 //evento para que al scrollear la barra de navegación tenga un fondo //
 window.addEventListener('scroll', () => {
   if (window.scrollY > 100) { 
@@ -109,7 +105,7 @@ console.log('ofertas');
 /*****************************************carrito*****************************************/
 
 
-//creo un array de productos**************************************************
+/*creo un array de productos**************************************************/
 const productos = [
   {id: '1',
     nombre:'lentes de sol',
@@ -117,7 +113,7 @@ const productos = [
     descripcion: 'Esto es una descripción',
           colores:["verde", "azul", "negro"],
           stock: 4,
-          imagen: 'assets/08.png' },
+          imagen: 'assets/03.png' },
 
   {id: '2',
           nombre:'Lentes de sol',
@@ -125,7 +121,7 @@ const productos = [
           descripcion: 'otra descripción',
           colores:["verde", "rosa", "negro"],
           stock: 14,
-          imagen:'img/src'},
+          imagen:'assets/02.png' },
           
   {id: '3',
                     nombre:'lentes acetato',
@@ -133,50 +129,50 @@ const productos = [
                     descripcion: 'lesto es una descripción',
                           colores:["verde", "azul", "negro"],
                           stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/05.png'},
   {id: '4',
                             nombre:'jsjs',
                             precio: 45000,
                             descripcion: 'lLll',
                                   colores:["verde", "azul", "negro"],
                                   stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/08.png'},
   {id: '5',
                                     nombre:'jsjs',
                                     descripcion: 'lLll',
                                           colores:["verde", "azul", "negro"],
                                           stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/10.png'},
   {id: '6',
                                             nombre:'jsjs',
                                             descripcion: 'lLll',
                                                   colores:["verde", "azul", "negro"],
                                                   stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/09.png'},
   {id: '7',
                                                     nombre:'jsjs',
                                                     descripcion: 'lLll',
                                                           colores:["verde", "azul", "negro"],
                                                           stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/04.png'},
   {id: '8',
                                                             nombre:'jsjs',
                                                             descripcion: 'lLll',
                                                                   colores:["verde", "azul", "negro"],
                                                                   stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/21.png'},
   {id: '9',
             nombre:'jsjs',
             descripcion: 'lLll',
                   colores:["verde", "azul", "negro"],
                   stock: 4,
-          imagen:'img/src'},                                                               
+          imagen:'assets/06.png'},                                                              
   {id: '10',
                                                                             nombre:'jsjs',
                                                                             descripcion: 'lLll',
                                                                                   colores:["verde", "azul", "negro"],
                                                                                   stock: 4,
-          imagen:'img/src'},
+          imagen:'assets/07.png'},
   {id: '11',
                                                                                     nombre:'lentes de sol',
                                                                                     descripcion: 'Esto es una descripción',
@@ -188,25 +184,25 @@ const productos = [
             descripcion: 'otra descripción',
                   colores:["verde", "rosa", "negro"],
                   stock: 14,
-          imagen:'img/src'},                
+          imagen:'assets/11.png'},               
   {id: '13',
             nombre:'Lentes',
             descripcion: 'otra descripción',
                   colores:["verde", "rosa", "negro"],
                   stock: 14,
-          imagen:'img/src'},                       
+          imagen:'assets/12.png'},                   
   {id: '14',
             nombre:'Lentes',
             descripcion: 'otra descripción',
                   colores:["verde", "rosa", "negro"],
                   stock: 14,
-          imagen:'img/src'},                                                                              
+          imagen:'assets/13.png'},                                                                         
   {id: '15',
             nombre:'Lentes',
             descripcion: 'otra descripción',
                   colores:["verde", "rosa", "negro"],
                   stock: 14,
-          imagen:'img/src'}, 
+          imagen:'assets/14.png'},
                 ]
 
 //Creo contenedor de las cards que conecta con el card-container de html
@@ -226,7 +222,7 @@ card.classList.add('src');
 card.classList.add('alt');
 
   card.innerHTML = `
-      <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
+      <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
       <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">${producto.descripcion}</p>
@@ -235,12 +231,23 @@ card.classList.add('alt');
   `
 container.appendChild(card);
 card.appendChild(img);
+
+/*
+const botonAgregar = card.querySelector('btn-primary')
+botonAgregar.addEventListener('click', function () {
+    agregarAlCarrito(producto.id);
+  })
+
+container.appendChild(card);*/
 }  );
 
 /*****************************************carrito compras*****************************************/
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperar carrito al cargar la página
 
+/*la función encuentra los productos x id y los agrega al carrito con push
+luego actualiza el carrito de compras guardandolo en el local storage y mostrando por consola
+un mensaje*/ 
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
 
@@ -251,6 +258,17 @@ function agregarAlCarrito(id) {
         console.log("El carrito se ha actualizado");
     }
 }
+
+
+/*ver como a través de un evento click y de un botón completo la función!
+const botonesCompra = document.querySelectorAll('.boton-compra');
+botonesCompra.forEach(boton) => {
+  const contenedorBoton = document.createElement('div');
+  contenedorBoton.classList.add('contenedor-boton');
+  contenedorBoton.appendChild(boton); 
+};*/
+
+
 
 function actualizarCarrito() {
     const carritoContainer = document.getElementById('carrito-container');
@@ -275,6 +293,8 @@ function eliminarDelCarrito(id) {
     guardarCarrito(); // Guardar carrito en Local Storage
 }
 
+
+
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
@@ -283,7 +303,14 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarCarrito();
 });
 
-
+//no se agregó nada al carrito alert ver como hago para conectarla con el click event!//
+let productoSeleccionado = 0;
+let enStock = productoSeleccionado;
+if (enStock === 0 || enStock === null){
+  alert('El carro de compras aún está vacio!!!' );
+}
+ 
+//let otra =
 
 //ordeno productos por más nuevos, precios, mas vendidos, destacados
 
