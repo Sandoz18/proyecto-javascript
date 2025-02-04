@@ -1,6 +1,13 @@
 const tituloCards = document.getElementsByClassName('titulo-productos');
 
+//let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperar carrito al cargar la página
 
+
+/*intenta obtener el valor almacenado en carrito y si no hay nada devuelve null; json parse 
+lo que hace es convertir en objeto el dato que encuentre guardado en sessionstorage
+(los valores almacenados en sessionstorage se serializan siempre en json que es texto)
+|| [] esto devuelve un arreglo vació aunque no haya nada almacenado , es una buena práctica */ 
+let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
 //creo un array de productos**************************************************
 const productos = [
   {id: '1',
@@ -227,3 +234,99 @@ estructuras la primera nos pide el tipo de evento y la otra una función
 
 botonShop.addEventListener("click", function() );*/
 /*botonShop.addEventListener("click",() => botonShop);*/
+
+//Ver cómo agrego las imagenes!//
+
+//local storage//
+
+
+/*
+//display flex para los items
+navList.style.display = 'flex';
+navList.style.justifyContent = 'space-between';
+
+//Array vacio para ingresar productos//
+let productosNuevos = [];
+
+//Array de objetos (productos con descuento)//
+let productosConDescuento = [
+    { nombre: 'vanity', colores: ['rosa', 'verde', 'negro'], precioLista: 15000, productId: '1231', descripcionProducto: 'Lentes de sol de acetato y plata' },
+    { nombre: 'lotus_flower', colores: ['verde', 'negro'], precioLista: 19000, productId: '1238', descripcionProducto: 'Lentes de sol de acetato y plata' },
+    { nombre: 'redox', colores: ['rosa', 'verde', 'azul'], precioLista: 28000, productId: '1235', descripcionProducto: 'Lentes de sol de acetato y plata' },
+];
+console.log('productosConDescuento');
+
+//creo una clase y uso el constructor  de producto para asignarle parámetros//
+class Producto {
+    constructor(nombre, colores, precioLista, Id, descripcion) {
+        this.nombre = nombre
+        this.colores = colores
+        this.precioLista = precioLista
+        this.Id = Id
+        this.descripcion = descripcion
+    }    
+}
+
+//creo un nuevo objeto "Producto"//
+
+const producto1 = new Producto();
+console.log(typeof producto1);
+
+const producto2 = new Producto();
+console.log(typeof producto2);
+
+const producto3 = new Producto();
+console.log(typeof producto3);
+
+let precioLista = parseInt(prompt);
+console.log(typeof precioLista);
+//porcentaje de descuento incompleto ver como soluciono una vez tenga creados los productos//
+let porcentajeDescuento = parseInt(prompt);
+
+precioFinalDescuento =(parseInt (precioLista - porcentajeDescuento)) ;
+console.log("El precio del producto con descuento es:" + precioFinalDescuento);
+
+function buscadorProducto(nombre, precio_lista, precio_final, color) {
+    const resultadosBusqueda = [];}
+
+//cards ocultar y mostrar contenido de product//
+/*primero creo la variable cards y le paso el método querySelectorAll
+ que va a levantar todos los elementos de html que coincidan con el nombre de la variable
+const cardsHover = document.querySelectorAll("card");
+cards.forEach(card => {
+  card.addEventListener('mouseover', () => {
+    card.classList.add('hover');
+  });
+  card.addEventListener('mouseout', () => {
+    card.classList.remove('hover');
+  });
+});
+
+/*
+// ficha producto
+//creo una clase y uso el constructor  de producto para asignarle parámetros
+class Producto {
+  constructor(nombre, colores, precioLista, Id, descripcion, imagen) {
+    this.nombre = nombre
+    this.colores = colores
+    this.precioLista = precioLista
+    this.Id = Id
+    this.descripcion = descripcion
+    this.imagen = imagen
+  }
+
+}
+
+/*creo un nuevo objeto "Producto"
+const producto1 = new Producto("sasasa", "verde", 14000, 47, "Lentes de Sol",);
+console.log(producto1);
+
+const producto2 = new Producto("pepepe", "verde", 14000, 74, "Lentes de Sol");
+console.log(producto2.nombre);
+
+const producto3 = new Producto("jdjdjd", "verde", 14000, 97, "Lentes de Sol");
+console.log(producto3);
+
+//Ver cómo agrego las imagenes!//
+
+//local storage/*/
