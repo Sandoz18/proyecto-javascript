@@ -330,3 +330,158 @@ console.log(producto3);
 //Ver cómo agrego las imagenes!//
 
 //local storage/*/
+
+
+/*eventos de mouse**************************************************
+click
+dbl click
+mouseover
+mouseout
+mousemove
+
+eventos de teclado
+keydown se presiona una tecla
+keyup se suelta una tecla
+keypress se presiona una tecla(no se usa más)
+*/
+
+//const unBoton = document.getElementById('');
+
+//addEventListener//
+
+
+
+
+
+/*************************************eventos del mouse*********************ver como lo soluciono***********************
+
+botonShop.addEventListener('mouseover', () => {
+    botonShop.style.transform = 'scale 1.2' 
+  });
+  botonShop.addEventListener('mouseout', () => {
+    botonShop.classList.add('zoom');
+  });*/
+
+
+
+/*formulario ***************************************
+ 
+submit se envía el formulario
+change cambio de valor de un campo(input)
+input
+
+eventos de ventana.
+load
+resize
+scroll
+ 
+ 
+*/
+//display flex para los items
+
+/*generar token
+function generarToken(){
+  let caracteres = "ABCDEFG12345678"
+  let token = "";
+  for( let i = 0; i< 5; i++){
+      token += caracteres.charAt(Math.floor(Math.random()*caracteres.length));
+  }
+  document.getElementById("token").textContent = token;
+}
+setInterval(generarToken, 10000);
+generarToken()*/
+
+
+
+/**************************añadir productos al carrito de compras******************** */
+/*productos seleccionados para el carrito*/
+
+
+/*
+Si el producto seleccionado se confirma = añadir carrito si no eliminar producto seleccionado
+productosAñadidos = productosSeleccionados */
+
+// unidad 8 manejo de asincronismo y errores 
+//https://jsonplaceholder.typicode.com/
+/*Javascript es un lenguaje de un solo hilo por lo cual maneja los eventos asincronicos a través de Event loop
+fetch es un método que trabaja a partir de then y catch.
+no se escribe con comas !
+fetch (url: "http://jsonplaceholder.typicode.com  )
+  .then(response => response-json())
+    .then(data =>{
+      console.log(data)})
+.catch (error =>{
+  error.console("error.message", error)})
+
+
+  async await 
+
+  
+
+*/ 
+
+
+/*clase unidad 9 promesas y librerias
+
+Una Promesa en JavaScript es un objeto que representa el resultado de una operación asíncrona que aún no ha terminado, pero que se completará en el futuro.Javascript es un lenguaje de programación
+sincronico, lee linea por linea el código y ejecuta.
+Esto es útil para trabajar de manera asincrona en nuestros proyectos
+lo que es fundamental para trabajar con APIS o bases de datos.
+
+Manejo asincrono y organización del código.
+Estados: pending Estado inicial, está en proceso.
+        fulfilled se completó y la promesa tiene un valor resultante
+        rejected la operación falló y la promesa tiene una razón para el fallo,
+        generalmente un error.
+
+Métodos para trabajar los estados de las promesas
+
+then(onFulfilled) Se ejecuta cuando la promesa se resuelve con éxito.
+Recibe una función que será llamada con el valor resultante de la promesa.
+jsx promesa.then((resultado) => { console.log("Promesa resuelta con valor:", resultado); });
+
+catch(onRejected) Se ejecuta cuando la promesa es rechazada, recibe una función
+que será llamada con la razón del rechazo.
+jsx promesa.catch((error) => { console.error("Promesa rechazada con Error:", error); });"
+
+finally(onFinally): Este método se ejecuta independientemente de si la promesa fue resuelta o rechazada. Es útil para ejecutar código de limpieza o de finalización, sin importar el resultado de la promesa.
+jsx promesa.finally(() => { console.log("Promesa finalizada, sea cual sea el resultado."); });
+
+
+function getDatosPromesas() {
+
+return new Promise((resolve, reject};
+
+Librerias***
+sweet alert
+luxon
+jquery
+Toastify
+
+*****/ 
+/****unidad 10 **frameworks***************************
+ * Meteor js
+ * angular js
+ * vue js
+ * react js
+ * ember js
+ * polymer js* 
+ 
+Node.js
+Entorno de ejecución javascript que permite ejecutar código fuera del navegador.
+Antes de node.js su uso estaba limitado a las apps del  lado del cliente.
+Con NodeJS, se puede utilizar JavaScript para desarrollar aplicaciones del lado del servidor, como servidores HTTP, acceder a archivos del sistema, y otras tareas que tradicionalmente requerían lenguajes como Python o Ruby. Esto ha ampliado enormemente las capacidades de JavaScript, permitiendo que sea utilizado tanto en el frontend como en el backend.
+
+NPM es un gestor de paquetes oficial de NodeJS.
+Es una herramienta de linea de comandos que permite gestionar las dependencias de un proyecto.
+A través de NPM se pueden instalar, eliminar, actualizar modulos y librerias que son necesarios para 
+el funcionamiento de una app.
+Los módulos instalados se almacenan en node.modules y son reutilizables 
+NPM también permite la creación de un archivo package.json, que contiene toda la información relevante sobre el proyecto, como su nombre, versión, autor, dependencias y scripts que pueden ser ejecutados mediante la línea de comandos. Este archivo es esencial para mantener la coherencia y facilitar la colaboración en proyectos de software.
+
+
+
+
+
+
+ */

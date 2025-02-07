@@ -289,18 +289,59 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 #nuevo-evento:hover{
-  transform: scale(1.2);}
+  transform: scale(1.3);}
 
 
- 
+ .form-wrap .card {
+  position: relative;
+  overflow: hidden;
+ }
 
+.form-wrap .card .row{
+  display: flex;
+  flex-wrap: nowrap;
+}
 
+.form-check{
+  display: flex;
+ justify-content: center;
+  margin-bottom: 10px;
+  text-align: justify;
+  
+}
+
+.form-check input{
+margin-right: 5px;
+}
+
+.btn-submit{
+  margin-top: 1rem;
+  margin-bottom: 12rem;
+  background-color: blue;
+}
 
 @media (max-width:768px)
 {
+
+  main .principal   {
+ background-color: #2a2727;
+  }
+
  .banner{
   background-image:50%;
  }
+
+ .form-wrap{
+  margin-top: 20rem;
+ 
+ }
+
+ .form-wrap .card{
+  width: 100%;
+  position: relative;
+ }
+
+
 
 }
 /*# sourceMappingURL=style.css.map */

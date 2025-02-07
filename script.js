@@ -101,6 +101,7 @@ console.log('ofertas');
 
 
 /*    1)**************creo un array de productos*********************************************/
+//creo el array de objeto producto
 const productos = [
   {
     id: '1',
@@ -239,27 +240,29 @@ container.style.display = 'flex';
 lo que hace es convertir en objeto el dato que encuentre guardado en sessionstorage
 (los valores almacenados en sessionstorage se serializan siempre en json que es texto)
 || [] esto devuelve un arreglo vació aunque no haya nada almacenado , es una buena práctica */
-let carrito = JSON.parse(sessionStorage.getItem('carrito , producto')) || [];
+let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
 
 /*la función encuentra los productos x id y los agrega al carrito con push
 luego actualiza el carrito de compras guardandolo en el session storage y mostrando por consola
 un mensaje*/
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
-
   //buscar si el producto está en el carrito
+
   if (producto) {
     const productoEnCarrito = carrito.find(p => p.id === id);
-
+    console.log("agrego un producto en carrito")
     //Si ya está aumenta la cantidad
     if (productoEnCarrito) {
       productoEnCarrito.cantidad++;
+      console.log("aumenta cantidad de productos")
     }
 
     //Si es nuevo lo agrego con cantidad 1
     else {
       producto.cantidad = 1;
       carrito.push(producto);
+      console.log("otro producto nuevo en carrito")
     }
 
 
@@ -270,21 +273,48 @@ function agregarAlCarrito(id) {
   }
 }
 
-function actualizarCarrito(producto) {
-  const carritoModal = document.getElementById('carrito-contador');
-  carritoModal.innerHTML = ``; // Vaciar contenedor
+function actualizarCarrito() {
+  const carritoModal = document.getElementById('modal-carrito-container');
+  carritoModal.innerHTML = ``; // Vaciar contenedor del modal
+
+  let subtotal = 0;
 
   carrito.forEach(producto => {
     const productoElemento = document.createElement('div');
-    productoElemento.innerHTML = `
-            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p class="card-text">${producto.descripcion}</p>
-            <p class="card-text">${producto.precio}</p>
-            <button onclick="eliminarDelCarrito(${producto.id})">Eliminar del carrito</button>
-        `;
+    productoElemento.id = `producto-${producto.id}`;
+
+   
+      const cantidadInput = productoElemento.querySelector(`.cantidad-input`);
+     
+  
+      productoElemento.id = `producto-${producto.id}`
+      productoElemento.innerHTML = `<div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${producto.nombre}</h5>
+                                <p class="card-text">Precio: $${producto.precio}</p>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary restar-cantidad" type="button" data-id="${producto.id}">-</button>
+                                    <input type="text" class="form-control text-center cantidad-input" value="${producto.cantidad}" data-id="${producto.id}">
+                                    <button class="btn btn-outline-secondary sumar-cantidad" type="button" data-id="${producto.id}">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`; // Vaciar
+    
+    subtotal += producto.precio + producto.cantidad;
     carritoModal.appendChild(productoElemento);
+   console.log(subtotal);
   });
+
+  const subtotalElemento = document.createElement('div');
+  subtotalElemento.innerHTML = `<p><strong>Subtotal: $${subtotal}</strong></p>`;
+  carritoModal.appendChild(subtotalElemento);
 }
 
 function eliminarDelCarrito(id) {
@@ -316,10 +346,10 @@ productos.forEach((producto) => {
   //classList.add nos permite añadir clases
   card.classList.add('card', 'col-12', 'col-lg-4', 'p-2');
   const img = document.createElement('img');
-  card.classList.add('src');
-  card.classList.add('alt');
+  img.classList.add('src');
+  img.classList.add('alt');
 
-  //añado el conteindo a la card
+  //añado el contenido a la card
   card.innerHTML = `
   <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
   <div class="card-body">
@@ -342,21 +372,39 @@ productos.forEach((producto) => {
 
 
 
-//modal muestra la compra en el carrito************************************
-const modal = document.getElementById('cartModal');
-const modalCarritoContainer = document.getElementById('modal-carrito-container');
-const abrirCarritoBoton = document.getElementById('abrir-carrito');
+document.addEventListener('DOMContentLoaded', () => {
+  // Cargar el carrito guardado
+  cargarCarrito();
+  console.log('Si está bien, se tiene que mostrar este mensaje');
 
-abrirCarritoBoton.addEventListener('click', () => {    
-  actualizarCarrito = (carrito, modalCarritoContainer);
-  modal.style.display = 'block';
+  // Obtener referencias a los elementos
+  const modalElement = document.getElementById('cartModal');
+  const modalCarritoContainer = document.getElementById('modal-carrito-container');
+  const abrirCarritoBoton = document.getElementById('abrir-carrito');
+
+  // Verificar que el modal y el botón existan en el DOM
+  if (!modalElement) {
+    console.error('No se encontró el elemento "cartModal" en el DOM.');
+    return;
+  }
+  if (!abrirCarritoBoton) {
+    console.error('No se encontró el botón "abrir-carrito" en el DOM.');
+    return;
+  }
+
+  // Agregar el evento click al botón para abrir el modal
+  abrirCarritoBoton.addEventListener('click', () => {
+    // Actualizar el contenido del carrito
+    actualizarCarrito();
+
+    // Crear una instancia del modal de Bootstrap y mostrarlo
+    const modalInstance = new bootstrap.Modal(modalElement);
+    modalInstance.show();
+  });
 });
 
+//ver como soluciono el modal 
 
-const closeButton = document.querySelector('.close-modal');
-closeButton.addEventListener('click', (closeButton) => {
-  modal.style.display = 'none';
-});
 //let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperar carrito al cargar la página
 
 const botonesCompra = document.querySelectorAll('.boton-compra');
@@ -369,9 +417,10 @@ botonesCompra.forEach(boton => {
 //map para crear un array de precios totales
 const preciosTotales = carrito.map(function (producto) {
   return producto.precio * producto.cantidad
+  console.log("preciosTotales", precioTotalDelCarrito);
 });
 
-console.log("preciosTotales", preciosTotales);
+
 
 
 //usar reduce para calcular el precio total de los productos
@@ -382,7 +431,6 @@ const precioTotalDelCarrito = carrito.reduce(function (acumulador, producto) {
 //el cero le indica al acumulador dónde debe empezar
 
 console.log(precioTotalDelCarrito);
-console.log("precio total del carrito");
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -393,8 +441,10 @@ document.addEventListener('DOMContentLoaded', () => {
 entonces si la longitud de los productos sin stock es mayor a cero es porque se encontró
 algún articulo sin stock*/
 
+
+//esto tiene sentido??
 let productosSinStock = [];
-console.log(productosSinStock);
+/*console.log(productosSinStock);
 function mostrarProductosSinStock(productos) {
   productosSinStock = productos.reduce((acumulador, producto) => {
     if (producto.stock === 0) {
@@ -410,7 +460,7 @@ if (productosSinStock.length > 0) {
   productosSinStock.forEach(producto => console.log(`-${producto}`));
 } else {
   console.log("No hay productos sin stock");
-}
+}*/
 
 //async 
 async function mostrarProductosSinStock(productos) {
@@ -431,11 +481,6 @@ async function mostrarProductosSinStock(productos) {
 
 // Llamar a la función asíncrona
 mostrarProductosSinStock(productos);
-
-
-
-
-
 //ordeno productos por más nuevos, precios, mas vendidos, destacados
 
 //uso el reduce para algo 
@@ -469,70 +514,7 @@ cards.forEach(card => {
   });
 });
 
-/*eventos de mouse**************************************************
-click
-dbl click
-mouseover
-mouseout
-mousemove
-
-eventos de teclado
-keydown se presiona una tecla
-keyup se suelta una tecla
-keypress se presiona una tecla(no se usa más)
-*/
-
-//const unBoton = document.getElementById('');
-
-//addEventListener//
-
-
-
-
-
-/*************************************eventos del mouse*********************ver como lo soluciono***********************
-
-botonShop.addEventListener('mouseover', () => {
-    botonShop.style.transform = 'scale 1.2' 
-  });
-  botonShop.addEventListener('mouseout', () => {
-    botonShop.classList.add('zoom');
-  });*/
-
-
-
-/*formulario ***************************************
- 
-submit se envía el formulario
-change cambio de valor de un campo(input)
-input
-
-eventos de ventana.
-load
-resize
-scroll
- 
- 
-*/
-//display flex para los items
-
-/*generar token
-function generarToken(){
-  let caracteres = "ABCDEFG12345678"
-  let token = "";
-  for( let i = 0; i< 5; i++){
-      token += caracteres.charAt(Math.floor(Math.random()*caracteres.length));
-  }
-  document.getElementById("token").textContent = token;
-}
-setInterval(generarToken, 10000);
-generarToken()*/
-
-
-
-/**************************añadir productos al carrito de compras******************** */
-/*productos seleccionados para el carrito*/
-
+/*
 let productosSeleccionados = [];
 let productosAñadidos = [];
 let producto = [];
@@ -540,10 +522,7 @@ let producto = [];
 productosSeleccionados.forEach(productoSeleccionado => {
 
   alert("tu producto ha sido añadido al carrito!")
-})
+})*/
 
-/*
-Si el producto seleccionado se confirma = añadir carrito si no eliminar producto seleccionado
-productosAñadidos = productosSeleccionados */
-//https://jsonplaceholder.typicode.com/
 
+//optimizar imagenes, ver responsive y seguir arreglando el carrito de compras,login y formulario
