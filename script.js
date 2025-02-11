@@ -259,6 +259,7 @@ lo que hace es convertir en objeto el dato que encuentre guardado en sessionstor
 || [] esto devuelve un arreglo vació aunque no haya nada almacenado , es una buena práctica */
 let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
 
+let contadorCarrito = document.getElementById('carrito-contador');
 /*la función encuentra los productos x id y los agrega al carrito con push
 luego actualiza el carrito de compras guardandolo en el session storage y mostrando por consola
 un mensaje*/
@@ -281,7 +282,7 @@ function agregarAlCarrito(id) {
     console.log("Nuevo producto agregado al carrito");
   }
 
-  actualizarCarrito(id);
+  actualizarCarrito();
   guardarCarrito();
   //toastify
 Toastify({
@@ -302,41 +303,71 @@ Toastify({
 
 
 /*La función actualizarCarrito */ 
-function actualizarCarrito() {
+function actualizarCarrito(id) {
   const carritoModal = document.getElementById('modal-carrito-container');
   carritoModal.innerHTML = ''; // Limpiar el contenedor
 
   let subtotal = 0;
+ 
 
   carrito.forEach(producto => {
     const productoElemento = document.createElement('div');
     productoElemento.classList.add('card', 'mb-3' ); // Agregar clases de Bootstrap
 
     productoElemento.innerHTML = `
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">${producto.nombre}</h5>
-          <p class="card-text">Precio: $${producto.precio}</p>
-          <div class="d-flex align-items-center">
-            <button class="btn btn-sm btn-danger me-2" onclick="eliminarDelCarrito('${producto.id}')"><i class="fas fa-trash-alt"></i></button>
-            <button class="btn btn-sm btn-primary me-2" onclick="disminuirCantidad('${producto.id}')">-</button>
-            <p class="card-text">Cantidad: ${producto.cantidad}</p>
-            <button class="btn btn-sm btn-primary ms-2" onclick="aumentarCantidad('${producto.id}')">+</button>
-          </div>
-        </div>
+   <div class="row g-0">
+  <div class="col-md-8">
+    <div class="card-header">${producto.nombre}</div><div class="card-body">
+      <h5 class="card-title">${producto.nombre}</h5>
+      <p class="card-text">Precio: $${producto.precio}</p>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-sm btn-danger me-2" onclick="eliminarDelCarrito('${producto.id}')"><i class="fas fa-trash-alt"></i></button>
+        <button class="btn btn-sm btn-primary me-2" onclick="disminuirCantidad('${producto.id}')">-</button>
+        <p class="card-text">Cantidad: ${producto.cantidad}</p>
+        <button class="btn btn-sm btn-primary ms-2" onclick="aumentarCantidad('${producto.id}')">+</button>
       </div>
     </div>
+  </div>
+  <div class="col-md-4">
+    <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
+  </div>
+</div>
   `;
 
     subtotal += producto.precio * producto.cantidad;
     carritoModal.appendChild(productoElemento);
   });
 
-  document.createElement('modal-subtotal').textContent = subtotal; // Actualizar subtotal en el modal
+  const descuentoPorcentaje = 10;
+    const descuento = (subtotal * descuentoPorcentaje) / 100;
+
+    const total = subtotal - descuento;
+
+ 
+  const subtotalElemento = document.getElementById('subtotal-carrito');
+  subtotalElemento.textContent = `Subtotal: $${subtotal}`;
+
+  const descuentoElemento = document.getElementById('descuento-carrito');
+  descuentoElemento.textContent = `Descuento: $${descuento}`;
+
+  const totalElemento = document.getElementById('total-carrito');
+  totalElemento.textContent = `Total: $${total}`;
+  const contadorCirculo = document.querySelector('.contador-circulo');
+const cantidadProductos = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+
+contadorCarrito.textContent = cantidadProductos;
+if (cantidadProductos === 0) {
+  contadorCarrito.style.display = 'none'; // Ocultar el contador
+} else {
+  contadorCarrito.style.display = 'inline-block'; // Mostrar el contador
+  contadorCarrito.textContent = cantidadProductos;
+}
+if (cantidadProductos > 0) {
+    contadorCirculo.style.display = 'block';
+    contadorCirculo.textContent = cantidadProductos;
+} else {
+    contadorCirculo.style.display = 'none';
+}
 }
 
 
@@ -381,7 +412,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
           // Si el carrito no está vacío, puedes redirigir al usuario a la página de pago
           console.log('Finalizar compra');
-          // window.location.href = 'pagina-de-pago.html'; 
+
+          const paginaPago = document.getElementById('finalizar-compra').getAttribute('href');
+
+           window.location.href = 'mi-carrito.html'; 
       }
   });
 });
@@ -417,6 +451,7 @@ productos.forEach((producto) => {
   //añado el contenido a la card
   card.innerHTML = `
   <div class="card-container container-fluid">
+   <div class="card-header">${producto.nombre}</div><div class="card-body">
   <img src="${producto.imagen}" class="card-img-top img-fluid" alt="${producto.nombre}">
   <div class="card-body">
       <h5 class="card-title">${producto.nombre}</h5>

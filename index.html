@@ -23,15 +23,16 @@
 </head>
 
 <body>
-    <div class="container-fluid gx-0">
-        <header>
+
+    <header>
+        <div class="container-fluid gx-0">
             <!---barra navegación-->
-            <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">               
-                    <!--logo-->
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/solcito-01.png" class="nav-img" alt="logo">
-                    </a>
-                        <div class="container-nav d-flex">
+       <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">
+                <!--logo-->
+                <a class="navbar-brand" href="#">
+                    <img src="assets/solcito-01.png" class="nav-img" alt="logo">
+                </a>
+                <div class="container-nav d-flex">
                     <div class="container menu">
                         <!---login y carrito-->
                         <div class="container-iconos-navbar d-flex align-items-center">
@@ -40,12 +41,12 @@
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
                                     <img class="imagen-carrito" src="assets/iconos-02.png" id="carrito"
                                         alt="Carrito de compras">
+                                    <span id="carrito-contador"
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
+                                    <span class="contador-circulo"></span>
                                 </a>
-                                <span id="carrito-contador "
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>0</span>
-                                <button class="btn ms-2" id="abrir-carrito" data-bs-toggle="modal"
+                                <button class="btn btn-sm mt-3" id="abrir-carrito" data-bs-toggle="modal"
                                     data-bs-target="#cartModal">
-                                    Abrir
                                 </button>
                             </div>
                             <!-- Login -->
@@ -56,51 +57,77 @@
                     </div>
                     <div class="offcanvas offcanvas-start" id="offcanvasNavbar">
                         <div class="offcanvas-header">
-                          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
-                          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                          <ul class="navbar-nav" id="nav-menu">
+
+                            <ul class="navbar-nav" id="nav-menu">
                             </ul>
                         </div>
-                      </div>
-                      
-                      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                      </button>
-                   
+                    </button>
+
                     <!--barra navegación desplegable-->
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav" id="nav-menu">
                             <!-- Menú generado desde JS -->
                         </ul>
+                        <!-- <!--solucionar lo de este modal
+                        <div class="col  bg-dark">                            
+                            <div class="fixed-modal">
+                                <div id="unModal" class="modal">
+                                    Modal javascript, necesito que abra
+                                    que cierre que se oculte.
+                                    Newsletter suscripción y terminos y
+                                    condiciones
+                                </div>
+                                <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
+                                    aria-hidden="true">
+                                </div>-->
+
 
                     </div>
-                    </div>
-              
-            </nav>
+                </div>
+            </div>
+            </div>
 
-            <!-- Modal del carrito -->
-            <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="cartModalLabel">Carrito de compras</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+                <!-- Modal del carrito -->
+                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cartModalLabel">Carrito de compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-carrito-container">
+                        <!-- Contenido del carrito generado dinámicamente -->
+                    </div>
+                    <div class="modal-footer d-flex flex-column align-items-center">
+                        <div class="w-100 d-flex justify-content-between">
+                            <p id="subtotal-carrito" class="me-3 fw-semibold">Subtotal: $0</p>
+                            <p id="descuento-carrito" class="me-3 text-success">Descuento: $0</p>
                         </div>
-                        <div class="modal-body" id="modal-carrito-container">
-                            <!-- Contenido del carrito generado dinámicamente -->
-                        </div>
-                        <div class="modal-footer">
-                            <div id="descuentos"></div>
-                        </div>
-                        <button type="button" class="btn btn-primary" id="finalizar-compra">Finalizar compra</button>
+                        <p class="w-100 me-3" id="total-carrito">Total: $0</p>
+                        <button type="button" class="btn btn-primary mt-3" id="finalizar-compra">Finalizar
+                            compra</button>
                     </div>
                 </div>
             </div>
 
-        </header>
-    </div>
+
+                </div>
+                </div>
+        </nav>
+    </header>
 
     <main class="container-fluid">
         <section class="principal">
@@ -124,20 +151,6 @@
                     COMPRAS SUPERIORES A $600.000</span>
             </div>
 
-            <div class="col bg-dark">
-                <!--modal lateral-->
-                <div class="fixed-modal bg-danger">
-                    <div id="unModal" class="modal">
-                        Modal javascript, necesito que abra
-                        que cierre que se oculte.
-                        Newsletter suscripción y terminos y
-                        condiciones
-                    </div>
-                    <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
-                        aria-hidden="true">
-                    </div>
-                </div>
-            </div>
 
             <div class="banner container-fluid">
                 <div class="row justify-content-center">
@@ -174,7 +187,7 @@
             </div>
 
         </section>
-        <section class="envios pt-3">
+        <section class="envios">
             <div id="gratis">
                 <!--acá hacer algo con js-->
                 <p>ENVIOS GRATIS</p>
@@ -190,7 +203,7 @@
 
         <section class="container">
             <div class="row text-center" id="productos-contenedores">
-                <h3 class="titulo-productos my-5">Productos Destacados</h3>
+                <h3 class="titulo-productos my-5 fw-semibold">Productos Destacados</h3>
             </div>
         </section>
 

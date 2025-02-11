@@ -97,7 +97,7 @@ main .principal .marquesina {
  .imagen-carrito{
   width: 100%;
   height: auto;
-  margin-right: 1.5rem;
+  margin-right: -0.5rem;
  
 }
 
@@ -135,6 +135,21 @@ main .principal .marquesina {
   color: #fff; /* Color del icono */
 }
 
+.contador-circulo {
+  position: absolute;
+  top: -5px; /* Ajusta este valor para la posición vertical */
+  right: -5px; /* Ajusta este valor para la posición horizontal */
+  transform: translate(50%, -50%); /* Centrar el círculo */
+  width: 20px; /* Ajusta este valor para el tamaño del círculo */
+  height: 20px; /* Ajusta este valor para el tamaño del círculo */
+  border-radius: 50%;
+  background-color: red;
+  color: white; /* Color del texto dentro del círculo */
+  font-size: 12px; /* Tamaño del texto dentro del círculo */
+  text-align: center; /* Centrar el texto horizontalmente */
+  line-height: 20px; /* Centrar el texto verticalmente */
+  display: none; /* Ocultar inicialmente */
+}
 
 #login{
 text-decoration: none;
@@ -210,6 +225,7 @@ background-color: #df1515;
 
 main .principal .banner .texto_principal .titulo-productos {
   color: #000000;
+ 
 }
 main .principal .banner .texto_principal .envios {
   height: 6rem;
@@ -276,9 +292,11 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 .card-container{ 
-  height: 100%;
-  background-color: blueviolet;
-  
+    height: 100%;  
+}
+
+.fade{
+  background-color: rgba(73, 73, 75, 0.716);
 }
 
 .card {
@@ -406,16 +424,17 @@ margin-right: 5px;
   }
 
   .banner{
-    max-height: 50%;  
+  
     background-image: url(/assets/banner-01.png);
     background-size: cover; 
+    background-repeat: no-repeat;
      
   }
 
   .container-texto-principal{
     background-color: rgba(8, 8, 9, 0.582);
-    width: auto;
-    margin:0 auto;
+ 
+  
   }
 
   
@@ -492,8 +511,9 @@ max-width: 80%;
 @media (max-width: 320px){
   .banner{    
     padding: 2rem 0;
-    background-image: url(/assets/banner-01-01.png);
+    background-image: url(/assets/banner-01.png);
     background-size:contain;
+    background-repeat: no-repeat;
    
   }
 
@@ -517,8 +537,12 @@ max-width: 80%;
  
  }
 
-}
 
+/*carrito*/
+
+
+
+}
 
 
 
