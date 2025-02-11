@@ -17,53 +17,94 @@
         rel="stylesheet">
     <!------fontawesome---------->
     <script src="https://kit.fontawesome.com/c39736c39a.js" crossorigin="anonymous"></script>
+    <!---toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>index</title>
 </head>
 
 <body>
     <div class="container-fluid gx-0">
         <header>
-            <nav class="navbar navbar-dark fixed-top mt-3 pt-5" id="navbar">
-                <div class="container-fluid">
+            <!---barra navegación-->
+            <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">               
+                    <!--logo-->
                     <a class="navbar-brand" href="#">
                         <img src="assets/solcito-01.png" class="nav-img" alt="logo">
                     </a>
-                    <!--uso un id para seleccionar el elemento desde js-->
-                    <ul class="navbar-nav" id="nav-menu">
-                        <!---desde js-->
-                    </ul>
-
-                    <div class="container-login">
-                        <div class="contenedor-carrito">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-                                <img class="imagen-carrito" src="assets/iconos-02.png" id="carrito"
-                                    alt="imagen-carrito-compras"></a>
-                            <span id="carrito-contador">0</span>
-                            <button class="btn" id="abrir-carrito">Abrir carrito</button>
-                            <span class="close-modal" id="#">&times;</span>
-                        </div>
-                        <a href="#"><img class="imagen-login" src="assets/iconos-01.png" id="login" alt="imagen-login">
-                        </a>
-                        <!--meter un modal para mostrar los articulos sleccionados-->
-                        <div class="modal" id="cartModal">
-                            <!-- esto con un mensaje de javascript!-->
-
-                            <p>cerrar</p>
-                            <div class="modal-body">
-                                <div id="modal-carrito-container">esto va en el modal</div>
+                        <div class="container-nav d-flex">
+                    <div class="container menu">
+                        <!---login y carrito-->
+                        <div class="container-iconos-navbar d-flex align-items-center">
+                            <!-- Carrito -->
+                            <div class="contenedor-carrito d-flex align-items-center">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                    <img class="imagen-carrito" src="assets/iconos-02.png" id="carrito"
+                                        alt="Carrito de compras">
+                                </a>
+                                <span id="carrito-contador "
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>0</span>
+                                <button class="btn ms-2" id="abrir-carrito" data-bs-toggle="modal"
+                                    data-bs-target="#cartModal">
+                                    Abrir
+                                </button>
                             </div>
-
-
+                            <!-- Login -->
+                            <a href="#" class="ms-3">
+                                <img class="imagen-login" src="assets/iconos-01.png" id="login" alt="Login">
+                            </a>
                         </div>
                     </div>
+                    <div class="offcanvas offcanvas-start" id="offcanvasNavbar">
+                        <div class="offcanvas-header">
+                          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                          <ul class="navbar-nav" id="nav-menu">
+                            </ul>
+                        </div>
+                      </div>
+                      
+                      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                   
+                    <!--barra navegación desplegable-->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav" id="nav-menu">
+                            <!-- Menú generado desde JS -->
+                        </ul>
 
-                </div>
+                    </div>
+                    </div>
+              
             </nav>
+
+            <!-- Modal del carrito -->
+            <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cartModalLabel">Carrito de compras</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="modal-carrito-container">
+                            <!-- Contenido del carrito generado dinámicamente -->
+                        </div>
+                        <div class="modal-footer">
+                            <div id="descuentos"></div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="finalizar-compra">Finalizar compra</button>
+                    </div>
+                </div>
+            </div>
+
         </header>
     </div>
 
-    <main class="container-flexbox">
+    <main class="container-fluid">
         <section class="principal">
+            <!--marquesina animada-->
             <div class="marquesina fixed-top py-2 bg-light">
                 <span class="marquee-item">3 CUOTAS SIN INTERÉS EN
                     COMPRAS SUPERIORES A $350.000 Y 6 CUOTAS SIN
@@ -84,42 +125,48 @@
             </div>
 
             <div class="col bg-dark">
-                <div class="fixed-modal">
+                <!--modal lateral-->
+                <div class="fixed-modal bg-danger">
                     <div id="unModal" class="modal">
                         Modal javascript, necesito que abra
                         que cierre que se oculte.
                         Newsletter suscripción y terminos y
                         condiciones
                     </div>
+                    <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
+                        aria-hidden="true">
+                    </div>
                 </div>
             </div>
 
             <div class="banner container-fluid">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="container-texto-principal">
+                            <div class="texto_principal">
+                                <h1 class="mb-0">Descuentos</h1>
+                                <div class="container d-flex
+                        justify-content-center align-items-center text-center mt-0">
+                                    <h4 class="hasta">HASTA</h4>
+                                    <!--javascript-->
+                                    <h2 id="ofertas">50</h2>
+                                    <div class="porciento">
+                                        <p>%</p>
+                                        <p>OFF</p>
+                                    </div>
 
-                        <div class="texto_principal text-center">
-                            <h1 class="mb-0">DESCUENTOS</h1>
-                            <div class="container d-flex
-                    justify-content-center align-items-center text-center">
-                                <h4 class="hasta">HASTA</h4>
-                                <!--javascript-->
-                                <h2 id="ofertas"></h2>
-                                <div class="porciento">
-                                    <p>%</p>
-                                    <p>OFF</p>
                                 </div>
-
-                            </div>
-                            <p class="productos_seleccionados text-white">
-                                En productos Seleccionados
-                            </p>
-                            <div class="shop text-white">
-                                <!--acá algún efecto copado para el bóton-->
-                                <button id="nuevo-evento" class="boton-shop btn btn-lg" href="/carrito.html">Comprar
-                                    Ahora</button>
+                                <p class="productos_seleccionados text-white">
+                                    En productos Seleccionados
+                                </p>
+                                <div class="shop text-white">
+                                    <!--acá algún efecto copado para el bóton-->
+                                    <button id="nuevo-evento" class="boton-shop btn btn-lg" href="/carrito.html">Comprar
+                                        Ahora</button>
+                                </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -233,11 +280,18 @@
         </section>
     </footer>
 
-
+    <!---jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--toastify-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!--bundle bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!--javascript-->
+
     <script src="script.js"></script>
 
 </body>

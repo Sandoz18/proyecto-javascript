@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //appendChild agrega al elemento a como hijo del elemento li
       li.appendChild(a);
       navList.appendChild(li);
+      
     });
   }
   
@@ -50,6 +51,8 @@ paginas.forEach((pagina) => {
   li.style.color = '#000000';
   li.style.opacity = '0.7';
   li.style.fontSize = '1.4rem';
+  li.style.margin = '0 35px';
+  
 
   const underline = document.createElement('div');
   underline.style.position = 'absolute';
@@ -84,18 +87,20 @@ window.addEventListener('scroll', () => {
 
 /********************************banner***************************************************/
 
+let banner = document.getElementsByClassName('banner');
+ //meterle algun efecto con javascript 
+
+
 //declaro e inicializo la variable ofertas que se muestra
 //  en mi html a traves de document.getElementById//
 let ofertas = document.getElementById('ofertas');
-
 //le doy estilo con propiedades de js y le paso el contenido del texto"//
-ofertas.textContent = "50";
 ofertas.style.color = "#df1515";
-ofertas.style.marginTop = "1px";
 ofertas.style.fontFamily = "manrope";
 ofertas.style.fontWeight = "700";
-ofertas.style.fontSize = "10rem";
 console.log('ofertas');
+
+
 
 /*****************************************carrito*****************************************/
 
@@ -106,7 +111,7 @@ const productos = [
   {
     id: '1',
     nombre: 'lentes de sol',
-    precio: 45000,
+    precio: 45,
     descripcion: 'Esto es una descripción',
     colores: ["verde", "azul", "negro"],
     stock: 0,
@@ -116,7 +121,7 @@ const productos = [
   {
     id: '2',
     nombre: 'Lentes de sol',
-    precio: 70000,
+    precio: 700,
     descripcion: 'otra descripción',
     colores: ["verde", "rosa", "negro"],
     stock: 14,
@@ -134,8 +139,8 @@ const productos = [
   },
   {
     id: '4',
-    nombre: 'jsjs',
-    precio: 45000,
+    nombre: 'Lentes de Sol',
+    precio: 4000,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -143,8 +148,9 @@ const productos = [
   },
   {
     id: '5',
-    nombre: 'jsjs',
-    descripcion: 'lLll',
+    nombre: 'otros lentes más',
+    precio: 40000,
+    descripcion: 'basta',
     colores: ["verde", "azul", "negro"],
     stock: 4,
     imagen: 'assets/10.png'
@@ -152,6 +158,7 @@ const productos = [
   {
     id: '6',
     nombre: 'jsjs',
+    precio: 90,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -160,6 +167,7 @@ const productos = [
   {
     id: '7',
     nombre: 'jsjs',
+    precio: 100000,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -168,6 +176,7 @@ const productos = [
   {
     id: '8',
     nombre: 'jsjs',
+    precio: 50000,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -176,6 +185,7 @@ const productos = [
   {
     id: '9',
     nombre: 'jsjs',
+    precio: 80000,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -184,6 +194,7 @@ const productos = [
   {
     id: '10',
     nombre: 'jsjs',
+    precio: 89000,
     descripcion: 'lLll',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -192,6 +203,7 @@ const productos = [
   {
     id: '11',
     nombre: 'lentes de sol',
+    precio: 300000,
     descripcion: 'Esto es una descripción',
     colores: ["verde", "azul", "negro"],
     stock: 4,
@@ -200,6 +212,7 @@ const productos = [
   {
     id: '12',
     nombre: 'Lentes',
+    precio: 280000,
     descripcion: 'otra descripción',
     colores: ["verde", "rosa", "negro"],
     stock: 14,
@@ -208,6 +221,7 @@ const productos = [
   {
     id: '13',
     nombre: 'Lentes',
+    precio: 780000,
     descripcion: 'otra descripción',
     colores: ["verde", "rosa", "negro"],
     stock: 14,
@@ -216,6 +230,7 @@ const productos = [
   {
     id: '14',
     nombre: 'Lentes',
+    precio: 60000,
     descripcion: 'otra descripción',
     colores: ["verde", "rosa", "negro"],
     stock: 14,
@@ -224,6 +239,7 @@ const productos = [
   {
     id: '15',
     nombre: 'Lentes',
+    precio: 500000,
     descripcion: 'otra descripción',
     colores: ["verde", "rosa", "negro"],
     stock: 14,
@@ -236,6 +252,7 @@ const container = document.getElementById('productos-contenedores');
 container.style.display = 'flex';
 
 
+
 /*intenta obtener el valor almacenado en carrito y si no hay nada devuelve null; json parse 
 lo que hace es convertir en objeto el dato que encuentre guardado en sessionstorage
 (los valores almacenados en sessionstorage se serializan siempre en json que es texto)
@@ -246,84 +263,133 @@ let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
 luego actualiza el carrito de compras guardandolo en el session storage y mostrando por consola
 un mensaje*/
 function agregarAlCarrito(id) {
-  const producto = productos.find(p => p.id === id);
-  //buscar si el producto está en el carrito
+  //acá agrego
+  const productoAgregado = productos.find(p => p.id === id);
+  if (!productoAgregado) 
+    return console.log("producto no encontrado");  // Si no existe el producto, no hace nada
 
-  if (producto) {
-    const productoEnCarrito = carrito.find(p => p.id === id);
-    console.log("agrego un producto en carrito")
-    //Si ya está aumenta la cantidad
-    if (productoEnCarrito) {
-      productoEnCarrito.cantidad++;
-      console.log("aumenta cantidad de productos")
-    }
+  // Buscar si el producto ya está en el carrito
+  const productoEnCarrito = carrito.find(p => p.id === id);
 
-    //Si es nuevo lo agrego con cantidad 1
-    else {
-      producto.cantidad = 1;
-      carrito.push(producto);
-      console.log("otro producto nuevo en carrito")
-    }
-
-
-    actualizarCarrito();
-    guardarCarrito(); // Guardar carrito en session Storage
-    //sessionStorage.setItem('carrito', 'JSON.stringify(carrito)');
-    console.log("El carrito se ha actualizado, carrito");
+  if (productoEnCarrito) {
+    productoEnCarrito.cantidad++;
+    console.log("Aumenta cantidad de productos");
+  } else {
+    // Crear una copia del producto en el carrito sin modificar el original
+    const nuevoProducto = { ...productoAgregado, cantidad: 1 };
+    carrito.push(nuevoProducto);
+    console.log("Nuevo producto agregado al carrito");
   }
+
+  actualizarCarrito(id);
+  guardarCarrito();
+  //toastify
+Toastify({
+  text: "Producto agregado al carrito!",
+  duration: 3000,
+  destination: "https://github.com/apvarun/toastify-js",
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right,rgb(176, 164, 0)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
 }
 
+
+/*La función actualizarCarrito */ 
 function actualizarCarrito() {
   const carritoModal = document.getElementById('modal-carrito-container');
-  carritoModal.innerHTML = ``; // Vaciar contenedor del modal
+  carritoModal.innerHTML = ''; // Limpiar el contenedor
 
   let subtotal = 0;
 
   carrito.forEach(producto => {
     const productoElemento = document.createElement('div');
-    productoElemento.id = `producto-${producto.id}`;
+    productoElemento.classList.add('card', 'mb-3' ); // Agregar clases de Bootstrap
 
-   
-      const cantidadInput = productoElemento.querySelector(`.cantidad-input`);
-     
-  
-      productoElemento.id = `producto-${producto.id}`
-      productoElemento.innerHTML = `<div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">${producto.nombre}</h5>
-                                <p class="card-text">Precio: $${producto.precio}</p>
-                                <div class="input-group">
-                                    <button class="btn btn-outline-secondary restar-cantidad" type="button" data-id="${producto.id}">-</button>
-                                    <input type="text" class="form-control text-center cantidad-input" value="${producto.cantidad}" data-id="${producto.id}">
-                                    <button class="btn btn-outline-secondary sumar-cantidad" type="button" data-id="${producto.id}">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>`; // Vaciar
-    
-    subtotal += producto.precio + producto.cantidad;
+    productoElemento.innerHTML = `
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">${producto.nombre}</h5>
+          <p class="card-text">Precio: $${producto.precio}</p>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-sm btn-danger me-2" onclick="eliminarDelCarrito('${producto.id}')"><i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-sm btn-primary me-2" onclick="disminuirCantidad('${producto.id}')">-</button>
+            <p class="card-text">Cantidad: ${producto.cantidad}</p>
+            <button class="btn btn-sm btn-primary ms-2" onclick="aumentarCantidad('${producto.id}')">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+    subtotal += producto.precio * producto.cantidad;
     carritoModal.appendChild(productoElemento);
-   console.log(subtotal);
   });
 
-  const subtotalElemento = document.createElement('div');
-  subtotalElemento.innerHTML = `<p><strong>Subtotal: $${subtotal}</strong></p>`;
-  carritoModal.appendChild(subtotalElemento);
+  document.createElement('modal-subtotal').textContent = subtotal; // Actualizar subtotal en el modal
 }
+
+
 
 function eliminarDelCarrito(id) {
   carrito = carrito.filter(p => p.id !== id); // Filtrar el carrito
   actualizarCarrito();
   guardarCarrito(); // Guardar carrito en Local Storage
 };
+
+function aumentarCantidad(id) {
+  const producto = carrito.find(p => p.id === id);
+  producto.cantidad++;
+  actualizarCarrito();
+  guardarCarrito();
+}
+
+function disminuirCantidad(id) {
+  const producto = carrito.find(p => p.id === id);
+  if (producto.cantidad > 1) {
+    producto.cantidad--;
+    actualizarCarrito();
+    guardarCarrito();
+  }
+}
+
+function mostrarDescuentos() {
+  const descuentosElemento = document.getElementById('descuentos');
+  // Aquí puedes calcular los descuentos según tus reglas de negocio
+  // y mostrar la información correspondiente en el elemento 'descuentos'
+  descuentosElemento.textContent = "Descuentos: $0"; // Ejemplo
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('finalizar-compra').addEventListener('click', () => {
+      if (carrito.length === 0) {
+          Swal.fire({
+              icon: 'warning',
+              title: '¡Carrito vacío!',
+              text: 'No hay productos en tu carrito. Agrega algunos antes de finalizar la compra.'
+          });
+      } else {
+          // Si el carrito no está vacío, puedes redirigir al usuario a la página de pago
+          console.log('Finalizar compra');
+          // window.location.href = 'pagina-de-pago.html'; 
+      }
+  });
+});
+
+
+
 function guardarCarrito() {
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+  sessionStorage.setItem('carrito', JSON.stringify(carrito));
 };
 
 function cargarCarrito() {
@@ -335,7 +401,7 @@ if (carritoGuardado) {
 
 document.addEventListener('DOMContentLoaded', () => {
   cargarCarrito(); 
-  console.log('si está bien se tiene que mostrar este mensaje') 
+  console.log('El carro se carga mostrame un mensaje') 
 });
 
 //cards********************************
@@ -344,18 +410,18 @@ productos.forEach((producto) => {
   //createElement crea un un nuevo elemento html de manera dinamica
   const card = document.createElement('div');
   //classList.add nos permite añadir clases
-  card.classList.add('card', 'col-12', 'col-lg-4', 'p-2');
-  const img = document.createElement('img');
-  img.classList.add('src');
-  img.classList.add('alt');
+  card.classList.add('card', 'col-12', 'col-lg-4', 'p-1', 'mt-5',); 
+  const img = document.createElement('img');  
+  
 
   //añado el contenido a la card
   card.innerHTML = `
-  <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+  <div class="card-container container-fluid">
+  <img src="${producto.imagen}" class="card-img-top img-fluid" alt="${producto.nombre}">
   <div class="card-body">
       <h5 class="card-title">${producto.nombre}</h5>
       <p class="card-text">${producto.descripcion}</p>
-      <button class="btn btn-primary agregar-al-carrito" data-id=${producto.id}>Agregar al carrito</button> </div>   
+      <button class="btn btn-primary agregar-al-carrito" data-id=${producto.id}>Agregar al carrito</button> </div></div>   
 `;
 
   //añado la card al contenedor
@@ -363,7 +429,6 @@ productos.forEach((producto) => {
   card.appendChild(img);
 
   const botonAgregar = card.querySelector('.agregar-al-carrito');
-
   botonAgregar.addEventListener('click', () => {
     agregarAlCarrito(producto.id);
   });
@@ -375,12 +440,17 @@ productos.forEach((producto) => {
 document.addEventListener('DOMContentLoaded', () => {
   // Cargar el carrito guardado
   cargarCarrito();
+  actualizarCarrito();
   console.log('Si está bien, se tiene que mostrar este mensaje');
 
   // Obtener referencias a los elementos
   const modalElement = document.getElementById('cartModal');
+  $('#cartModal').on('hidden.bs.modal', function() {
+    $('.modal-backdrop').remove();
+  });
   const modalCarritoContainer = document.getElementById('modal-carrito-container');
   const abrirCarritoBoton = document.getElementById('abrir-carrito');
+
 
   // Verificar que el modal y el botón existan en el DOM
   if (!modalElement) {
@@ -405,14 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //ver como soluciono el modal 
 
-//let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperar carrito al cargar la página
 
-const botonesCompra = document.querySelectorAll('.boton-compra');
-botonesCompra.forEach(boton => {
-  const contenedorBoton = document.createElement('div');
-  contenedorBoton.classList.add('contenedor-boton');
-  contenedorBoton.appendChild(boton);
-});
 
 //map para crear un array de precios totales
 const preciosTotales = carrito.map(function (producto) {
@@ -420,22 +483,6 @@ const preciosTotales = carrito.map(function (producto) {
   console.log("preciosTotales", precioTotalDelCarrito);
 });
 
-
-
-
-//usar reduce para calcular el precio total de los productos
-const precioTotalDelCarrito = carrito.reduce(function (acumulador, producto) {
-  return acumulador + producto.precio * producto.cantidad;
-
-}, 0);
-//el cero le indica al acumulador dónde debe empezar
-
-console.log(precioTotalDelCarrito);
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  actualizarCarrito();
-});
 
 /*declaro la variable y le asigno un array vacio que devuelve los productos sin stock
 entonces si la longitud de los productos sin stock es mayor a cero es porque se encontró
@@ -483,9 +530,11 @@ async function mostrarProductosSinStock(productos) {
 mostrarProductosSinStock(productos);
 //ordeno productos por más nuevos, precios, mas vendidos, destacados
 
-//uso el reduce para algo 
-
 //calculo el total de la compra
+/*declaro la variable total y le digo que */ 
+
+
+
 
 
 //redireccionar a la página de pagos
@@ -504,7 +553,7 @@ nuevoEvento.addEventListener('mousemove', () => {
 
 /*primero creo la variable cards y le paso el método querySelectorAll
  que va a levantar todos los elementos de html que coincidan con el nombre de la variable*/
-const cards = document.querySelectorAll("card");
+const cards = document.querySelectorAll(".card");
 cards.forEach(card => {
   card.addEventListener('mouseover', () => {
     card.classList.add('hover');
@@ -514,15 +563,7 @@ cards.forEach(card => {
   });
 });
 
-/*
-let productosSeleccionados = [];
-let productosAñadidos = [];
-let producto = [];
 
-productosSeleccionados.forEach(productoSeleccionado => {
-
-  alert("tu producto ha sido añadido al carrito!")
-})*/
-
+ //que pasa con el total y con el botón para agregar más cantidad?finalizar compra
 
 //optimizar imagenes, ver responsive y seguir arreglando el carrito de compras,login y formulario

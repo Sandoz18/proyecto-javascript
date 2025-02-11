@@ -1,31 +1,53 @@
 
 
 /*navbar*/
+
+.navbar{
+display: flex;
+justify-content: space-around;
+}
+
+.container-nav{
+  flex-direction: row-reverse; 
+  width:60%;
+}
+
 .navbar-nav{
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-start; 
- 
-  
-  
-  
-  li{
-    margin: 0 35px; 
-    font-weight: 500;
+  display:flex; 
+  justify-content: space-around; 
+  align-items: center;
    
-  }
+}
+
+.navbar-brand{ 
+ justify-content: center;
+}
+
+.container-iconos-navbar{
+  width:auto; 
+  display: flex; 
+
+}
+
+.navbar-toggler{
+  position: absolute;
+  padding-right: 1rem;
+}
+.menu{
+flex-grow: 1;
+display: flex;
+width:auto;
+justify-content:center;
+
 }
 
 
-.nav-img{  
-  width: 60%;
-  margin-left: 3.5rem;
-}
-.navbar {
- 
+
+
+.navbar { 
   transition:0.6s ease-in-out,
    box-shadow 0.3s ease-in-out;
-  
+ 
 }
 
 .navbar.scrolled {
@@ -38,13 +60,11 @@
 main .principal {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
  background-image: url(../assets/banner-01-01.png);
   background-repeat: no-repeat;
   background-size:cover; 
-  margin-top: 2.5rem;
- 
+  margin-top: 2.5rem; 
   min-height: 70vh;
  
 }
@@ -69,12 +89,6 @@ main .principal .marquesina {
 }
 
 
-.container-login{
- 
-  display: flex;
-  margin-right: 4rem;
-}
-
 #carrito{ 
   text-decoration: none !important;
   width: 2rem; 
@@ -97,54 +111,84 @@ main .principal .marquesina {
   position:fixed;
 }
 
+.contenedor-carrito {
+  position: relative; /* El contenedor será la referencia para posicionar el botón */
+  display: inline-block; /* Ajusta el ancho al contenido */
+}
+
+.boton-modal-carrito {
+  position: absolute; /* El botón se superpondrá al icono */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  padding: 0; /* Sin padding */
+  cursor: pointer; /* Cursor de puntero */
+  z-index: 1; /* El botón estará por encima del icono */
+}
+
+/* Estilos opcionales para el icono dentro del botón */
+.boton-modal-carrito i {
+  font-size: 1.5rem;
+  color: #fff; /* Color del icono */
+}
+
+
 #login{
 text-decoration: none;
 width: 2rem;
-
 }   
 
 
 .imagen-login{
-  width: 100%;
- 
+  width: 100%; 
+}
+
+.img-container{
+width: 5rem;
+}
+
+.container-texto-principal{
+width: 40%;
+height:auto;
+margin-left: 15rem;
+justify-content: center;
+align-items: center;
 }
 
 
 main .principal .banner .texto_principal {
   position: relative;
-  width: 50%;
   display: block;
   height: 70vh;
-  margin-top: 6px;
+  margin-top: 16px;
   z-index: 1000;
 }
-main .principal .banner .texto_principal h1 {
- 
-  font-weight: 300;
-  font-size: 4rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+main .principal .banner .texto_principal h1 { 
+  font-weight:100;
+  font-size: 6rem;
+  font-family:'Courier New', Courier, monospace;
   color: #fafafa;
-  margin-top: 10rem;
+  margin-top: 15rem;
+
 
 }
 main .principal .banner .texto_principal h2 {
-  font-weight: 900;
-  
+  font-weight: 700;  
+  margin-top: 0.5rem;
+  font-size: 8rem;
 }
-main .principal .banner .texto_principal .descuentos{
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #fafafa; 
-  margin-top: 5rem;
-}
+
 main .principal .banner .texto_principal .hasta {
   color: #fafafa;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 main .principal .banner .texto_principal .porciento {
   color: #df1515;
-  font-size: 4.5rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 500;
   line-height: 2.5rem;
 }
 main .principal .banner .texto_principal .shop {
@@ -185,25 +229,33 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 /*acomodar el nesting comparando con el html*/
 /*esto v a un partial modal*/
-.fixed-modal {
-  position: fixed;
-  z-index: 1000;
-  background-color: aqua;
-  padding: 2rem;
-  width: 250px;
-  height: 100vh;
-  align-items: center;
-  display: none;
-} /*sacarle el display none cuando lo use*/
-.modal {
-  background-color: brown;
-  height: 50%;
-  width: 380px;
-  position: fixed;
-  left: 0.5rem;  
-  top: 40%;
+
+#newsletterModal {
+  position: fixed; /* Posicionamiento fijo */
+  top: 0; /* Se ubicará en la parte superior */
+  right: 0; /* Se ubicará en el lado derecho */
+  bottom: 0; /* Se extenderá hasta la parte inferior */
+  width: 30%; /* Ocupará el 30% del ancho de la pantalla */
+  height: 100%; /* Ocupará el 100% de la altura de la pantalla */
+  transform: translateX(100%); /* Inicialmente, estará oculto a la derecha */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+  z-index: 1050; /* Asegura que esté por encima de otros elementos */
 }
 
+#newsletterModal.show {
+  transform: translateX(0); /* Se mostrará deslizando desde la derecha */
+}
+
+#newsletterModal .modal-dialog {
+  margin: 0 auto; /* Elimina los márgenes automáticos del diálogo */
+  max-width: 100%; /* El diálogo ocupará todo el ancho del modal */
+  height: 100%; /* El diálogo ocupará todo el alto del modal */
+}
+
+#newsletterModal .modal-content {
+  height: 100%; /* El contenido del modal ocupará todo el alto del diálogo */
+  border: none; /* Opcional: elimina el borde del modal */
+}*/
 /*partial cards*/
 
 .titulo-productos{
@@ -220,21 +272,25 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 #productos-contenedores{ 
   flex-wrap: wrap; 
+ 
+}
+
+.card-container{ 
+  height: 100%;
+  background-color: blueviolet;
+  
 }
 
 .card {
   border: 0.5px solid rgba(0, 0, 0, 0.521);
   box-shadow: 2px, 2px, 5px rgba(219, 222, 222, 0.867);
   text-align: center;
-    height: 37rem;
+   
    
 }
 
-
-.card-img{
-  width: 100%;
-  height: 50%;
-  object-fit: contain;
+.card-img{ 
+  object-fit:cover;
     }
 
     .card .div{
@@ -242,6 +298,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
       flex-direction: column;      
       gap: 10px;
       justify-content: center;
+      overflow: hidden;
     }
 
 .btn-primary {
@@ -265,13 +322,15 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
   
 #gratis {
-  font-size: 1.8rem !important;
+ 
+  font-size: 1.8rem;
   font-weight: 100;
   display: flex;
   overflow-x: hidden;
   white-space: nowrap;
-  justify-content: space-between;
- 
+  justify-content:space-between;
+ padding: 1rem;
+
 }
 }
 
@@ -317,20 +376,97 @@ margin-right: 5px;
 .btn-submit{
   margin-top: 1rem;
   margin-bottom: 12rem;
-  background-color: blue;
+  background-color: rgb(255, 208, 0);
 }
 
+/*mediaqueries****************************************************************/
 @media (max-width:768px)
 {
 
-  main .principal   {
- background-color: #2a2727;
+  .container-nav{
+   flex-wrap: wrap;
+   flex-direction: row-reverse;
   }
 
- .banner{
-  background-image:50%;
- }
+  .navbar-nav{
+    flex-wrap: nowrap;
+    background-color: #3a3939;
+  }
 
+  .menu{   
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+ 
+  .offcanvas-header .btn-close {
+   margin-top: 3rem;
+    color: #000;
+    font-size: 1.5rem;
+  }
+
+  .banner{
+    max-height: 50%;  
+    background-image: url(/assets/banner-01.png);
+    background-size: cover; 
+     
+  }
+
+  .container-texto-principal{
+    background-color: rgba(8, 8, 9, 0.582);
+    width: auto;
+    margin:0 auto;
+  }
+
+  
+main .principal .banner .texto_principal h1{
+  font-size: 3rem;
+  margin-top: 7rem;
+}
+
+  .texto_principal{
+    margin-left: 1rem;
+    max-width: 50%;
+    height: auto;
+    text-align: center;
+    padding: 5rem 0;
+    
+  }
+
+
+
+  .porciento{
+    font-size: 1rem;
+  }
+
+  .envios #gratis{
+    font-size: 1rem;   
+  }
+
+  .envios #gratis p{
+    margin-right: 4rem;
+  }
+
+
+  .navbar-nav{
+ 
+   text-align: center;     
+  }
+
+.container-iconos-navbar{ 
+  display: flex;
+  flex-direction: row;
+  margin-right: 3.8rem;
+}
+
+
+ul{
+  display: block !important;
+  text-align: right;
+}
+}
+
+ 
  .form-wrap{
   margin-top: 20rem;
  
@@ -339,11 +475,65 @@ margin-right: 5px;
  .form-wrap .card{
   width: 100%;
   position: relative;
+  height: auto !important;
+
  }
 
-
+.card-img-top{
+max-width: 80%;
 
 }
+
+.card-container{
+  overflow: hidden !important;
+}
+
+
+@media (max-width: 320px){
+  .banner{    
+    padding: 2rem 0;
+    background-image: url(/assets/banner-01-01.png);
+    background-size:contain;
+   
+  }
+
+  .texto_principal{
+    margin: 0 auto;   
+    height: auto;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .envios{
+    padding: 0.5rem;
+   } 
+
+  .nav-img{
+    width: 50%;
+  }
+ 
+ .form-wrap{
+  margin-top: 20rem;
+ 
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*# sourceMappingURL=style.css.map */
 
 
