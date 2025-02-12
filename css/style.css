@@ -173,6 +173,12 @@ justify-content: center;
 align-items: center;
 }
 
+.text-overlay{
+background-color: rgba(0, 0, 0, 0.5);
+padding: 1px;
+height: auto;
+}
+
 
 main .principal .banner .texto_principal {
   position: relative;
@@ -397,6 +403,23 @@ margin-right: 5px;
   background-color: rgb(255, 208, 0);
 }
 
+footer li{
+  list-style-type: none;
+  text-align: center;
+  
+  a{
+    color: #887979;
+  }
+}
+
+.footer-suscription{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
+
+.footer-column h3{
+  margin-left: 1rem;
+}
 /*mediaqueries****************************************************************/
 @media (max-width:768px)
 {
@@ -431,9 +454,9 @@ margin-right: 5px;
   }
 
   .container-texto-principal{
-    background-color: rgba(8, 8, 9, 0.582);
-      max-width: 50%;
-  
+   
+      max-width: 80%;
+    margin-left: 5rem;
   }
 
   
@@ -446,7 +469,7 @@ main .principal .banner .texto_principal h1{
     height: auto;
     text-align: center;
     padding: 5rem 0;
-    
+    margin-left: 1rem;
   }
 
   main .principal .banner .texto_principal .hasta {
@@ -540,18 +563,18 @@ body{
    
   }
   .banner{       
-    background-image: url(/assets/banner-01.png);
+    background-image: url(/imagenes.js/freepik__expand__25698.png);
     background-size:cover;
     background-repeat: no-repeat;
     background-position:center center;  
-    max-height: 100%;
+   
+   
   }
-
 
   
   main .principal .banner .texto_principal h1{
     font-size: 1.5rem;
-    margin-top: 7rem;
+    margin-top: 12rem;
   }
   
     .texto_principal{       
@@ -567,15 +590,17 @@ body{
     }
   
     main .principal .banner .texto_principal h2{
-      font-size: 2.3rem;
+      font-size: 2rem;
     }
   
     main .principal .banner .texto_principal .porciento{
-     font-size: 1rem;
+     font-size: 1.5rem;
+     line-height: 1rem;
     }
   
     main .principal .banner .texto_principal .porciento p{
       margin: 0;
+     
     }
   
   

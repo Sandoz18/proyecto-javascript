@@ -27,7 +27,7 @@
     <header>
         <div class="container-fluid gx-0">
             <!---barra navegación-->
-       <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">
+            <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">
                 <!--logo-->
                 <a class="navbar-brand" href="#">
                     <img src="assets/solcito-01.png" class="nav-img" alt="logo">
@@ -93,13 +93,13 @@
                                 </div>-->
                     </div>
                 </div>
-            </div>
-            </div>
+        </div>
+        </div>
 
 
 
-                <!-- Modal del carrito -->
-                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <!-- Modal del carrito -->
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -122,8 +122,8 @@
             </div>
 
 
-                </div>
-                </div>
+        </div>
+        </div>
         </nav>
     </header>
 
@@ -155,9 +155,9 @@
                     <div class="col-12 text-center">
                         <div class="container-texto-principal">
                             <div class="texto_principal">
-                                <h1 class="mb-0">Descuentos</h1>
+                                <h1 class="mb-0 text-overlay">Descuentos</h1>
                                 <div class="container d-flex
-                        justify-content-center align-items-center text-center mt-0">
+                        justify-content-center align-items-center text-center mt-0 text-overlay">
                                     <h4 class="hasta">HASTA</h4>
                                     <!--javascript-->
                                     <h2 id="ofertas">50</h2>
@@ -167,7 +167,7 @@
                                     </div>
 
                                 </div>
-                                <p class="productos_seleccionados text-white">
+                                <p class="productos_seleccionados text-white text-overlay">
                                     En productos Seleccionados
                                 </p>
                                 <div class="shop text-white">
@@ -266,29 +266,88 @@
         </div>
 
     </section>
-    <footer class="text-center text-lg-start bg-dark text-white">
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <a href="#" class="me-4 text-reset">
-                <i class="fa-brands fa-facebook">facebook
-                </i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-instagram">instagram</i>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=tu_numero_de_whatsapp" class="me-4 text-reset">
-                <i class="fab fa-whatsapp">whatsapp</i>
-            </a>
-            <a href="mailto:tu_correo@ejemplo.com" class="me-4 text-reset">
-                <i class="fas fa-envelope">gmail</i>
-            </a>
-        </section>
 
-        <section class="copyright text-center">
-            <div class="container text-center mt-3">
-                © 2023 Copyright:
-                <a class="text-white" href="#">Your Company</a>
+    <!--------------------------footer------------------------------------------->
+    <footer class="bg-dark text-white text-center">
+        <div class="footer-top pt-5 bg-secondary-subtle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer-newsletter pb-5 text-dark">
+                            <h2 class="footer-suscription">Suscribite ahora</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam repellendus ea
+                                magni, consequuntur exercitationem eius architecto nemo nobis consectetur pariatur
+                                reprehenderit quasi quaerat similique labore maxime maiores possimus nam quibusdam.</p>
+                            <button type="button" class="btn btn-outline-success">Suscribirse</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <div class="footer-middle">
+            <div class="container bg-dark pt-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Experiencia del cliente</h3>
+                            <ul>
+                                <li><a href="#">Contactanos</a></li>
+                                <li><a href="#">Preguntas frecuentes</a></li>
+                                <li><a href="#">Cambios y devoluciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Tienda online</h3>
+                            <ul>
+                                <li><a href="#">Trabajá con Nosotros</a></li>
+                                <li><a href="#">Seguimiento de Envíos</a></li>
+                                <li><a href="#">Terminos y condiciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Nosotros</h3>
+                            <ul>
+                                <li><a href="#">Sobre Nosotros</a></li>
+                                <li><a href="#">Localizador de tiendas</a></li>
+                                <li><a href="#">Preguntas Frecuentes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Compra 100% segura</h3>
+                            <p>Nuestro sitio tiene toda la seguridad para tu compra.</p>
+                            <img src="#" alt="Let's Encrypt">
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center pt-3">
+                        <div class="footer-column text-center">
+                            <h3>Seguinos</h3>
+                            <ul class="footer-social d-flex justify-content-around">
+                                <li><a href="#"><i class="fab fa-instagram fa-2x"></i>.</a></li>
+                                <li><a href="#"><i class="fab fa-facebook fa-2x"></i>.</a></li>
+                                <li><a href="#"><i class="fab fa-tiktok fa-2x"></i>.</a></li>
+                            </ul>
+                            <p>Navegando: Argentina</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center mt-3">
+                <p class="copyright">
+                    © 2023 Copyright:
+                    <a class="text-white" href="#">Your Company</a>
+                </p>
+            </div>
+        </div>
     </footer>
 
     <!---jquery-->
