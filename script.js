@@ -526,23 +526,7 @@ algún articulo sin stock*/
 
 //esto tiene sentido??
 let productosSinStock = [];
-/*console.log(productosSinStock);
-function mostrarProductosSinStock(productos) {
-  productosSinStock = productos.reduce((acumulador, producto) => {
-    if (producto.stock === 0) {
-      acumulador.push(producto.nombre);
-    }
-    return acumulador;
-  },
-    []);
-}
 
-if (productosSinStock.length > 0) {
-  console.log("Producto sin stock: ");
-  productosSinStock.forEach(producto => console.log(`-${producto}`));
-} else {
-  console.log("No hay productos sin stock");
-}*/
 
 //async 
 async function mostrarProductosSinStock(productos) {
@@ -564,13 +548,6 @@ async function mostrarProductosSinStock(productos) {
 // Llamar a la función asíncrona
 mostrarProductosSinStock(productos);
 //ordeno productos por más nuevos, precios, mas vendidos, destacados
-
-//calculo el total de la compra
-/*declaro la variable total y le digo que */ 
-
-
-
-
 
 //redireccionar a la página de pagos
 

@@ -26,13 +26,13 @@ justify-content: space-around;
 .container-iconos-navbar{
   width:auto; 
   display: flex; 
-
 }
 
 .navbar-toggler{
   position: absolute;
   padding-right: 1rem;
 }
+
 .menu{
 flex-grow: 1;
 display: flex;
@@ -423,8 +423,7 @@ margin-right: 5px;
     font-size: 1.5rem;
   }
 
-  .banner{
-  
+  .banner{  
     background-image: url(/assets/banner-01.png);
     background-size: cover; 
     background-repeat: no-repeat;
@@ -433,30 +432,41 @@ margin-right: 5px;
 
   .container-texto-principal{
     background-color: rgba(8, 8, 9, 0.582);
- 
+      max-width: 50%;
   
   }
 
   
 main .principal .banner .texto_principal h1{
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-top: 7rem;
 }
 
-  .texto_principal{
-    margin-left: 1rem;
-    max-width: 50%;
+  .texto_principal{       
     height: auto;
     text-align: center;
     padding: 5rem 0;
     
   }
 
-
-
-  .porciento{
-    font-size: 1rem;
+  main .principal .banner .texto_principal .hasta {
+    font-size: 1.4rem;
+    font-family: 'Courier New', Courier, monospace;
   }
+
+  main .principal .banner .texto_principal h2{
+    font-size: 5rem;
+  }
+
+  main .principal .banner .texto_principal .porciento{
+    font-size: 2.5rem;
+  }
+
+  main .principal .banner .texto_principal .porciento p{
+    margin: 0;
+  }
+
+
 
   .envios #gratis{
     font-size: 1rem;   
@@ -467,8 +477,7 @@ main .principal .banner .texto_principal h1{
   }
 
 
-  .navbar-nav{
- 
+  .navbar-nav{ 
    text-align: center;     
   }
 
@@ -483,10 +492,8 @@ ul{
   display: block !important;
   text-align: right;
 }
-}
 
- 
- .form-wrap{
+.form-wrap{
   margin-top: 20rem;
  
  }
@@ -507,42 +514,148 @@ max-width: 80%;
   overflow: hidden !important;
 }
 
+#nuevo-evento{
+  font-size: 1rem;
+  justify-content: center;
+}
 
+
+}
+
+ 
+
+/*320*/
 @media (max-width: 320px){
-  .banner{    
-    padding: 2rem 0;
-    background-image: url(/assets/banner-01.png);
-    background-size:contain;
-    background-repeat: no-repeat;
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+  .container-texto-principal{
+    width: 100%;
+    align-items: center;
+    margin-left: 5rem;
    
   }
-
-  .texto_principal{
-    margin: 0 auto;   
-    height: auto;
-    text-align: center;
-    padding: 0.5rem 0;
+  .banner{       
+    background-image: url(/assets/banner-01.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center center;  
+    max-height: 100%;
   }
 
-  .envios{
-    padding: 0.5rem;
-   } 
 
+  
+  main .principal .banner .texto_principal h1{
+    font-size: 1.5rem;
+    margin-top: 7rem;
+  }
+  
+    .texto_principal{       
+      height: auto;
+      text-align: center;
+      padding: 5rem 0;
+      
+    }
+  
+    main .principal .banner .texto_principal .hasta {
+      font-size: 1rem;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  
+    main .principal .banner .texto_principal h2{
+      font-size: 2.3rem;
+    }
+  
+    main .principal .banner .texto_principal .porciento{
+     font-size: 1rem;
+    }
+  
+    main .principal .banner .texto_principal .porciento p{
+      margin: 0;
+    }
+  
+  
+
+    .envios #gratis{
+      font-size: 1rem;   
+    }
+  
+    .envios #gratis p{
+      margin-right: 4rem;
+    }
+  
+ 
+
+    .navbar-nav{ 
+     text-align: center;  
+    
+    }
+  
+  .container-iconos-navbar{ 
+    display: flex;
+    flex-direction: row;
+    margin-right: 3.5rem;
+    width: 100%; 
+  }
+  
   .nav-img{
-    width: 50%;
+    width: 70px;
   }
- 
- .form-wrap{
-  margin-top: 20rem;
- 
- }
+  ul{
+    display: block !important;
+    text-align: right;
+  }
+  
+  .form-wrap{
+    margin-top: 20rem;
+   
+   }
+  
+   .form-wrap .card{
+    width: 100%;
+    position: relative;
+    height: auto !important;
+  
+   }
+  
+  .card-img-top{
+  max-width: 80%;
+  
+  }
+  
+  .card-container{
+    overflow: hidden !important;
+  }
+  
+  #nuevo-evento{
+    font-size: 0.5rem;
+    justify-content: center;
+  }
+
+.imagen-carrito, .imagen-login .navbar-toggler{
+  width: 28px !important;
+}
+
+.form-wrap{
+  margin-top: 2rem;
+}
+
+footer{
+  width: 100%;
+}
+
+}
 
 
 /*carrito*/
 
 
 
-}
+
 
 
 
