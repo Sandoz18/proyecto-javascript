@@ -65,13 +65,13 @@ main .principal {
   background-repeat: no-repeat;
   background-size:cover; 
   margin-top: 2.5rem; 
-  min-height: 70vh;
+ 
  
 }
 main .principal .marquesina {
   overflow: hidden;
   white-space: nowrap;
-  width: auto;
+  width: auto; 
 }
  .marquee-item {
   display: inline-block;
@@ -112,12 +112,12 @@ main .principal .marquesina {
 }
 
 .contenedor-carrito {
-  position: relative; /* El contenedor será la referencia para posicionar el botón */
-  display: inline-block; /* Ajusta el ancho al contenido */
+  position: relative; 
+  display: inline-block; 
 }
 
 .boton-modal-carrito {
-  position: absolute; /* El botón se superpondrá al icono */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
@@ -168,13 +168,18 @@ width: 5rem;
 .container-texto-principal{
 width: 40%;
 height:auto;
-margin-left: 15rem;
+margin-left: 10rem;
 justify-content: center;
 align-items: center;
 }
 
+.text-overlay-container{
+margin-top: 3rem;
+
+ 
+}
+
 .text-overlay{
-background-color: rgba(0, 0, 0, 0.5);
 padding: 1px;
 height: auto;
 }
@@ -183,7 +188,7 @@ height: auto;
 main .principal .banner .texto_principal {
   position: relative;
   display: block;
-  height: 70vh;
+  height: 75vh;
   margin-top: 16px;
   z-index: 1000;
 }
@@ -448,28 +453,32 @@ footer li{
 
   .banner{  
     background-image: url(/assets/banner-01.png);
-    background-size: cover; 
-    background-repeat: no-repeat;
+    background-size:cover; 
+    background-repeat: no-repeat;   
+  
      
   }
 
-  .container-texto-principal{
-   
-      max-width: 80%;
-    margin-left: 5rem;
+  .container-texto-principal{    
+    margin-left: 5rem;   
   }
 
-  
+  main .principal .banner .texto_principal {   
+    height: 85vh;
+    margin-top: 8px;   
+  }
+
+
 main .principal .banner .texto_principal h1{
   font-size: 2.5rem;
-  margin-top: 7rem;
+ 
 }
 
   .texto_principal{       
     height: auto;
     text-align: center;
     padding: 5rem 0;
-    margin-left: 1rem;
+ 
   }
 
   main .principal .banner .texto_principal .hasta {
@@ -550,67 +559,89 @@ max-width: 80%;
 /*320*/
 @media (max-width: 320px){
 
-body{
+
+main{
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
-  .container-texto-principal{
-    width: 100%;
-    align-items: center;
-    margin-left: 5rem;
-   
+.container-texto-principal{
+ width: 100%;
+ height: 100%;
+ margin-left: 0;
   }
+
+
+
   .banner{       
     background-image: url(/imagenes.js/freepik__expand__25698.png);
     background-size:cover;
     background-repeat: no-repeat;
-    background-position:center center;  
-   
-   
+    background-position:center;  
+   width: 100%;
+      
+  }
+
+  .text-overlay-container{        
+    justify-content: center;
+    background-color: #ffffffc8;
+    width: 100%;
+  padding-bottom: 2.5rem;
+   align-items: center;
+  }
+
+  main .principal .banner .texto_principal {   
+    height: 65vh;
+    margin-top: 8px;   
   }
 
   
   main .principal .banner .texto_principal h1{
     font-size: 1.5rem;
-    margin-top: 12rem;
+    color: #000;
   }
   
     .texto_principal{       
-      height: auto;
-      text-align: center;
-      padding: 5rem 0;
-      
+     width: 100%;
+      text-align: center; 
+           
     }
   
     main .principal .banner .texto_principal .hasta {
-      font-size: 1rem;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
       font-family: 'Courier New', Courier, monospace;
+      color: #000;   
     }
   
     main .principal .banner .texto_principal h2{
       font-size: 2rem;
+       
     }
   
     main .principal .banner .texto_principal .porciento{
-     font-size: 1.5rem;
+     font-size: 1.2rem;
      line-height: 1rem;
     }
   
     main .principal .banner .texto_principal .porciento p{
       margin: 0;
-     
+     font-size: 0.8rem;
     }
   
-  
+    .productos_seleccionados{
+      font-size: 0.6rem;
+      color: #000 !important;   
+    }
 
     .envios #gratis{
-      font-size: 1rem;   
+      font-size: 0.7rem;   
     }
   
     .envios #gratis p{
-      margin-right: 4rem;
+      margin-right: 0.4rem;
+      margin-top: 1rem;
     }
   
  
