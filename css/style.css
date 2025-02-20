@@ -299,11 +299,12 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 #productos-contenedores{ 
   flex-wrap: wrap; 
- 
+ width: 100%;
+ display: flex;
 }
 
 .card-container{ 
-    height: 100%;  
+    height: auto;  
 }
 
 .fade{
@@ -320,7 +321,11 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 .card-img{ 
   object-fit:cover;
-    }
+    width: 100%; /* La imagen ocupa todo el ancho de la card */
+    height: auto; /* La altura se ajusta automáticamente */
+    max-height: 200px; /* Ejemplo de altura máxima */
+}
+    
 
     .card .div{
       display: flex;
@@ -535,7 +540,7 @@ width: 100%;
      }
     
      .form-wrap .card{
-      width: 100%;
+     
       position: relative;
       height: auto !important;
     

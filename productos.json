@@ -1,40 +1,39 @@
-
 [
   {
     "id": "1",
     "nombre": "lentes de sol",
     "precio": 45,
-    "descripcion": "lLll",
+    "descripcion": "Esto es una descripción",
     "colores": ["verde", "azul", "negro"],
     "stock": 0,
-    "imagen": "imagenes/03.png"
+    "imagen": "assets/03.png"
   },
   {
     "id": "2",
-    "nombre": "lentes de sol",
+    "nombre": "Lentes de sol",
     "precio": 700,
-    "descripcion": "lLll",
+    "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "imagenes/02.png"
+    "imagen": "assets/02.png"
   },
   {
     "id": "3",
     "nombre": "lentes acetato",
     "precio": 80000,
-    "descripcion": "lLll",
+    "descripcion": "lesto es una descripción",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/05.png"
+    "imagen": "assets/05.png"
   },
   {
     "id": "4",
-    "nombre": "lentes de sol",
+    "nombre": "Lentes de Sol",
     "precio": 4000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/08.png"
+    "imagen": "assets/08.png"
   },
   {
     "id": "5",
@@ -43,96 +42,96 @@
     "descripcion": "basta",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/10.png"
+    "imagen": "assets/10.png"
   },
   {
     "id": "6",
-    "nombre": "jsjs",
+    "nombre": "Lentes de Sol",
     "precio": 90,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/09.png"
+    "imagen": "assets/09.png"
   },
   {
     "id": "7",
-    "nombre": "jsjs",
+    "nombre": "Lentes de Sol",
     "precio": 100000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/04.png"
+    "imagen": "assets/04.png"
   },
   {
     "id": "8",
-    "nombre": "jsjs",
+   "nombre": "Lentes de Sol",
     "precio": 50000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/21.png"
+    "imagen": "assets/21.png"
   },
   {
     "id": "9",
-    "nombre": "jsjs",
+    "nombre": "Lentes de Sol",
     "precio": 80000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/06.png"
+    "imagen": "assets/06.png"
   },
   {
     "id": "10",
-    "nombre": "jsjs",
+    "nombre": "Lentes de Sol",
     "precio": 89000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/07.png"
+    "imagen": "assets/07.png"
   },
   {
     "id": "11",
     "nombre": "lentes de sol",
     "precio": 300000,
-    "descripcion": "esto es una descripción",
+    "descripcion": "Esto es una descripción",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
-    "imagen": "imagenes/01.png"
+    "imagen": "assets/20.png"
   },
   {
     "id": "12",
-    "nombre": "lentes",
+    "nombre": "Lentes",
     "precio": 280000,
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "imagenes/11.png"
+    "imagen": "assets/11.png"
   },
   {
     "id": "13",
-    "nombre": "lentes",
+    "nombre": "Lentes",
     "precio": 780000,
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "imagenes/12.png"
+    "imagen": "assets/12.png"
   },
   {
     "id": "14",
-    "nombre": "lentes",
+    "nombre": "Lentes",
     "precio": 60000,
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "imagenes/13.png"
+    "imagen": "assets/13.png"
   },
   {
     "id": "15",
-    "nombre": "lentes",
+    "nombre": "Lentes",
     "precio": 500000,
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "imagenes/14.png"
+    "imagen": "assets/18.png"
   }
 ]

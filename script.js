@@ -8,13 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function crearNavegacion() {
   const menuItems = [
-    { texto: 'Index', enlace: 'index.html', },
-
-    { texto: 'Productos', enlace: 'productos.html', },
-
-    { texto: 'Login', enlace: 'login.html', },
-
-    { texto: 'Contacto', enlace: 'contacto.html', },
+    
   ];
 
   //variable para seleccionar la ul de html
@@ -106,174 +100,100 @@ console.log('ofertas');
 /*****************************************carrito*****************************************/
 
 
-/*    1)**************creo un array de productos********************************************
-//creo el array de objeto producto
-const productos = [
-  {
-    id: '1',
-    nombre: 'lentes de sol',
-    precio: 45,
-    descripcion: 'Esto es una descripción',
-    colores: ["verde", "azul", "negro"],
-    stock: 0,
-    imagen: 'assets/03.png'
-  },
 
-  {
-    id: '2',
-    nombre: 'Lentes de sol',
-    precio: 700,
-    descripcion: 'otra descripción',
-    colores: ["verde", "rosa", "negro"],
-    stock: 14,
-    imagen: 'assets/02.png'
-  },
 
-  {
-    id: '3',
-    nombre: 'lentes acetato',
-    precio: 80000,
-    descripcion: 'lesto es una descripción',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/05.png'
-  },
-  {
-    id: '4',
-    nombre: 'Lentes de Sol',
-    precio: 4000,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/08.png'
-  },
-  {
-    id: '5',
-    nombre: 'otros lentes más',
-    precio: 40000,
-    descripcion: 'basta',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/10.png'
-  },
-  {
-    id: '6',
-    nombre: 'jsjs',
-    precio: 90,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/09.png'
-  },
-  {
-    id: '7',
-    nombre: 'jsjs',
-    precio: 100000,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/04.png'
-  },
-  {
-    id: '8',
-    nombre: 'jsjs',
-    precio: 50000,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/21.png'
-  },
-  {
-    id: '9',
-    nombre: 'jsjs',
-    precio: 80000,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/06.png'
-  },
-  {
-    id: '10',
-    nombre: 'jsjs',
-    precio: 89000,
-    descripcion: 'lLll',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/07.png'
-  },
-  {
-    id: '11',
-    nombre: 'lentes de sol',
-    precio: 300000,
-    descripcion: 'Esto es una descripción',
-    colores: ["verde", "azul", "negro"],
-    stock: 4,
-    imagen: 'assets/01.png'
-  },
-  {
-    id: '12',
-    nombre: 'Lentes',
-    precio: 280000,
-    descripcion: 'otra descripción',
-    colores: ["verde", "rosa", "negro"],
-    stock: 14,
-    imagen: 'assets/11.png'
-  },
-  {
-    id: '13',
-    nombre: 'Lentes',
-    precio: 780000,
-    descripcion: 'otra descripción',
-    colores: ["verde", "rosa", "negro"],
-    stock: 14,
-    imagen: 'assets/12.png'
-  },
-  {
-    id: '14',
-    nombre: 'Lentes',
-    precio: 60000,
-    descripcion: 'otra descripción',
-    colores: ["verde", "rosa", "negro"],
-    stock: 14,
-    imagen: 'assets/13.png'
-  },
-  {
-    id: '15',
-    nombre: 'Lentes',
-    precio: 500000,
-    descripcion: 'otra descripción',
-    colores: ["verde", "rosa", "negro"],
-    stock: 14,
-    imagen: 'assets/14.png'
-  },
-]*/
 
 let productos = []; //declaro productos como variable global
 
 async function cargarProductosDesdeJson() {
-  try{
-    const respuesta = await fetch('productos.json');//=>  Carga desde json
-    if(!respuesta.ok){
-      throw new Error( `Error HTTP: ${respuesta.status}`);
-      console.log(respuesta);
+  fetch('productos.json')
+  .then(response => response.json())
+  .then(data => {
+    mostrarProductos(data);
+    productos = data; // Guarda los productos en la variable global
+  });
+
+    /*funcion para descripción aleatoria*/ 
+    function generarDescripcionAleatoria() {
+      const materialesMontura = ["Acetato", "Metal", "Policarbonato", "Titanio"];
+      const tiposCristales = ["Polarizados", "UV400", "Espejados", "Fotocromáticos"];
+      const caracteristicasMontura = ["Montura completa", "Media montura", "Estilo aviador", "Estilo wayfarer"];
+      const caracteristicasAdicionales = ["Bisagras de alta resistencia", "Almohadillas nasales ajustables", "Patillas ergonómicas", "Protección lateral"];
+    
+      const materialMontura = materialesMontura[Math.floor(Math.random() * materialesMontura.length)];
+      const tipoCristal = tiposCristales[Math.floor(Math.random() * tiposCristales.length)];
+      const caracteristicaMontura = caracteristicasMontura[Math.floor(Math.random() * caracteristicasMontura.length)];
+      const caracteristicaAdicional = caracteristicasAdicionales[Math.floor(Math.random() * caracteristicasAdicionales.length)];
+    
+      return `${caracteristicaMontura} de ${materialMontura}. Cristales ${tipoCristal}. ${caracteristicaAdicional}.`;
+    
+      const adjetivoAleatorio = adjetivos[Math.floor(Math.random() * adjetivos.length)];
+      const sustantivoAleatorio = sustantivos[Math.floor(Math.random() * sustantivos.length)];
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    
+      return `Este producto tiene un ${adjetivoAleatorio} ${sustantivoAleatorio}. ${fraseAleatoria}`;
     }
-    productos = await respuesta.json();
-    console.log("productos cargados desde json", productos);
-   
-  }catch(error){
-    console.error('error al cargar los productos desde json')
-    inicializarPagina(); // Llama a inicializarPagina después de cargar los productos
-  };
- 
+
+function mostrarProductos(productos) {
+  const container = document.getElementById("productos-contenedores");
+  container.innerHTML = ""; // Limpia el contenedor
+  const row = document.createElement('div'); // Crea la fila
+  row.classList.add('row');
+  container.appendChild(row);
+
+
+  /*xa cada producto de productos creo las columas dentro de las filas para el grid*/
+  productos.forEach((producto) => {
+    producto.descripcion = generarDescripcionAleatoria();
+    const col = document.createElement('div');
+    col.classList.add('col-12', 'col-lg-4', 'p-1', 'mt-5')
+
+    const card = document.createElement("div");
+    card.classList.add('card', 'h-100', 'position-relative',);      
+    let opcionesColor = '';
+    producto.colores.forEach(color => {
+      opcionesColor += `<option value="${color}">${color}</option>`;
+    });
+    card.innerHTML = `
+      <div>
+      <div class="position-absolute top-0 start-0 bg-danger text-white p-1 rounded-end">Oferta</div>
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <p class="card-name fw-bold mt-2">${producto.nombre}</p>
+        <p class="card-price fw-semibold">Precio: $${producto.precio}</p>
+         <p>${producto.descripcion}</p>
+       
+       
+        <button class="btn btn-primary agregar-carrito w-100 rounded-0" data-id="${producto.id}">Agregar al carrito</button>
+      </div>
+    `;
+    col.appendChild(card);
+    row.appendChild(col);
+  });
+  function agregarEventosCarrito() {
+    const botonesAgregar = document.querySelectorAll(".agregar-carrito");
+    botonesAgregar.forEach((boton) => {
+      boton.addEventListener("click", (evento) => {
+        const id = evento.target.dataset.id;
+        agregarProductoAlCarrito(id); // Llama a la función correcta
+      });
+    });
+  }
 }
 
-
+function agregarEventosCarrito() {
+  const botonesAgregar = document.querySelectorAll(".agregar-carrito");
+  botonesAgregar.forEach((boton) => {
+    boton.addEventListener("click", (evento) => {
+      const id = evento.target.dataset.id;
+      agregarProductoAlCarrito(id); // Llama a la función correcta
+    });
+  });
+}
+}
 
 //2)Creo contenedor de las cards que conecta con el card-container de html
 const container = document.getElementById('productos-contenedores');
 container.style.display = 'flex';
-
-
 
 /*intenta obtener el valor almacenado en carrito y si no hay nada devuelve null; json parse 
 lo que hace es convertir en objeto el dato que encuentre guardado en sessionstorage
@@ -285,7 +205,7 @@ let contadorCarrito = document.getElementById('carrito-contador');
 /*la función encuentra los productos x id y los agrega al carrito con push
 luego actualiza el carrito de compras guardandolo en el session storage y mostrando por consola
 un mensaje*/
-function agregarAlCarrito(id) {
+function agregarProductoAlCarrito(id) {
   //acá agrego
   const productoAgregado = productos.find(p => p.id === id);
   if (!productoAgregado) 
@@ -487,9 +407,9 @@ productos.forEach((producto) => {
 
   const botonAgregar = card.querySelector('.agregar-al-carrito');
   botonAgregar.addEventListener('click', () => {
-    agregarAlCarrito(producto.id);
+    agregarProductoAlCarrito(producto.id);
   });
-  console.log('deberia cargarse una imagen');
+  console.log('Ruta de la imagen', producto.imagen);
 })
 
 

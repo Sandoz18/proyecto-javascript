@@ -416,7 +416,146 @@ fetch (url: "http://jsonplaceholder.typicode.com  )
 
   async await 
 
-  
+ //creo el array de objeto producto
+const productos = [
+  {
+    id: '1',
+    nombre: 'lentes de sol',
+    precio: 45,
+    descripcion: 'Esto es una descripción',
+    colores: ["verde", "azul", "negro"],
+    stock: 0,
+    imagen: 'assets/03.png'
+  },
+
+  {
+    id: '2',
+    nombre: 'Lentes de sol',
+    precio: 700,
+    descripcion: 'otra descripción',
+    colores: ["verde", "rosa", "negro"],
+    stock: 14,
+    imagen: 'assets/02.png'
+  },
+
+  {
+    id: '3',
+    nombre: 'lentes acetato',
+    precio: 80000,
+    descripcion: 'lesto es una descripción',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/05.png'
+  },
+  {
+    id: '4',
+    nombre: 'Lentes de Sol',
+    precio: 4000,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/08.png'
+  },
+  {
+    id: '5',
+    nombre: 'otros lentes más',
+    precio: 40000,
+    descripcion: 'basta',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/10.png'
+  },
+  {
+    id: '6',
+    nombre: 'jsjs',
+    precio: 90,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/09.png'
+  },
+  {
+    id: '7',
+    nombre: 'jsjs',
+    precio: 100000,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/04.png'
+  },
+  {
+    id: '8',
+    nombre: 'jsjs',
+    precio: 50000,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/21.png'
+  },
+  {
+    id: '9',
+    nombre: 'jsjs',
+    precio: 80000,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/06.png'
+  },
+  {
+    id: '10',
+    nombre: 'jsjs',
+    precio: 89000,
+    descripcion: 'lLll',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/07.png'
+  },
+  {
+    id: '11',
+    nombre: 'lentes de sol',
+    precio: 300000,
+    descripcion: 'Esto es una descripción',
+    colores: ["verde", "azul", "negro"],
+    stock: 4,
+    imagen: 'assets/01.png'
+  },
+  {
+    id: '12',
+    nombre: 'Lentes',
+    precio: 280000,
+    descripcion: 'otra descripción',
+    colores: ["verde", "rosa", "negro"],
+    stock: 14,
+    imagen: 'assets/11.png'
+  },
+  {
+    id: '13',
+    nombre: 'Lentes',
+    precio: 780000,
+    descripcion: 'otra descripción',
+    colores: ["verde", "rosa", "negro"],
+    stock: 14,
+    imagen: 'assets/12.png'
+  },
+  {
+    id: '14',
+    nombre: 'Lentes',
+    precio: 60000,
+    descripcion: 'otra descripción',
+    colores: ["verde", "rosa", "negro"],
+    stock: 14,
+    imagen: 'assets/13.png'
+  },
+  {
+    id: '15',
+    nombre: 'Lentes',
+    precio: 500000,
+    descripcion: 'otra descripción',
+    colores: ["verde", "rosa", "negro"],
+    stock: 14,
+    imagen: 'assets/14.png'
+  },
+] 
 
 */ 
 
