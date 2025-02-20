@@ -1,0 +1,138 @@
+
+[
+  {
+    "id": "1",
+    "nombre": "lentes de sol",
+    "precio": 45,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 0,
+    "imagen": "imagenes/03.png"
+  },
+  {
+    "id": "2",
+    "nombre": "lentes de sol",
+    "precio": 700,
+    "descripcion": "lLll",
+    "colores": ["verde", "rosa", "negro"],
+    "stock": 14,
+    "imagen": "imagenes/02.png"
+  },
+  {
+    "id": "3",
+    "nombre": "lentes acetato",
+    "precio": 80000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/05.png"
+  },
+  {
+    "id": "4",
+    "nombre": "lentes de sol",
+    "precio": 4000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/08.png"
+  },
+  {
+    "id": "5",
+    "nombre": "otros lentes más",
+    "precio": 40000,
+    "descripcion": "basta",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/10.png"
+  },
+  {
+    "id": "6",
+    "nombre": "jsjs",
+    "precio": 90,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/09.png"
+  },
+  {
+    "id": "7",
+    "nombre": "jsjs",
+    "precio": 100000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/04.png"
+  },
+  {
+    "id": "8",
+    "nombre": "jsjs",
+    "precio": 50000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/21.png"
+  },
+  {
+    "id": "9",
+    "nombre": "jsjs",
+    "precio": 80000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/06.png"
+  },
+  {
+    "id": "10",
+    "nombre": "jsjs",
+    "precio": 89000,
+    "descripcion": "lLll",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/07.png"
+  },
+  {
+    "id": "11",
+    "nombre": "lentes de sol",
+    "precio": 300000,
+    "descripcion": "esto es una descripción",
+    "colores": ["verde", "azul", "negro"],
+    "stock": 4,
+    "imagen": "imagenes/01.png"
+  },
+  {
+    "id": "12",
+    "nombre": "lentes",
+    "precio": 280000,
+    "descripcion": "otra descripción",
+    "colores": ["verde", "rosa", "negro"],
+    "stock": 14,
+    "imagen": "imagenes/11.png"
+  },
+  {
+    "id": "13",
+    "nombre": "lentes",
+    "precio": 780000,
+    "descripcion": "otra descripción",
+    "colores": ["verde", "rosa", "negro"],
+    "stock": 14,
+    "imagen": "imagenes/12.png"
+  },
+  {
+    "id": "14",
+    "nombre": "lentes",
+    "precio": 60000,
+    "descripcion": "otra descripción",
+    "colores": ["verde", "rosa", "negro"],
+    "stock": 14,
+    "imagen": "imagenes/13.png"
+  },
+  {
+    "id": "15",
+    "nombre": "lentes",
+    "precio": 500000,
+    "descripcion": "otra descripción",
+    "colores": ["verde", "rosa", "negro"],
+    "stock": 14,
+    "imagen": "imagenes/14.png"
+  }
+]

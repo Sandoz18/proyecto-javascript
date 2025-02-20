@@ -1,44 +1,45 @@
 /********************************barra navegación**********************************************/
 
-//carga del   DOM y funcion para crear elementos de navegación
+//carga del   DOM y funcion para crear elementos de navegación, la función debe ir x fuera del domloaded
 document.addEventListener('DOMContentLoaded', () => {
-  function crearNavegacion() {
-    const menuItems = [
-      { texto: 'Index', enlace: 'index.html', },
-
-      { texto: 'Productos', enlace: 'productos.html', },
-
-      { texto: 'Login', enlace: 'login.html', },
-
-      { texto: 'Contacto', enlace: 'contacto.html', },
-    ];
-
-    //variable para seleccionar la ul de html
-    const navList = document.getElementById('nav-menu');
-    console.log(navList);
-
-
-    //recorro el array menuItems y creo los li y a
-    menuItems.forEach(item => {
-      const li = document.createElement('li');
-      //agrega am la clase li el elemento nav-item
-      li.classList.add('nav-item');
-
-
-      const a = document.createElement('a');
-      //agrega a la clase a el elemento nav-link                
-      a.classList.add('nav-link');
-      a.textContent = item.texto;
-      a.href = item.enlace;
-      //appendChild agrega al elemento a como hijo del elemento li
-      li.appendChild(a);
-      navList.appendChild(li);
-      
-    });
-  }
+  crearNavegacion();
+  cargarProductosDesdeJson();
   
 });
+function crearNavegacion() {
+  const menuItems = [
+    { texto: 'Index', enlace: 'index.html', },
 
+    { texto: 'Productos', enlace: 'productos.html', },
+
+    { texto: 'Login', enlace: 'login.html', },
+
+    { texto: 'Contacto', enlace: 'contacto.html', },
+  ];
+
+  //variable para seleccionar la ul de html
+  const navList = document.getElementById('nav-menu');
+  console.log(navList);
+
+
+  //recorro el array menuItems y creo los li y a
+  menuItems.forEach(item => {
+    const li = document.createElement('li');
+    //agrega am la clase li el elemento nav-item
+    li.classList.add('nav-item');
+
+
+    const a = document.createElement('a');
+    //agrega a la clase a el elemento nav-link                
+    a.classList.add('nav-link');
+    a.textContent = item.texto;
+    a.href = item.enlace;
+    //appendChild agrega al elemento a como hijo del elemento li
+    li.appendChild(a);
+    navList.appendChild(li);
+    
+  });
+}
 
 /**crear un efecto subrayado dinamico para los li de las pages***/
 //primero creo las paginas con una variable.
@@ -105,7 +106,7 @@ console.log('ofertas');
 /*****************************************carrito*****************************************/
 
 
-/*    1)**************creo un array de productos*********************************************/
+/*    1)**************creo un array de productos********************************************
 //creo el array de objeto producto
 const productos = [
   {
@@ -245,7 +246,28 @@ const productos = [
     stock: 14,
     imagen: 'assets/14.png'
   },
-]
+]*/
+
+let productos = []; //declaro productos como variable global
+
+async function cargarProductosDesdeJson() {
+  try{
+    const respuesta = await fetch('productos.json');//=>  Carga desde json
+    if(!respuesta.ok){
+      throw new Error( `Error HTTP: ${respuesta.status}`);
+      console.log(respuesta);
+    }
+    productos = await respuesta.json();
+    console.log("productos cargados desde json", productos);
+   
+  }catch(error){
+    console.error('error al cargar los productos desde json')
+    inicializarPagina(); // Llama a inicializarPagina después de cargar los productos
+  };
+ 
+}
+
+
 
 //2)Creo contenedor de las cards que conecta con el card-container de html
 const container = document.getElementById('productos-contenedores');
@@ -396,8 +418,7 @@ function disminuirCantidad(id) {
 
 function mostrarDescuentos() {
   const descuentosElemento = document.getElementById('descuentos');
-  // Aquí puedes calcular los descuentos según tus reglas de negocio
-  // y mostrar la información correspondiente en el elemento 'descuentos'
+  
   descuentosElemento.textContent = "Descuentos: $0"; // Ejemplo
 }
 
@@ -441,11 +462,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //cards********************************
 /*para cada producto itero y creo una nueva tarjeta y le paso un producto*/
 productos.forEach((producto) => {
+  console.log('Procesando producto:', producto);
   //createElement crea un un nuevo elemento html de manera dinamica
   const card = document.createElement('div');
   //classList.add nos permite añadir clases
   card.classList.add('card', 'col-12', 'col-lg-4', 'p-1', 'mt-5',); 
-  const img = document.createElement('img');  
+ 
   
 
   //añado el contenido a la card
@@ -461,13 +483,13 @@ productos.forEach((producto) => {
 
   //añado la card al contenedor
   container.appendChild(card);
-  card.appendChild(img);
+ 
 
   const botonAgregar = card.querySelector('.agregar-al-carrito');
   botonAgregar.addEventListener('click', () => {
     agregarAlCarrito(producto.id);
   });
-
+  console.log('deberia cargarse una imagen');
 })
 
 

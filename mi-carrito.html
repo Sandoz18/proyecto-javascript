@@ -25,11 +25,11 @@
     <title>Carrito</title>
 </head>
 <body>
-    <main>
-        <div class="container-fluid gx-0">
-            <header>
+    
+        <header>
+            <div class="container-fluid gx-0">
                 <!---barra navegación-->
-                <nav class="navbar navbar-expand-lg fixed-top mt-1 bg-secondary-subtle" id="navbar">
+                <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">
                     <!--logo-->
                     <a class="navbar-brand" href="#">
                         <img src="assets/solcito-01.png" class="nav-img" alt="logo">
@@ -41,10 +41,15 @@
                                 <!-- Carrito -->
                                 <div class="contenedor-carrito d-flex align-items-center">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-                                        <img class="imagen-carrito" src="assets/iconos-02.png" id="carrito" alt="Carrito de compras">
-                                        <span id="carrito-contador" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
+                                        <img class="imagen-carrito" src="assets/iconos-02.png" id="carrito"
+                                            alt="Carrito de compras">
+                                        <span id="carrito-contador"
+                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill"></span>
                                         <span class="contador-circulo"></span>
                                     </a>
+                                    <button class="btn btn-sm mt-3" id="abrir-carrito" data-bs-toggle="modal"
+                                        data-bs-target="#cartModal">.
+                                    </button>
                                 </div>
                                 <!-- Login -->
                                 <a href="#" class="ms-3">
@@ -52,64 +57,143 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
-        
-        <!-- Modal del carrito -->
-        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="cartModalLabel">Carrito de compras</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modal-carrito-container">
-                        <!-- Contenido del carrito generado dinámicamente -->
-                    </div>
-                    <div class="modal-footer d-flex flex-column align-items-center">
-                        <div class="w-100 d-flex justify-content-between">
-                            <p id="subtotal-carrito" class="me-3 fw-semibold">Subtotal: $0</p>
-                            <p id="descuento-carrito" class="me-3 text-success">Descuento: $0</p>
+                        <div class="offcanvas offcanvas-start" id="offcanvasNavbar">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+    
+                                <ul class="navbar-nav" id="nav-menu">
+                                </ul>
+                            </div>
                         </div>
-                        <p class="w-100" id="total-carrito">Total: $0</p>
-                        <button type="button" class="btn btn-primary mt-3" id="finalizar-compra">Finalizar compra</button>
+    
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+    
+                        <!--barra navegación desplegable-->
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav" id="nav-menu">
+                                <!-- Menú generado desde JS -->
+                            </ul>
+                            <!-- <!--solucionar lo de este modal
+                            <div class="col  bg-dark">                            
+                                <div class="fixed-modal">
+                                    <div id="unModal" class="modal">
+                                        Modal javascript, necesito que abra
+                                        que cierre que se oculte.
+                                        Newsletter suscripción y terminos y
+                                        condiciones
+                                    </div>
+                                    <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
+                                        aria-hidden="true">
+                                    </div>-->
+                        </div>
+                    </div>
+            </div>
+        </div>
+    
+    
+    
+           
+            </div>
+            </nav>
+       
+    </header>
+    <main>
+        <h1>MI CARRITO</h1>
+       <ul id="carrito-guradado"></ul>
+        
+      
+    </main>
+    
+   
+    <footer class="bg-dark text-white text-center">
+        <div class="footer-top pt-5 bg-secondary-subtle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer-newsletter pb-5 text-dark">
+                            <h2 class="footer-suscription">Suscribite ahora</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam repellendus ea
+                                magni, consequuntur exercitationem eius architecto nemo nobis consectetur pariatur
+                                reprehenderit quasi quaerat similique labore maxime maiores possimus nam quibusdam.</p>
+                            <button type="button" class="btn btn-outline-success">Suscribirse</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <main class="container-fluid">
-            <section></section>
-            <section></section>
-        </main>
-      
-    </main>
-    
-    <footer class="text-center text-lg-start bg-dark text-white fixed-bottom">
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <a href="#" class="me-4 text-reset">
-                <i class="fa-brands fa-facebook">facebook</i>
-            </a>
-            <a href="#" class="me-4 text-reset">
-                <i class="fab fa-instagram">instagram</i>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=tu_numero_de_whatsapp" class="me-4 text-reset">
-                <i class="fab fa-whatsapp">whatsapp</i>
-            </a>
-            <a href="mailto:tu_correo@ejemplo.com" class="me-4 text-reset">
-                <i class="fas fa-envelope">gmail</i>
-            </a>
-        </section>
-        <section class="copyright text-center">
-            <div class="container text-center mt-3">
-                © 2023 Copyright:
-                <a class="text-white" href="#">Your Company</a>
-            </div>
-        </section>
-    </footer>
 
+        <div class="footer-middle">
+            <div class="container bg-dark pt-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Experiencia del cliente</h3>
+                            <ul>
+                                <li><a href="#">Contactanos</a></li>
+                                <li><a href="#">Preguntas frecuentes</a></li>
+                                <li><a href="#">Cambios y devoluciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Tienda online</h3>
+                            <ul>
+                                <li><a href="#">Trabajá con Nosotros</a></li>
+                                <li><a href="#">Seguimiento de Envíos</a></li>
+                                <li><a href="#">Terminos y condiciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Nosotros</h3>
+                            <ul>
+                                <li><a href="#">Sobre Nosotros</a></li>
+                                <li><a href="#">Localizador de tiendas</a></li>
+                                <li><a href="#">Preguntas Frecuentes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-column">
+                            <h3>Compra 100% segura</h3>
+                            <p>Nuestro sitio tiene toda la seguridad para tu compra.</p>
+                            <img src="#" alt="Let's Encrypt">
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center pt-3">
+                        <div class="footer-column text-center">
+                            <h3>Seguinos</h3>
+                            <ul class="footer-social d-flex justify-content-around">
+                                <li><a href="#"><i class="fab fa-instagram fa-2x"></i>.</a></li>
+                                <li><a href="#"><i class="fab fa-facebook fa-2x"></i>.</a></li>
+                                <li><a href="#"><i class="fab fa-tiktok fa-2x"></i>.</a></li>
+                            </ul>
+                            <p>Navegando: Argentina</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center mt-3">
+                <p class="copyright">
+                    © 2023 Copyright:
+                    <a class="text-white" href="#">Your Company</a>
+                </p>
+            </div>
+        </div>
+    </footer>
     <!---jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--sweet alert-->
