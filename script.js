@@ -1,6 +1,6 @@
 /********************************barra navegación**********************************************/
 
-//carga del   DOM y funcion para crear elementos de navegación, la función debe ir x fuera del domloaded
+//carga del   DOM y funcion para crear elementos de navegación, la función debe ir x fuera 
 document.addEventListener('DOMContentLoaded', () => {
   crearNavegacion();
   cargarProductosDesdeJson();
@@ -83,8 +83,6 @@ window.addEventListener('scroll', () => {
 /********************************banner***************************************************/
 
 let banner = document.getElementsByClassName('banner');
- //meterle algun efecto con javascript 
-
 
 //declaro e inicializo la variable ofertas que se muestra
 //  en mi html a traves de document.getElementById//
@@ -95,16 +93,10 @@ ofertas.style.fontFamily = "manrope";
 ofertas.style.fontWeight = "700";
 console.log('ofertas');
 
-
-
 /*****************************************carrito*****************************************/
 
-
-
-
-
-let productos = []; //declaro productos como variable global
-
+let productos = []; //declaro productos como variable global y vacia para que pase el json
+//creo la función asincronica que carga los productos con una promesa
 async function cargarProductosDesdeJson() {
   fetch('productos.json')
   .then(response => response.json())
@@ -113,7 +105,7 @@ async function cargarProductosDesdeJson() {
     productos = data; // Guarda los productos en la variable global
   });
 
-    /*funcion para descripción aleatoria*/ 
+    /*funcion para descripción aleatoria para generar texto*/ 
     function generarDescripcionAleatoria() {
       const materialesMontura = ["Acetato", "Metal", "Policarbonato", "Titanio"];
       const tiposCristales = ["Polarizados", "UV400", "Espejados", "Fotocromáticos"];
@@ -157,13 +149,13 @@ function mostrarProductos(productos) {
     card.innerHTML = `
       <div>
       <div class="position-absolute top-0 start-0 bg-danger text-white p-1 rounded-end">Oferta</div>
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <p class="card-name fw-bold mt-2">${producto.nombre}</p>
+        <img src="${producto.imagen}" class="w-100" alt="${producto.nombre}">
+        <p class="card-name fw-bold mt-3 mb-1">${producto.nombre}</p>
         <p class="card-price fw-semibold">Precio: $${producto.precio}</p>
          <p>${producto.descripcion}</p>
        
        
-        <button class="btn btn-primary agregar-carrito w-100 rounded-0" data-id="${producto.id}">Agregar al carrito</button>
+        <button class="btn btn-primary agregar-carrito w-100 rounded-0 pt-2" data-id="${producto.id}">Agregar al carrito</button>
       </div>
     `;
     col.appendChild(card);
@@ -177,18 +169,12 @@ function mostrarProductos(productos) {
         agregarProductoAlCarrito(id); // Llama a la función correcta
       });
     });
+  
   }
+  agregarEventosCarrito();
 }
 
-function agregarEventosCarrito() {
-  const botonesAgregar = document.querySelectorAll(".agregar-carrito");
-  botonesAgregar.forEach((boton) => {
-    boton.addEventListener("click", (evento) => {
-      const id = evento.target.dataset.id;
-      agregarProductoAlCarrito(id); // Llama a la función correcta
-    });
-  });
-}
+
 }
 
 //2)Creo contenedor de las cards que conecta con el card-container de html
@@ -460,12 +446,68 @@ const preciosTotales = carrito.map(function (producto) {
   console.log("preciosTotales", precioTotalDelCarrito);
 });
 
+function crearModal(titulo, contenido, botonCerrarTexto = 'Cerrar', botonGuardarTexto = 'Guardar cambios') {
+  // Crear el elemento modal
+  const modal = document.createElement('div');
+  modal.classList.add('modal', 'fade');
+  modal.id = 'miModalDinamico';
+  modal.tabIndex = -1;
+  modal.setAttribute('aria-labelledby', 'miModalDinamicoLabel');
+  modal.setAttribute('aria-hidden', 'true');
 
+  // Crear el contenido del modal
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="miModalDinamicoLabel">${titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ${contenido}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${botonCerrarTexto}</button>
+          <button type="button" class="btn btn-primary">${botonGuardarTexto}</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Agregar el modal al body
+  document.body.appendChild(modal);
+
+  // Inicializar el modal de Bootstrap
+  const modalInstance = new bootstrap.Modal(modal);
+
+  // Inicializar tooltips dentro del modal
+  modal.addEventListener('shown.bs.modal', () => {
+    const tooltipTriggerList = [].slice.call(modal.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+
+  // Devolver la instancia del modal
+  return modalInstance;
+}
+
+// Ejemplo de uso
+const nuevoEvento = document.getElementById('nuevo-evento');
+
+nuevoEvento.addEventListener('click', () => {
+  const contenidoModal = `
+    <h2 class="fs-5">Tooltips en un modal dinámico</h2>
+    <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">Este link</a> y <a href="#" data-bs-toggle="tooltip" title="Tooltip">ese link</a> tienen tooltips al pasar el mouse.</p>
+  `;
+  const miModal = crearModal('Mi Modal Dinámico', contenidoModal);
+  miModal.show();
+});
 /*declaro la variable y le asigno un array vacio que devuelve los productos sin stock
 entonces si la longitud de los productos sin stock es mayor a cero es porque se encontró
 algún articulo sin stock*/
 
-
+/************************************** *
 //esto tiene sentido??
 let productosSinStock = [];
 
@@ -493,17 +535,20 @@ mostrarProductosSinStock(productos);
 
 //redireccionar a la página de pagos
 
-//calcular envíos
+//calcular envíos*/
+
 
 
 /*hover y eventos de mouse*****************************************/
-const nuevoEvento = document.getElementById('nuevo-evento');
-nuevoEvento.addEventListener('click', () => {
-  alert('Esto es un nuevo evento!')
-});
+
+/*<h2 class="fs-5">Tooltips in a modal</h2>
+  <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
+</div>
 nuevoEvento.addEventListener('mousemove', () => {
   console.log('se aplica un zoom en el botón cuando muevo el mouse!');
-});
+});*/
+
+
 
 /*primero creo la variable cards y le paso el método querySelectorAll
  que va a levantar todos los elementos de html que coincidan con el nombre de la variable*/
@@ -520,4 +565,3 @@ cards.forEach(card => {
 
  //que pasa con el total y con el botón para agregar más cantidad?finalizar compra
 
-//optimizar imagenes, ver responsive y seguir arreglando el carrito de compras,login y formulario
