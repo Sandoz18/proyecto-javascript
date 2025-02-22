@@ -38,7 +38,7 @@ function crearNavegacion() {
 /**crear un efecto subrayado dinamico para los li de las pages***/
 //primero creo las paginas con una variable.
 
-let paginas = ['Nosotros', 'Productos', 'Contacto'];
+let paginas = ['Campaña', 'Productos', 'Contacto'];
 paginas.forEach((pagina) => {
   const li = document.createElement('li');
   li.textContent = pagina;
@@ -97,13 +97,32 @@ console.log('ofertas');
 
 let productos = []; //declaro productos como variable global y vacia para que pase el json
 //creo la función asincronica que carga los productos con una promesa
-async function cargarProductosDesdeJson() {
-  fetch('productos.json')
-  .then(response => response.json())
-  .then(data => {
-    mostrarProductos(data);
-    productos = data; // Guarda los productos en la variable global
-  });
+
+  /*función generar nombres random de producto*/ 
+  function generarNombreLentes() {
+    const nombres = [
+        "Solstice", "Zenith", "Nimbus", "Lumina", "Veridian",
+        "Aether", "Solara", "Apex", "Nova", "Ember",
+        "Cinder", "Vesper", "Azure", "Crimson", "Onyx",
+        "Lotus", "Aurora", "Eclipse", "Mirage", "Prism"
+    ];
+
+    return nombres[Math.floor(Math.random() * nombres.length)];
+}
+
+// Conjunto para almacenar los nombres usados
+const nombresUsados = new Set();
+
+function generarNombreLentesUnico() {
+    let nombreAleatorio;
+    do {
+        nombreAleatorio = generarNombreLentes(); // Generar un nombre aleatorio
+    } while (nombresUsados.has(nombreAleatorio)); // Verificar si ya se usó
+
+    nombresUsados.add(nombreAleatorio); // Agregar el nombre al conjunto
+    return nombreAleatorio;
+}
+
 
     /*funcion para descripción aleatoria para generar texto*/ 
     function generarDescripcionAleatoria() {
@@ -125,6 +144,15 @@ async function cargarProductosDesdeJson() {
     
       return `Este producto tiene un ${adjetivoAleatorio} ${sustantivoAleatorio}. ${fraseAleatoria}`;
     }
+async function cargarProductosDesdeJson() {
+  fetch('productos.json')
+  .then(response => response.json())
+  .then(data => {
+    mostrarProductos(data);
+    productos = data; // Guarda los productos en la variable global
+  });
+
+
 
 function mostrarProductos(productos) {
   const container = document.getElementById("productos-contenedores");
@@ -136,6 +164,8 @@ function mostrarProductos(productos) {
 
   /*xa cada producto de productos creo las columas dentro de las filas para el grid*/
   productos.forEach((producto) => {
+    producto.nombre = generarNombreLentes();
+    producto.nombre = generarNombreLentesUnico();
     producto.descripcion = generarDescripcionAleatoria();
     const col = document.createElement('div');
     col.classList.add('col-12', 'col-lg-4', 'p-1', 'mt-5')
@@ -151,8 +181,8 @@ function mostrarProductos(productos) {
       <div class="position-absolute top-0 start-0 bg-danger text-white p-1 rounded-end">Oferta</div>
         <img src="${producto.imagen}" class="w-100" alt="${producto.nombre}">
         <p class="card-name fw-bold mt-3 mb-1">${producto.nombre}</p>
-        <p class="card-price fw-semibold">Precio: $${producto.precio}</p>
-         <p>${producto.descripcion}</p>
+        <p class="card-price fw-semibold"> $${producto.precio}</p>
+         <p class="card-description">${producto.descripcion}</p>
        
        
         <button class="btn btn-primary agregar-carrito w-100 rounded-0 pt-2" data-id="${producto.id}">Agregar al carrito</button>
@@ -546,12 +576,23 @@ cerrarSolapa.addEventListener('click', () => {
     solapa.style.display = 'none'; // Oculta la solapa
 });
 
+
+/***************whatsapp*********************/ 
 window.addEventListener('load', () => {
   const whatsappButton = document.querySelector('.whatsapp-button');
   whatsappButton.style.transform = 'scale(0)';
   setTimeout(() => {
       whatsappButton.style.transition = 'transform 0.5s ease-in-out';
       whatsappButton.style.transform = 'scale(1)';
+
+      // Agregar el efecto de pulso después de que el botón aparezca
+      setInterval(() => {
+          whatsappButton.style.transition = 'transform 0.5s ease-in-out';
+          whatsappButton.style.transform = 'scale(1.1)'; // Escala un poco más grande
+          setTimeout(() => {
+              whatsappButton.style.transform = 'scale(1)'; // Vuelve al tamaño original
+          }, 500); // Duración de la animación del pulso
+      }, 2000); // Intervalo entre pulsos (2 segundos)
   }, 500);
 });
  //que pasa con el total y con el botón para agregar más cantidad?finalizar compra

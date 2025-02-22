@@ -137,11 +137,11 @@ main .principal .marquesina {
 
 .contador-circulo {
   position: absolute;
-  top: -5px; /* Ajusta este valor para la posición vertical */
-  right: -5px; /* Ajusta este valor para la posición horizontal */
+  top: 7px; /* Ajusta este valor para la posición vertical */
+  right: 1px; /* Ajusta este valor para la posición horizontal */
   transform: translate(50%, -50%); /* Centrar el círculo */
-  width: 20px; /* Ajusta este valor para el tamaño del círculo */
-  height: 20px; /* Ajusta este valor para el tamaño del círculo */
+  width: 23px; /* Ajusta este valor para el tamaño del círculo */
+  height: 23px; /* Ajusta este valor para el tamaño del círculo */
   border-radius: 50%;
   background-color: red;
   color: white; /* Color del texto dentro del círculo */
@@ -326,6 +326,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   margin-bottom: 1rem;
 }
 
+/*botón whatsapp***************************************/
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
@@ -349,6 +350,8 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 .whatsapp-button:hover {
   transform: scale(1.1);
 }
+
+
 
 .titulo-productos{
   width: 100%;
@@ -414,7 +417,29 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 .card-container{ 
-    height: auto;  
+    height: auto; 
+    text-align: center;
+}
+
+.card-name{
+  font-size: 1.4rem;
+  font-style: oblique;
+}
+
+.card-price{
+  
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card-description{ 
+line-height: normal;
+  text-align: center;
+ max-width: 80%;
+ margin: 0 auto;
+ font-size: 1rem;
+ margin-bottom: 1.5rem;
+  
 }
 
 .fade{
@@ -422,6 +447,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 .card {
+  
   border: 0.5px solid rgba(0, 0, 0, 0.521);
   box-shadow: 2px, 2px, 5px rgba(219, 222, 222, 0.867);
   text-align: center;

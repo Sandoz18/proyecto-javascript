@@ -2,7 +2,7 @@
   {
     "id": "1",
     "nombre": "lentes de sol",
-    "precio": 45,
+    "precio": 45000,
     "descripcion": "Esto es una descripción",
     "colores": ["verde", "azul", "negro"],
     "stock": 0,
@@ -11,7 +11,7 @@
   {
     "id": "2",
     "nombre": "Lentes de sol",
-    "precio": 700,
+    "precio": 70000,
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
@@ -29,7 +29,7 @@
   {
     "id": "4",
     "nombre": "Lentes de Sol",
-    "precio": 4000,
+    "precio": 34000,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
@@ -47,7 +47,7 @@
   {
     "id": "6",
     "nombre": "Lentes de Sol",
-    "precio": 90,
+    "precio": 69900,
     "descripcion": "lLll",
     "colores": ["verde", "azul", "negro"],
     "stock": 4,
@@ -123,7 +123,7 @@
     "descripcion": "otra descripción",
     "colores": ["verde", "rosa", "negro"],
     "stock": 14,
-    "imagen": "assets/13.png"
+    "imagen": "assets/14.png"
   },
   {
     "id": "15",
