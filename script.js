@@ -130,20 +130,18 @@ function generarNombreLentesUnico() {
       const tiposCristales = ["Polarizados", "UV400", "Espejados", "Fotocromáticos"];
       const caracteristicasMontura = ["Montura completa", "Media montura", "Estilo aviador", "Estilo wayfarer"];
       const caracteristicasAdicionales = ["Bisagras de alta resistencia", "Almohadillas nasales ajustables", "Patillas ergonómicas", "Protección lateral"];
-    
+  
       const materialMontura = materialesMontura[Math.floor(Math.random() * materialesMontura.length)];
       const tipoCristal = tiposCristales[Math.floor(Math.random() * tiposCristales.length)];
       const caracteristicaMontura = caracteristicasMontura[Math.floor(Math.random() * caracteristicasMontura.length)];
       const caracteristicaAdicional = caracteristicasAdicionales[Math.floor(Math.random() * caracteristicasAdicionales.length)];
-    
-      return `${caracteristicaMontura} de ${materialMontura}. Cristales ${tipoCristal}. ${caracteristicaAdicional}.`;
-    
-      const adjetivoAleatorio = adjetivos[Math.floor(Math.random() * adjetivos.length)];
-      const sustantivoAleatorio = sustantivos[Math.floor(Math.random() * sustantivos.length)];
-      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    
-      return `Este producto tiene un ${adjetivoAleatorio} ${sustantivoAleatorio}. ${fraseAleatoria}`;
-    }
+  
+      // Genera la descripción combinando las características
+      let descripcion = `${caracteristicaMontura} de ${materialMontura}. Cristales ${tipoCristal}. ${caracteristicaAdicional}.`;
+  
+      // Limita la longitud de la descripción a 80 caracteres
+      return descripcion.substring(0, 80);
+  }
 async function cargarProductosDesdeJson() {
   fetch('productos.json')
   .then(response => response.json())
@@ -168,10 +166,11 @@ function mostrarProductos(productos) {
     producto.nombre = generarNombreLentesUnico();
     producto.descripcion = generarDescripcionAleatoria();
     const col = document.createElement('div');
+    const container = document.createElement('div');
     col.classList.add('col-12', 'col-lg-4', 'p-1', 'mt-5')
 
     const card = document.createElement("div");
-    card.classList.add('card', 'h-100', 'position-relative',);      
+    card.classList.add('card');      
     let opcionesColor = '';
     producto.colores.forEach(color => {
       opcionesColor += `<option value="${color}">${color}</option>`;
@@ -185,7 +184,7 @@ function mostrarProductos(productos) {
          <p class="card-description">${producto.descripcion}</p>
        
        
-        <button class="btn btn-primary agregar-carrito w-100 rounded-0 pt-2" data-id="${producto.id}">Agregar al carrito</button>
+        <button class="btn btn-primary agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
       </div>
     `;
     col.appendChild(card);
@@ -274,24 +273,25 @@ function actualizarCarrito(id) {
     productoElemento.classList.add('card', 'mb-3' ); // Agregar clases de Bootstrap
 
     productoElemento.innerHTML = `
-   <div class="row g-0">
-  <div class="col-md-8">
-    <div class="card-header">${producto.nombre}</div><div class="card-body">
-      <h5 class="card-title">${producto.nombre}</h5>
-      <p class="card-text">Precio: $${producto.precio}</p>
-      <div class="d-flex align-items-center">
-        <button class="btn btn-sm btn-danger me-2" onclick="eliminarDelCarrito('${producto.id}')"><i class="fas fa-trash-alt"></i></button>
-        <button class="btn btn-sm btn-primary me-2" onclick="disminuirCantidad('${producto.id}')">-</button>
-        <p class="card-text">Cantidad: ${producto.cantidad}</p>
-        <button class="btn btn-sm btn-primary ms-2" onclick="aumentarCantidad('${producto.id}')">+</button>
-      </div>
+    <div class="row g-0 d-flex align-items-center">
+        <div class="col-md-8">
+            <div class="card-header">${producto.nombre}</div>
+            <div class="card-body d-flex flex-column justify-content-center">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text"> $${producto.precio}</p>
+                <div class="d-flex align-items-center justify">
+                    <button class="btn btn-sm btn-danger me-2" onclick="eliminarDelCarrito('${producto.id}')"><i class="fas fa-trash-alt"></i></button>
+                    <button class="btn btn-sm btn-primary me-2" onclick="disminuirCantidad('${producto.id}')">-</button>
+                    <p class="card-text">Cantidad: ${producto.cantidad}</p>
+                    <button class="btn btn-sm btn-primary ms-2" onclick="aumentarCantidad('${producto.id}')">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}" style="height: 100%; object-fit: cover;">
+        </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombre}">
-  </div>
-</div>
-  `;
+`;
 
     subtotal += producto.precio * producto.cantidad;
     carritoModal.appendChild(productoElemento);
