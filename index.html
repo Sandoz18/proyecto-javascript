@@ -74,25 +74,29 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!--barra navegación desplegable-->
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav" id="nav-menu">
-                            <!-- Menú generado desde JS -->
-                        </ul>
-                        <!-- <!--solucionar lo de este modal
-                        <div class="col  bg-dark">                            
-                            <div class="fixed-modal">
-                                <div id="unModal" class="modal">
-                                    Modal javascript, necesito que abra
-                                    que cierre que se oculte.
-                                    Newsletter suscripción y terminos y
-                                    condiciones
-                                </div>
-                                <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
-                                    aria-hidden="true">
-                                </div>-->
+                    <div class="modal-lateral-solapa">
+                        <button id="abrir-modal-lateral">DESCUBRI MÁS</button>
+                        <button id="cerrar-solapa">×</button>
                     </div>
-                </div>
+                    
+                    <div class="modal-lateral">
+                        <div class="modal-lateral-contenido">
+                            <div class="modal-lateral-contenido">
+                                <button class="modal-lateral-cerrar">×</button>
+                                <div class="newsletter-content">
+                                    <img src="assets/14.png"  alt="Imagen del newsletter">
+                                    <h2>¡Suscríbete a nuestro newsletter!</h2>
+                                    <p>Recibe las últimas noticias, ofertas y promociones directamente en tu bandeja de entrada.</p>
+                                    <form class="newsletter-form">
+                                        <input type="email" placeholder="Ingresa tu correo electrónico" required>
+                                        <button type="submit" class="text-dark">Suscribirme</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
         </div>
         </div>
 
@@ -268,6 +272,12 @@
         </div>
 
     </section>
+    <aside>
+        <a href="https://wa.me/TU_NUMERO_DE_TELEFONO"  class="whatsapp-button">
+            <img src="assets/whatsapp-icon.png" alt="WhatsApp">
+        </a>
+    </aside>
+   
 
     <!--------------------------footer------------------------------------------->
     <footer class="bg-dark text-white text-center">

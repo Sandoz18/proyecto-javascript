@@ -180,6 +180,7 @@ function mostrarProductos(productos) {
 //2)Creo contenedor de las cards que conecta con el card-container de html
 const container = document.getElementById('productos-contenedores');
 container.style.display = 'flex';
+container.style.justifyContent = 'center';
 
 /*intenta obtener el valor almacenado en carrito y si no hay nada devuelve null; json parse 
 lo que hace es convertir en objeto el dato que encuentre guardado en sessionstorage
@@ -446,108 +447,74 @@ const preciosTotales = carrito.map(function (producto) {
   console.log("preciosTotales", precioTotalDelCarrito);
 });
 
-function crearModal(titulo, contenido, botonCerrarTexto = 'Cerrar', botonGuardarTexto = 'Guardar cambios') {
-  // Crear el elemento modal
-  const modal = document.createElement('div');
-  modal.classList.add('modal', 'fade');
-  modal.id = 'miModalDinamico';
-  modal.tabIndex = -1;
-  modal.setAttribute('aria-labelledby', 'miModalDinamicoLabel');
-  modal.setAttribute('aria-hidden', 'true');
+function crearModalLogin() {
+  const modalLogin = document.createElement('div');
+  modalLogin.classList.add('modal', 'fade');
+  modalLogin.id = 'modalLogin';
+  modalLogin.tabIndex = -1;
+  modalLogin.setAttribute('aria-labelledby', 'loginModalLabel');
+  modalLogin.setAttribute('aria-hidden', 'true');
 
-  // Crear el contenido del modal
-  modal.innerHTML = `
+  modalLogin.innerHTML = `
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="miModalDinamicoLabel">${titulo}</h5>
+          <h5 class="modal-title text-center w-100" id="loginModalLabel">Iniciar Sesión</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ${contenido}
+        <div class="modal-body text-center">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="username" placeholder="Ingresa tu usuario">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          </form>
+          <div class="mt-3">
+            <p>O inicia sesión con:</p>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-outline-primary btn-sm mx-2">
+                    <img src="assets/google-icon.png" alt="Google" style="width: 30px; height: 30px;">
+                </button>
+                <button class="btn btn-outline-primary btn-sm mx-2">
+                    <img src="assets/facebook-icon.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </button>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${botonCerrarTexto}</button>
-          <button type="button" class="btn btn-primary">${botonGuardarTexto}</button>
+        <div class="modal-footer justify-content-center">
+          <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
         </div>
       </div>
     </div>
   `;
 
-  // Agregar el modal al body
-  document.body.appendChild(modal);
+  document.body.appendChild(modalLogin);
+  const modalInstance = new bootstrap.Modal(modalLogin);
 
-  // Inicializar el modal de Bootstrap
-  const modalInstance = new bootstrap.Modal(modal);
-
-  // Inicializar tooltips dentro del modal
-  modal.addEventListener('shown.bs.modal', () => {
-    const tooltipTriggerList = [].slice.call(modal.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
+  const loginForm = modalLogin.querySelector('#loginForm');
+  loginForm.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const username = loginForm.querySelector('#username').value;
+    const password = loginForm.querySelector('#password').value;
+    console.log('Usuario:', username, 'Contraseña:', password);
+    modalInstance.hide();
   });
 
-  // Devolver la instancia del modal
   return modalInstance;
 }
 
-// Ejemplo de uso
-const nuevoEvento = document.getElementById('nuevo-evento');
+const loginLink = document.getElementById('login');
 
-nuevoEvento.addEventListener('click', () => {
-  const contenidoModal = `
-    <h2 class="fs-5">Tooltips en un modal dinámico</h2>
-    <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">Este link</a> y <a href="#" data-bs-toggle="tooltip" title="Tooltip">ese link</a> tienen tooltips al pasar el mouse.</p>
-  `;
-  const miModal = crearModal('Mi Modal Dinámico', contenidoModal);
-  miModal.show();
+loginLink.addEventListener('click', (evento) => {
+  evento.preventDefault();
+  const miModalLogin = crearModalLogin();
+  miModalLogin.show();
 });
-/*declaro la variable y le asigno un array vacio que devuelve los productos sin stock
-entonces si la longitud de los productos sin stock es mayor a cero es porque se encontró
-algún articulo sin stock*/
-
-/************************************** *
-//esto tiene sentido??
-let productosSinStock = [];
-
-
-//async 
-async function mostrarProductosSinStock(productos) {
-  const productosSinStock = productos.reduce((acumulador, producto) => {
-    if (producto.stock === 0) {
-      acumulador.push(producto.id);
-    }
-    return acumulador;
-  }, []);
-
-  if (productosSinStock.length > 0) {
-    console.log("Productos sin stock: ");
-    productosSinStock.forEach(producto => console.log(`${producto}`));
-  } else {
-    console.log("No hay productos sin stock");
-  }
-}
-
-// Llamar a la función asíncrona
-mostrarProductosSinStock(productos);
-//ordeno productos por más nuevos, precios, mas vendidos, destacados
-
-//redireccionar a la página de pagos
-
-//calcular envíos*/
-
-
-
-/*hover y eventos de mouse*****************************************/
-
-/*<h2 class="fs-5">Tooltips in a modal</h2>
-  <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
-</div>
-nuevoEvento.addEventListener('mousemove', () => {
-  console.log('se aplica un zoom en el botón cuando muevo el mouse!');
-});*/
-
 
 
 /*primero creo la variable cards y le paso el método querySelectorAll
@@ -561,7 +528,31 @@ cards.forEach(card => {
     card.classList.remove('hover');
   });
 });
+const modalLateral = document.querySelector('.modal-lateral');
+const modalLateralAbrir = document.getElementById('abrir-modal-lateral');
+const modalLateralCerrar = document.querySelector('.modal-lateral-cerrar');
+const solapa = document.querySelector('.modal-lateral-solapa'); // Solapa
+const cerrarSolapa = document.getElementById('cerrar-solapa'); // Botón de cierre
 
+modalLateralAbrir.addEventListener('click', () => {
+    modalLateral.classList.add('abierto');
+});
 
+modalLateralCerrar.addEventListener('click', () => {
+    modalLateral.classList.remove('abierto');
+});
+
+cerrarSolapa.addEventListener('click', () => {
+    solapa.style.display = 'none'; // Oculta la solapa
+});
+
+window.addEventListener('load', () => {
+  const whatsappButton = document.querySelector('.whatsapp-button');
+  whatsappButton.style.transform = 'scale(0)';
+  setTimeout(() => {
+      whatsappButton.style.transition = 'transform 0.5s ease-in-out';
+      whatsappButton.style.transform = 'scale(1)';
+  }, 500);
+});
  //que pasa con el total y con el botón para agregar más cantidad?finalizar compra
 

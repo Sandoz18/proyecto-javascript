@@ -51,7 +51,7 @@ justify-content:center;
 }
 
 .navbar.scrolled {
-  background-color: #706d67;
+  background-color: #5e8791;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.644);
 }
 
@@ -157,6 +157,7 @@ width: 2rem;
 }   
 
 
+
 .imagen-login{
   width: 100%; 
 }
@@ -256,40 +257,149 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 /*acomodar el nesting comparando con el html*/
 /*esto v a un partial modal*/
+.modal-lateral-solapa {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 3.5rem;
+  height: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+ padding-bottom: 4rem;
+  background-color:#037166;
+  color:#ffff; 
+  cursor: pointer;
+  border-radius: 0 5px 5px 0; 
+  z-index: 1001; }
 
-#newsletterModal {
-  position: fixed; /* Posicionamiento fijo */
-  top: 0; /* Se ubicará en la parte superior */
-  right: 0; /* Se ubicará en el lado derecho */
-  bottom: 0; /* Se extenderá hasta la parte inferior */
-  width: 30%; /* Ocupará el 30% del ancho de la pantalla */
-  height: 100%; /* Ocupará el 100% de la altura de la pantalla */
-  transform: translateX(100%); /* Inicialmente, estará oculto a la derecha */
-  transition: transform 0.3s ease-in-out; /* Transición suave */
-  z-index: 1050; /* Asegura que esté por encima de otros elementos */
+.modal-lateral-solapa button {
+  border: none;
+  background: none;
+  padding: 0;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  font-size:1.2rem ;
+  font-weight: 200;
+  color: #ffffffda;
 }
 
-#newsletterModal.show {
-  transform: translateX(0); /* Se mostrará deslizando desde la derecha */
+.modal-lateral {
+  position: fixed;
+  top: 50%; 
+  left: -400px; /* Oculto inicialmente, ancho de la tarjeta */
+  width: 400px; 
+  height: 550px; /* Alto de la tarjeta */
+  transform: translateY(-50%); /* Ajusta el centrado vertical */
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 0 10px 10px 0; 
 }
 
-#newsletterModal .modal-dialog {
-  margin: 0 auto; /* Elimina los márgenes automáticos del diálogo */
-  max-width: 100%; /* El diálogo ocupará todo el ancho del modal */
-  height: 100%; /* El diálogo ocupará todo el alto del modal */
+.modal-lateral.abierto {
+  left: 0; 
 }
 
-#newsletterModal .modal-content {
-  height: 100%; /* El contenido del modal ocupará todo el alto del diálogo */
-  border: none; /* Opcional: elimina el borde del modal */
-}*/
-/*partial cards*/
+.modal-lateral-contenido {
+  padding: 15px;
+}
+
+.modal-lateral-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cerrar-solapa{
+  font-size: 20px;
+  align-self: center;
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button img {
+  max-width: 80%; /* Ajusta el tamaño de la imagen */
+  max-height: 80%;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
 
 .titulo-productos{
   width: 100%;
   font-size: 2rem;
   font-weight: 700;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.newsletter-content {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.newsletter-content img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.newsletter-content h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-form input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.newsletter-form button {
+  width: 80%;
+  padding: 10px;
+  background-color: #ffc904;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .productos-destacados{
@@ -336,8 +446,14 @@ main .principal .banner .texto_principal sans-serif .card:hover {
     }
 
 .btn-primary {
-  background-color: #df1515;
-  border: none !important;
+  background-color:#df1515de;
+  ;
+  border:#232121;
+}
+
+.btn-primary:hover{
+ 
+  background-color: #c70b0b;
 }
 
 .titulo-productos {
@@ -369,7 +485,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
  .card:hover {
-  background-color: #c0b7b754;
+  background-color: #f4e8e854;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.0117647059);
 }
 
@@ -407,6 +523,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 margin-right: 5px;
 }
 
+/*form*/
 .btn-submit{
   margin-top: 1rem;
   margin-bottom: 12rem;
@@ -430,6 +547,8 @@ footer li{
 .footer-column h3{
   margin-left: 1rem;
 }
+
+
 /*mediaqueries****************************************************************/
 /*320*/
 @media (max-width: 320px){
