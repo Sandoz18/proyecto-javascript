@@ -234,9 +234,9 @@ main .principal .banner .texto_principal .shop .btn {
 }
 
 
-main .principal .banner .texto_principal .titulo-productos {
-  color: #000000;
-
+ .titulo-productos {
+  color: #000000; 
+  margin-bottom: 5rem;
 }
 
 main .principal .banner .texto_principal .envios {
@@ -400,7 +400,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: rgb(255, 119, 0);
+  background-color: rgb(241, 236, 233);
 }
 
 .form-control {
@@ -552,11 +552,22 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #207666;
+  align-items: center; 
   height: fit-content;
+ 
 }
 
+.registro h3{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.8rem;
+}
+
+.form-wrap{
+  background-color:#088292;
+  justify-content: center;
+  height: auto;
+ 
+}
 
 .form-wrap .card {
   overflow: hidden;
@@ -581,7 +592,9 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   width: 100%;
 }
 
-
+.form-check-label a{
+  color: #f9f9f9;
+}
 
 .form-control {
   width: 100%;
@@ -600,7 +613,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 /*form*/
 .btn-submit {
-  background-color: rgb(255, 94, 0);
+  background-color: #ff5e00;
   margin-bottom: 20px;
 }
 
@@ -616,6 +629,12 @@ footer li {
 .footer-suscription {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
+}
+
+ .btn-secondary{
+  background-color:#ff5e00;
+  border:none;
+  color: #ffff;
 }
 
 .footer-column h3 {
@@ -734,7 +753,6 @@ footer li {
 
   .form-wrap {
     margin-top: 20rem;
-
   }
 
 
@@ -756,6 +774,14 @@ footer li {
   footer {
     width: 100%;
   }
+
+}
+
+@media(min-width:600px){
+.form-wrap{
+padding: 10px;
+}
+
 
 }
 
@@ -784,8 +810,8 @@ footer li {
   }
 
   .banner {
-    background-image: url(/assets/banner-01.png);
-    background-size: cover;
+    background-image: url(/assets/banner-responsive.png);
+    background-size:contain-full;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
@@ -795,12 +821,12 @@ footer li {
   .container-texto-principal {
     min-width: 100%;
     margin-left: 0;
+    padding: 20px;
+    text-align: center;   
+ 
   }
 
-  .texto_principal {
-    margin: auto;
-    height: auto;
-  }
+ 
 
 
   main .principal .banner .texto_principal {
@@ -840,11 +866,9 @@ footer li {
     margin: 0;
   }
 
-  .envios {
-    background-color: #25D366;
-    min-width: 100vh;
-    position: relative;
-    height: auto;
+  .envios {     
+    text-align: center;
+    margin-top: 380px;
   }
 
   .envios #gratis {
@@ -884,10 +908,44 @@ footer li {
   }
 
   .img-min {
-    max-height: 200px;
+    max-height: 200px;    
   }
 
+  .form-wrap{
+    justify-content: center;
+  }
+  
+  .form-wrap .row-g-0{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+  }
 
+  .form-wrap .col-md-4{
+    width: 100%;
+    order: -1;
+    margin-bottom: 20px;
+   display: flex;
+   justify-content: center;
+  }
+
+  .form-wrap .col-md-8{
+    width: 100%;   
+      }
+
+      .contenedor-productos{
+       padding-top: 2rem;
+    
+      }
+
+      .contenedor-productos h3{
+        font-family:'Courier New', Courier, monospace;
+      }
+
+      .titulo-productos{
+        color: #121212;
+      }
 }
 
 
