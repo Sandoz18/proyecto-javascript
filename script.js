@@ -548,10 +548,12 @@ const cerrarSolapa = document.getElementById('cerrar-solapa'); // Botón de cier
 
 modalLateralAbrir.addEventListener('click', () => {
   modalLateral.classList.add('abierto');
+  solapa.style.display = 'none';
 });
 
 modalLateralCerrar.addEventListener('click', () => {
   modalLateral.classList.remove('abierto');
+  solapa.style.display = 'flex';
 });
 
 cerrarSolapa.addEventListener('click', () => {

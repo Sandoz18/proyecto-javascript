@@ -7,7 +7,7 @@
 
 .container-nav {
   flex-direction: row-reverse;
-  width: 60%;
+  width: 70%;
 }
 
 .navbar-nav {
@@ -36,13 +36,11 @@
   display: flex;
   width: auto;
   justify-content: center;
-
 }
 
 .navbar {
   transition: 0.6s ease-in-out,
     box-shadow 0.3s ease-in-out;
-
 }
 
 .navbar.scrolled {
@@ -170,15 +168,12 @@ main .principal .marquesina {
 
 .text-overlay-container {
   margin-top: 3rem;
-
-
 }
 
 .text-overlay {
   padding: 1px;
   height: auto;
 }
-
 
 main .principal .banner .texto_principal {
   position: relative;
@@ -190,12 +185,10 @@ main .principal .banner .texto_principal {
 
 main .principal .banner .texto_principal h1 {
   font-weight: 100;
-  font-size: 6rem;
+  font-size: 6.5rem;
   font-family: 'Courier New', Courier, monospace;
   color: #fafafa;
-  margin-top: 15rem;
-
-
+  margin-top: 16rem;
 }
 
 main .principal .banner .texto_principal h2 {
@@ -233,10 +226,13 @@ main .principal .banner .texto_principal .shop .btn {
   transform: scale(1.1);
 }
 
-
- .titulo-productos {
-  color: #000000; 
+.titulo-productos {
+  color: #000000;
   margin-bottom: 5rem;
+  font-size: 4rem;
+  width: 100%;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 main .principal .banner .texto_principal .envios {
@@ -261,7 +257,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 /*esto v a un partial modal*/
 .modal-lateral-solapa {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 0;
   width: 3.5rem;
   height: 16rem;
@@ -271,6 +267,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   flex-direction: column-reverse;
   transform: translateY(-50%);
   padding: 0.5rem;
+  margin-right: 0.5rem;
   padding-bottom: 4rem;
   background-color: #037166;
   color: #ffff;
@@ -295,7 +292,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   top: 50%;
   left: -400px;
   /* Oculto inicialmente, ancho de la tarjeta */
-  width: 400px;
+  width: 410px;
   height: 550px;
   /* Alto de la tarjeta */
   transform: translateY(-50%);
@@ -358,15 +355,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 
-
-.titulo-productos {
-  width: 100%;
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-
 .newsletter-content {
   text-align: center;
   flex-grow: 1;
@@ -405,7 +393,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 .form-control {
   width: 100%;
-
 }
 
 .newsletter-form button {
@@ -420,11 +407,9 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 .productos-destacados {
   font-weight: 500;
-
 }
 
 #productos-contenedores {
-
   width: 100%;
   display: flex;
 }
@@ -440,7 +425,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 }
 
 .card-price {
-
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
@@ -452,7 +436,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   margin: 0 auto;
   font-size: 1rem;
   margin-bottom: 1.5rem;
-
 }
 
 .fade {
@@ -466,8 +449,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   border: 0.5px solid rgba(0, 0, 0, 0.521);
   box-shadow: 2px, 2px, 5px rgba(219, 222, 222, 0.867);
   text-align: center;
-
-
 }
 
 .card-img {
@@ -476,7 +457,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   height: auto;
   max-height: 200px;
 }
-
 
 .card .div {
   flex-grow: 1;
@@ -492,17 +472,14 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   margin-bottom: 2rem;
 }
 
-
 .btn-primary {
   background-color: #df1515de;
   border: #232121;
-
 }
 
 .btn-primary:hover {
   background-color: #c70b0b;
 }
-
 
 .titulo-productos {
   color: #2a2727;
@@ -520,7 +497,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 
   #gratis {
-
     font-size: 1.8rem;
     font-weight: 100;
     display: flex;
@@ -528,7 +504,6 @@ main .principal .banner .texto_principal sans-serif .card:hover {
     white-space: nowrap;
     justify-content: space-between;
     padding: 1rem;
-
   }
 }
 
@@ -552,21 +527,23 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   height: fit-content;
- 
 }
 
-.registro h3{
+.registro h3 {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.8rem;
+  font-weight: 100;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
 }
 
-.form-wrap{
-  background-color:#088292;
+.form-wrap {
+  background-color: #088292;
   justify-content: center;
   height: auto;
- 
+  border-radius: 5px;
 }
 
 .form-wrap .card {
@@ -581,19 +558,31 @@ main .principal .banner .texto_principal sans-serif .card:hover {
   display: flex;
   flex-direction: column;
   width: auto;
-
 }
 
 
 .form-check {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   width: 100%;
 }
 
-.form-check-label a{
+.form-check-label a {
   color: #f9f9f9;
+}
+
+
+.registro #nombre {
+  width: 300px;
+}
+
+.registro #email {
+  width: 300px;
+}
+
+.registro #password {
+  width: 300px;
 }
 
 .form-control {
@@ -608,13 +597,13 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 .imagen-container img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /*form*/
 .btn-submit {
   background-color: #ff5e00;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 footer li {
@@ -631,9 +620,9 @@ footer li {
   font-weight: 900;
 }
 
- .btn-secondary{
-  background-color:#ff5e00;
-  border:none;
+.btn-secondary {
+  background-color: #ff5e00;
+  border: none;
   color: #ffff;
 }
 
@@ -641,8 +630,221 @@ footer li {
   margin-left: 1rem;
 }
 
-
+.footer-middle h3{
+  color: #df1515;
+}
 /*mediaqueries****************************************************************/
+@media (max-width:768px) {
+
+  .container-nav {
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 75%;
+  }
+
+  .navbar-nav {
+    flex-wrap: nowrap;
+    background-color: #3a3939;
+  }
+
+  .navbar-brand {
+    width: 8rem;
+    padding-left: 1rem;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+
+  .offcanvas-header .btn-close {
+    margin-top: 3rem;
+    color: #000;
+    font-size: 1.5rem;
+  }
+
+  .banner {
+    background-image: url(/assets/banner-responsive2.png);
+    background-size:cover;  
+    background-repeat: no-repeat;
+    background-position:center;   
+    height: 100vh;
+  }
+
+  .container-texto-principal {
+    width: 100%;
+    margin-left: 2.5rem;
+    padding: 20px;
+    text-align: center; 
+    margin-top: 20rem;   
+  } 
+
+  .text-overlay-container{   
+    background-color: #25D366;
+    border-radius: 50%;
+    height: 20rem;
+    width: 20rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */   
+    padding: 2rem; /* Añade un poco de espacio alrededor del texto */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  }
+
+  main .principal .banner .texto_principal {
+    height: auto;
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
+
+  main .principal .banner .texto_principal h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  .texto_principal {
+    height: auto;
+    text-align: center; 
+   
+  }
+
+  main .principal .banner .texto_principal .hasta {
+    font-size: 1.3rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  main .principal .banner .texto_principal h2 {
+    font-size: 4rem;
+  }
+
+  main .principal .banner .texto_principal .porciento {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  main .principal .banner .texto_principal .porciento p {
+    margin: 0;
+  }
+
+  main .principal .banner .texto_principal .shop .btn {
+    color: #fafafa;
+    background-color: #5f15df;    
+    margin-bottom: 5rem;
+  }
+
+  .envios {
+    text-align: center;   
+  }
+
+  .envios #gratis {
+    font-size: 1.6rem;
+  }
+
+  .envios #gratis p {
+    margin-right: 4rem;
+  }
+
+  .modal-lateral {
+    position: fixed;
+    top: 50%;
+    left: -400px;
+    /* Oculto inicialmente, ancho de la tarjeta */
+    width: 400px;
+    height: 550px;
+    /* Alto de la tarjeta */
+    transform: translateY(-50%);
+    /* Ajusta el centrado vertical */
+    background-color: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    border-radius: 0 10px 10px 0;
+  }
+  
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .container-iconos-navbar {
+    display: flex;
+    flex-direction: row;
+    margin-right: 3.8rem;
+  }
+
+
+  ul {
+    display: block !important;
+    text-align: right;
+  }
+
+
+  .card-container {
+    overflow: hidden !important;
+  }
+
+  #nuevo-evento {
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .img-min {
+    max-height: 200px;    
+  }
+
+  .form .img-fluid{
+   width: 100%;
+  }
+  .form-wrap {
+    justify-content: center;
+  }
+
+  .form-wrap .row-g-0 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .form-wrap .col-md-4 {
+    width: 100%;
+    order: -1;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-wrap .col-md-8 {
+    width: 100%;
+  }
+
+  .contenedor-productos {
+    padding-top: 2rem;
+  }
+
+  .contenedor-productos h3 {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .titulo-productos {
+    color: #121212;
+    font-size: 2.5rem;
+  }
+}
+
+@media(min-width:600px) {
+  .form-wrap {
+    padding: 10px;
+  }
+
+
+}
+
 /*320*/
 @media (max-width: 320px) {
 
@@ -701,7 +903,6 @@ footer li {
 
   main .principal .banner .texto_principal #ofertas {
     font-size: 1.2rem;
-
   }
 
   main .principal .banner .texto_principal .porciento {
@@ -729,10 +930,8 @@ footer li {
   }
 
 
-
   .navbar-nav {
     text-align: center;
-
   }
 
   .container-iconos-navbar {
@@ -755,8 +954,6 @@ footer li {
     margin-top: 20rem;
   }
 
-
-
   #nuevo-evento {
     font-size: 0.5rem;
     justify-content: center;
@@ -777,176 +974,8 @@ footer li {
 
 }
 
-@media(min-width:600px){
-.form-wrap{
-padding: 10px;
-}
 
 
-}
-
-@media (max-width:768px) {
-
-  .container-nav {
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-  }
-
-  .navbar-nav {
-    flex-wrap: nowrap;
-    background-color: #3a3939;
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: end;
-  }
-
-  .offcanvas-header .btn-close {
-    margin-top: 3rem;
-    color: #000;
-    font-size: 1.5rem;
-  }
-
-  .banner {
-    background-image: url(/assets/banner-responsive.png);
-    background-size:contain-full;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 70vh;
-  }
-
-  .container-texto-principal {
-    min-width: 100%;
-    margin-left: 0;
-    padding: 20px;
-    text-align: center;   
- 
-  }
-
- 
-
-
-  main .principal .banner .texto_principal {
-    height: auto;
-    width: 100%;
-    padding-top: 20rem;
-
-  }
-
-
-  main .principal .banner .texto_principal h1 {
-    font-size: 2.5rem;
-
-  }
-
-  .texto_principal {
-    height: auto;
-    text-align: center;
-    padding: 5rem 0;
-
-  }
-
-  main .principal .banner .texto_principal .hasta {
-    font-size: 1.4rem;
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  main .principal .banner .texto_principal h2 {
-    font-size: 5rem;
-  }
-
-  main .principal .banner .texto_principal .porciento {
-    font-size: 2rem;
-  }
-
-  main .principal .banner .texto_principal .porciento p {
-    margin: 0;
-  }
-
-  .envios {     
-    text-align: center;
-    margin-top: 380px;
-  }
-
-  .envios #gratis {
-    font-size: 1rem;
-
-  }
-
-  .envios #gratis p {
-    margin-right: 4rem;
-  }
-
-
-  .navbar-nav {
-    text-align: center;
-  }
-
-  .container-iconos-navbar {
-    display: flex;
-    flex-direction: row;
-    margin-right: 3.8rem;
-  }
-
-
-  ul {
-    display: block !important;
-    text-align: right;
-  }
-
-
-  .card-container {
-    overflow: hidden !important;
-  }
-
-  #nuevo-evento {
-    font-size: 1rem;
-    justify-content: center;
-  }
-
-  .img-min {
-    max-height: 200px;    
-  }
-
-  .form-wrap{
-    justify-content: center;
-  }
-  
-  .form-wrap .row-g-0{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   
-  }
-
-  .form-wrap .col-md-4{
-    width: 100%;
-    order: -1;
-    margin-bottom: 20px;
-   display: flex;
-   justify-content: center;
-  }
-
-  .form-wrap .col-md-8{
-    width: 100%;   
-      }
-
-      .contenedor-productos{
-       padding-top: 2rem;
-    
-      }
-
-      .contenedor-productos h3{
-        font-family:'Courier New', Courier, monospace;
-      }
-
-      .titulo-productos{
-        color: #121212;
-      }
-}
 
 
 
