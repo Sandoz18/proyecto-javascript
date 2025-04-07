@@ -19,11 +19,13 @@
     <script src="https://kit.fontawesome.com/c39736c39a.js" crossorigin="anonymous"></script>
     <!---toastify-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <title>index</title>
+    <!---Leaflet  librería de JavaScript de código abierto para mapas interactivos-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <title>localizador</title>
 </head>
 
-<body>
-
+<body class="fondo-body">
     <header>
         <div class="container-fluid gx-0">
             <!---barra navegación-->
@@ -133,7 +135,7 @@
     </header>
 
     <main class="container-fluid gx-0">
-        <section class="principal">
+        <section>
             <!--marquesina animada-->
             <div class="marquesina fixed-top py-2 bg-light">
                 <span class="marquee-item">3 CUOTAS SIN INTERÉS EN
@@ -155,121 +157,67 @@
             </div>
 
 
-            <div class="banner container-fluid gx-0">
-                <div class="row justify-content-center gx-0">
-                    <div class="col-12 text-center">
-                        <div class="container-texto-principal">
-                            <div class="texto_principal">
-                                <div class="text-overlay-container">
-                                    <h1 class="mb-0 pb-0 text-overlay">Descuentos</h1>
-                                    <div class="container d-flex
-                                        justify-content-center align-items-center text-center">
-                                        <h4 class="hasta">HASTA</h4>
-                                        <!--javascript-->
-                                        <h2 id="ofertas">50</h2>
-                                        <div class="porciento">
-                                            <p>%OFF</p>
-
-                                        </div>
-
-                                    </div>
-                                    <p class="productos_seleccionados text-white">
-                                        En productos Seleccionados
-                                    </p>
-                                    <div class="shop text-white">
-                                        <!--acá algún efecto copado para el bóton-->
-                                        <button id="nuevo-evento" class="boton-shop btn btn-lg" href="#">Comprar
-                                            Ahora</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
+            <section>
+                <div class="container-fluid localizador">             <!--acá hacer algo con js-->
+                    <h3 class="titulo-localizador">ENCONTRÁ TU TIENDA MÁS CERCANA</h3>         
                 </div>
+                <div class="mapa-localizador">            
+                <div class="container d-flex">
+                    <div class="lista-ubicaciones">
+                        <h2>Tiendas</h2>
+                        <ul id="lista-tiendas">
+                        </ul>
+                    </div>
+                    <div id="map" class="mapa"></div>
+                </div>
+            
+                <script>
+                    var map = L.map('map').setView([-34.6037, -58.3816], 13);
+            
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        maxZoom: 20
+                    }).addTo(map);
+            
+                    var ubicaciones = [
+                        { lat: -34.6037, lng: -58.3816, nombre: 'ABASTO 2', direccion: 'Av. Corrientes 3247', telefono: '+54 91144197924' },
+                        { lat: -34.5888, lng: -58.4111, nombre: 'ALTO PALERMO', direccion: 'Santa Fe 3253', telefono: '+54 91144197924' },
+                        { lat: -34.5911, lng: -58.3933, nombre: 'ALTO AVELLANEDA 2', direccion: 'Av. Güemes 897', telefono: '+54 91144197924' },
+                        { lat: -34.5455, lng: -58.4666, nombre: 'ARMENIA', direccion: 'Armenia 1789', telefono: '+54 91144197924' },
+                    ];
+            
+                    var listaTiendas = document.getElementById('lista-tiendas');
+            
+                    ubicaciones.forEach(function(ubicacion) {
+                        var marcador = L.marker([ubicacion.lat, ubicacion.lng]).addTo(map)
+                            .bindPopup(`<b>${ubicacion.nombre}</b><br>${ubicacion.direccion}<br>Teléfono: ${ubicacion.telefono}`);
+            
+                        var li = document.createElement('li');
+                        li.innerHTML = `<b>${ubicacion.nombre}</b><br>${ubicacion.direccion}<br>Teléfono: ${ubicacion.telefono}`;
+                        li.addEventListener('click', function() {
+                            map.setView([ubicacion.lat, ubicacion.lng], 16);
+                            marcador.openPopup();
+                        });
+            
+                        listaTiendas.appendChild(li);
+                    });
+                </script>        
+                
+             </div>
+            </section>         
+                    
+
+               
+            <div id="productos-contenedores">
 
             </div>
-
-        </section>
-        <section class="envios">
-            <div id="gratis">
-                <!--acá hacer algo con js-->
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-                <p>ENVIOS GRATIS</p>
-            </div>
-        </section>
-
-        <section class="container contenedor-productos">
-            <h3 class="titulo-productos my-5 py-5 text-center ">Productos Destacados</h3>
-            <div class="row text-center mt-5 text-center" id="productos-contenedores">
-
-            </div>
-        </section>
-
-
-        <!--<i class="fa-brands fa-whatsapp fa-beat"></i>-->
-
+        </section>     
     </main>
-
-    <section class="form py-5">
-        <div class="container form-wrap">
-            <div class="col col-md-12">
-                <div class="row g-0">
-                    <div class="col-lg-6 col-md-12">
-                        <img src="assets/contactForm.png" class="img-fluid rounded-start"
-                            alt="imagen-formulario-contacto">
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card-body">
-                            <form class="registro">
-                                <h3 class="card-title mt-3 fw-semibold">REGISTRATE AHORA</h3>
-                                <div class="mb-2 mt-5">
-                                    <label for="nombre" class="form-label">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombre" required>
-                                </div>
-                                <div class="mb-2">
-                                    <label for="email" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" required>
-                                </div>
-                                <div class="check-container  mt-1">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"
-                                            required>
-                                        <label class="form-check-label" for="flexCheckDefault2">
-                                            He leído y acepto los <a href="terminos.html">términos y
-                                                condiciones</a>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-submit btn-primary mt-4 btn-lg">Crear
-                                    Cuenta</button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
     <div>
         <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" class="whatsapp-button">
             <img src="assets/whatsapp-icon.png" alt="WhatsApp">
         </a>
     </div>
-
 
     <!--------------------------footer------------------------------------------->
     <footer class="bg-dark text-white text-center">
@@ -279,8 +227,7 @@
                     <div class="col-12">
                         <div class="footer-newsletter pb-5 text-dark">
                             <h2 class="footer-suscription">Suscribite a nuestro Newsletter</h2>
-                            <p>Recibe las últimas noticias, ofertas y promociones directamente en tu bandeja de entrada.
-                            </p>
+                            <p>Recibe las últimas noticias, ofertas y promociones directamente en tu bandeja de entrada.</p>
                             <button type="button" class="btn btn-secondary btn-lg">Suscribirme</button>
                         </div>
                     </div>
@@ -364,8 +311,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <!--javascript-->
-
-    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfSgQXo1pid9nbFMDxIqZ0ManO7OVphk&callback=initMap" async defer></script>
+    <script src="localizador.js"></script>
 
 </body>
 
