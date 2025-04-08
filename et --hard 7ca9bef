@@ -1,0 +1,28 @@
+[33m7ca9bef[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mrespaldo-antes-del-push[m[33m)[m Eliminar script de la API de google maps del localizador.html
+[33m44b8925[m Eliminar script de la API de Google Maps del localizador.html
+[33mc8ad62f[m Eliminar script de la API de google maps del localizador.html
+[33mf9a0c14[m cambios 768
+[33meea930e[m ajustes formulario contacto
+[33m791bb37[m entrega final
+[33m033389a[m función nombre producto aleatorio, mejora css, falta responsive, depurar código, enlaces
+[33m7d10ee7[m detalles tarjetas producto, generación nombres producto random, estilos
+[33m554ff00[m Modal lateral con newsletter, ajustes, login
+[33mc173587[m carrito de compras activo, modal con tooltips, mejoras en cards
+[33mcb14749[m carga de productos desde archivo json, generación de descipción aleatoria de los productos
+[33mad27b5b[m json con problemas de visualización de imagenes, se guarda una copia antes de los cambios
+[33ma73ab20[m ajustes imagenes y texto 320
+[33m65df7fc[m cambios en el responsive 320
+[33mfdc06cb[m ajustes responsive 320
+[33m5de0daf[m funcionalidades del carro de compras
+[33m7c757fe[m responsive 768 y librerias
+[33m91b8f3f[m repo
+[33m38b6ca7[m avances carrito de compras, sessionStorage
+[33m8d2eb62[m entrega n° 2
+[33m76fe051[m ajuste imagenes
+[33m94a8bfb[m diseño banner, creación de alert y avances con las funcionalidades del carrito de compras
+[33mbc42f99[m iconos carrito de compras y login, logo, addEventListener, array de productos
+[33mbae3a75[m cards recuperadas
+[33mfcc740e[m nuevo commit de recuperación archivo js
+[33md7c68c1[m archivos recuperados y mergeados despues de cherry-pick
+[33me6dce81[m guardando cambios antes de cherry-pick
+[33m4a64a5c[m primera versión del proyecto
