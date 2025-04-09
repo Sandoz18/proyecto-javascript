@@ -47,22 +47,22 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.644);
 }
 
-/*pagina de localizador*/
+/*pagina de localizador********************************************************/
 
 .fondo-body{
-  background-color: #a68a8a;
- 
+  background-color:  #5e8791; 
 }
 
 
 .localizador{
-  margin-top: 9rem;
- 
+  margin-top: 9.5rem; 
 }
 
 .titulo-localizador{
   background-color: #000;
 color: #ccc;
+width: 100%;
+box-sizing: border-box;
 text-align: center;
 align-items: center;
 font-size: 3.5rem;
@@ -73,23 +73,96 @@ padding-bottom: 1.5rem;
 
 .mapa-localizador{
   height: 90vh;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Una sombra sutil */
+  margin-bottom: 30px; /* Espacio debajo del localizador */
+  padding: 20px; 
+}
+
+.mapa-localizador .container.d-flex{
+flex-direction: row;
+align-items: self-start;
+gap: 20px;
+align-items: stretch; /* Esto hará que los hijos se estiren verticalmente */
+height: 600px; /* O un valor fijo si el contenedor padre tiene una altura definida */
 }
 
 #map {
   display: flex;
   width: 100%;
   height: 600px;
-
 }
 
 .lista-ubicaciones{
-  width: 300px;
-  padding: 20px;
-  background-color: #929493;
+  width: auto; 
+  border: 1px solid #dddddd71; /* Borde sutil */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f8f8f896;
+}
+
+.lista-ubicaciones h2 {
+  padding: 10px;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333; /* Color del título */
+  border-bottom: 1px solid #eee; /* Línea debajo del título */
+}
+
+.search-container {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+#location-search {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: #555;
+}
+
+#location-search::placeholder {
+  color: #999;
+}
+
+
+.lista-ubicaciones ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.lista-ubicaciones ul li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+   font-size: 1em;
+    color: #444;
+}
+
+.lista-ubicaciones ul li:hover {
+  background-color: #f0f0f0cd; /* Un ligero cambio de color al pasar el ratón */
+}
+
+.lista-ubicaciones ul li b {
+  font-weight: bold;
+  color: #222;
+  display: block; /* Para que ocupe toda la línea */
+  margin-bottom: 5px;
+}
+
+.lista-ubicaciones ul li:last-child {
+  border-bottom: none;
 }
 
 .mapa{
-  flex:1
+  flex:1;
 }
 
 
@@ -102,7 +175,7 @@ padding-bottom: 1.5rem;
   flex-grow: 1;
 }
 
-/*fin pagina de localizador*/
+/*fin pagina de localizador**********************************************************/
 
 main .principal {
   display: flex;
@@ -1057,6 +1130,74 @@ margin-right: 0.5rem;
     width: 8rem;
     padding-left: 1rem;
   }
+
+  /*pagina de localizador********************************************************/
+
+.fondo-body{
+  background-color: #a68a8a;
+ 
+}
+
+
+.localizador{
+  margin-top: 9rem;
+ 
+}
+
+.titulo-localizador{
+  background-color: #000;
+color: #ccc;
+text-align: center;
+align-items: center;
+font-size: 2.5rem;
+font-weight: 100;
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
+}
+
+.mapa-localizador{
+  height: 90vh;
+}
+
+#map {
+  display: flex;
+  width: 100%;
+  height: 600px;
+
+}
+
+.lista-ubicaciones{
+  width:100%;
+  padding: 20px;
+  background-color: #929493;
+}
+
+.mapa{
+  flex:1
+}
+
+.mapa-localizador{
+  background-color: #25D366;
+
+  .d-flex{display: block !important;}
+}
+
+
+#lista-tiendas {
+  width: 100%; 
+
+    li{
+     
+      text-align: center;
+     list-style: none;
+    }
+}
+
+#mapa {
+  flex-grow: 1;
+}
+
+/*fin pagina de localizador*********************************************************/
   .menu {
     display: flex;
     flex-direction: row-reverse;
