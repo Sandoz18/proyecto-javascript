@@ -1,0 +1,635 @@
+/*pagina de localizador********************************************************/
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .container-nav {
+    flex-direction: row-reverse;
+    width: 70%;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    justify-content: center;
+  }
+  
+  .container-iconos-navbar {
+    width: auto;
+    display: flex;
+  }
+  
+  .navbar-toggler {
+    position: absolute;
+    padding-right: 1rem;
+  }
+  
+  .menu {
+    flex-grow: 1;
+    display: flex;
+    width: auto;
+    justify-content: center;
+  }
+  
+  .navbar {
+    transition: 0.6s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+  }
+  
+  .navbar.scrolled {
+    background-color:#293653;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.644);
+  }
+  
+  
+  
+  main .principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../assets/banner-100.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    margin-top: 2.5rem;
+  }
+  
+  
+  main .principal .marquesina {
+    overflow: hidden;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  main .marquesina{
+    overflow: hidden;
+    white-space: nowrap;
+    width: auto;
+  }
+  
+  .marquee-item {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 15s infinite linear;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  #carrito {
+    text-decoration: none !important;
+    width: 2rem;
+  }
+  
+  .imagen-carrito {
+    width: 100%;
+    height: auto;
+    margin-right: -0.5rem;
+  }
+  
+  .carrito-container:hover .modal {
+    display: block;
+    background-color: #292626;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: fixed;
+  }
+  
+  .contenedor-carrito {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .boton-modal-carrito {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  /* Estilos opcionales para el icono dentro del botón */
+  .boton-modal-carrito i {
+    font-size: 1.5rem;
+    color: #fff;
+    /* Color del icono */
+  }
+  
+  .contador-circulo {
+    position: absolute;
+    top: 7px;
+    right: 1px;
+    transform: translate(50%, -50%);
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    display: none;
+  }
+  
+  #login {
+    text-decoration: none;
+    width: 2rem;
+  }
+  
+  .modal-content{
+  background-color: #f5f1fd;
+  border-radius: 1rem;
+  padding: 1rem;
+  }
+  
+  .modal-content h5{
+    font-size: 1.2rem;
+  }
+  
+  .modal-content a{
+    color: #0d4b8e;
+  }
+  
+  .modal-content a:hover{
+    color:#023367;
+  }
+  
+  #loginForm{ 
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  #loginForm .btn-primary{
+    background-color: #0d4b8e;
+  }
+  
+  #loginForm .btn-primary:hover{
+    background-color: #023367;
+  }
+  
+  .btn-outline-primary{
+    background-color: white;
+  }
+  
+  .btn-outline-primary:hover{
+    background-color: white;
+  }
+  
+  .imagen-login {
+    width: 100%;
+  }
+  
+  .img-container {
+    width: 5rem;
+  }
+  
+  .container-texto-principal {
+    max-width: 40%;
+    height: auto;
+    margin-left: 10rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text-overlay-container {
+    margin-top: 3rem;
+    letter-spacing: 2px; /* Ajusta el espaciado entre letras */
+      word-spacing: 2px; /* Ajusta el espaciado entre palabras */
+  }
+  
+  .text-overlay-container h1 {
+    margin-bottom: 0.5rem;
+    line-height: 2.5rem;
+   }
+  
+  
+  .text-overlay {
+    padding: 0.5px;
+    height: auto;
+  }
+
+/*acomodar el nesting comparando con el html*/
+/*esto v a un partial modal*/
+.modal-lateral-solapa {
+    position: fixed;
+    top: 45%;
+    left: 0;
+    width: 3rem;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    padding-bottom: 4rem;
+    background-color: #037166;
+    color: #ffff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    z-index: 1051; /* Cambiado a 1051 */
+  }
+  
+  .modal-lateral-solapa button {
+    border: none;
+    background: none;
+    padding: 0;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: #ffffffda;
+  }
+  
+  .modal-lateral {
+    position: fixed;
+    top: 50%;
+    left: -400px;
+    /* Oculto inicialmente, ancho de la tarjeta */
+    width: 400px;
+    height: 550px;
+    /* Alto de la tarjeta */
+    transform: translateY(-50%);
+    /* Ajusta el centrado vertical */
+    background-color: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 1050;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  
+  
+  .modal-lateral.abierto {
+    left: 0;
+  }
+  
+  .modal-lateral-contenido {
+    padding: 15px;
+  }
+  
+  .modal-lateral-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #cerrar-solapa {
+    font-size: 20px;
+    align-self: center;
+    margin-top: 0.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /*botón whatsapp***************************************/
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .whatsapp-button img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+  
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .newsletter-content {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .newsletter-content img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .newsletter-content h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter-content p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .newsletter-form input {
+    min-width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(241, 236, 233);
+  }
+  
+  .form-control {
+    width: 100%;
+  }
+  
+  .newsletter-form button {
+    width: 80%;
+    padding: 10px;
+    background-color: #ffc904;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+.fondo-body{
+background-color: #293653;
+    height: 100vh;
+
+}
+  
+  
+  .localizador{
+    margin-top: 9.5rem; 
+  }
+  
+  .titulo-localizador{
+   
+  color: #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: center;
+  font-size: 3.5rem;
+  font-weight: 100;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  }
+  
+  .mapa-localizador{
+    height: 90vh;
+    border-radius: 8px; /* Bordes redondeados */    
+    margin-bottom: 30px; /* Espacio debajo del localizador */
+    padding: 20px; 
+  }
+  
+  .mapa-localizador .container.d-flex{
+  flex-direction: row;
+  align-items: self-start;
+  gap: 20px;
+  align-items: stretch; /* Esto hará que los hijos se estiren verticalmente */
+  height: 600px; /* O un valor fijo si el contenedor padre tiene una altura definida */
+  }
+  
+  #map {
+    display: flex;
+    width: 100%;
+    height: 600px;
+  }
+  
+  .lista-ubicaciones{
+    width: auto; 
+    border: 1px solid #dddddd21; /* Borde sutil */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #9d9898;
+    padding-top: 15px;
+  }
+  
+  .lista-ubicaciones h2 {
+    padding: 20px 10px;
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #282424; /* Color del título */
+    border-bottom: 1px solid #eeeeee53; /* Línea debajo del título */
+    text-align: center;
+    align-items: center;
+  }
+  
+  .search-container {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eeeeee53; 
+  }
+  
+  #location-search {
+    width: calc(100% - 30px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #555;
+  }
+  
+  #location-search::placeholder {
+    color: #999;
+  }
+  
+  
+  .lista-ubicaciones ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .lista-ubicaciones ul li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eeeeee53;
+    cursor: pointer;
+     font-size: 1em;
+      color: #444;
+      text-align: center;
+  }
+  
+  .lista-ubicaciones ul li:hover {
+    background-color: #f0f0f0cd; /* Un ligero cambio de color al pasar el ratón */
+  }
+  
+  .lista-ubicaciones ul li b {
+    font-weight: bold;
+    color: #222;
+    display: block; /* Para que ocupe toda la línea */
+    margin-bottom: 5px;
+  }
+  
+  .lista-ubicaciones ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .mapa{
+    flex:1;
+  }
+  
+  
+  #lista-tiendas {
+    width: 300px;
+    overflow-y: auto;
+  }
+  
+  #mapa {
+    flex-grow: 1;
+  }
+
+  
+footer li {
+    list-style-type: none;
+    text-align: center;
+    a {
+      color: #887979;
+    }
+  }
+  
+  footer li a:hover{
+    color:#e8ae6c;
+  }
+  
+  .footer-column img{  
+    width: 2.5rem;
+  }
+  
+  .footer-social li{
+    margin: 0.5rem;
+  }
+  
+  li .fab{
+  margin-right: 0.5rem;
+  }
+  
+  .footer-suscription {
+  
+    font-weight: 300;
+    font-size: 2.5rem;
+  }
+  
+  .btn-secondary {
+    background-color: #ff650c;
+    border: none;
+    color: #ffff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #ff410c;
+  }
+  
+  .footer-column h3 {
+    margin-left: 1rem;
+  }
+  
+  .footer-middle h3{
+    color: #df1515;
+  }
+  
+  /*fin pagina de localizador**********************************************************/
+
+   /*pagina de localizador 768********************************************************/
+@media (max-width:768){
+.fondo-body{
+  background-color: #a68a8a; 
+}
+
+
+.localizador{
+  margin-top: 9rem;
+ 
+}
+
+.titulo-localizador{
+  background-color: #000;
+color: #ccc;
+text-align: center;
+align-items: center;
+font-size: 2.5rem;
+font-weight: 100;
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
+}
+
+.mapa-localizador{
+  height: 90vh;
+}
+
+#map {
+  display: flex;
+  width: 100%;
+  height: 600px;
+
+}
+
+.lista-ubicaciones{
+  width:100%;
+  padding: 20px;
+  background-color: #929493;
+}
+
+.mapa{
+  flex:1
+}
+
+.mapa-localizador{
+  background-color: #25D366;
+
+  .d-flex{display: block !important;}
+}
+
+
+#lista-tiendas {
+  width: 100%; 
+
+    li{
+     
+      text-align: center;
+     list-style: none;
+    }
+}
+
+#mapa {
+  flex-grow: 1;
+}}
+
+/*fin pagina de localizador*********************************************************/
