@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!---css------------------------------->
-    <link rel="stylesheet" href="css/localizador.css">
+    <link rel="stylesheet" href="css/nosotros.css">
     <!---------------google fonts-------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,19 +19,17 @@
     <script src="https://kit.fontawesome.com/c39736c39a.js" crossorigin="anonymous"></script>
     <!---toastify-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!---Leaflet  librería de JavaScript de código abierto para mapas interactivos-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <title>localizador</title>
+    <title>nosotros</title>
 </head>
 
-<body class="fondo-body">
+<body>
+
     <header>
         <div class="container-fluid gx-0">
             <!---barra navegación-->
             <nav class="navbar navbar-expand-lg fixed-top mt-3 pt-5" id="navbar">
                 <!--logo-->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="assets/solcito-01.png" class="nav-img" alt="logo">
                 </a>
                 <div class="container-nav d-flex">
@@ -57,9 +55,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="offcanvas offcanvas-start" id="offcanvasNavbar">
+                    <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -134,8 +132,7 @@
         </nav>
     </header>
 
-    <main class="container-fluid gx-0">
-        <section>
+    <main class="container-fluid gx-0">       
             <!--marquesina animada-->
             <div class="marquesina fixed-top py-2 bg-light">
                 <span class="marquee-item">3 CUOTAS SIN INTERÉS EN
@@ -155,74 +152,92 @@
                     INTERÉS EN
                     COMPRAS SUPERIORES A $600.000</span>
             </div>
-
-
+            <section class="hero-section">
+                <div class="hero-container">
+                <h1 class="fw-semibold">Hola!</h1>
+                <h2>SOMOS SUNBURST</h2>
+                <h2>Conocenos un poco más</h2>
+            </div>
+            </section>
             <section>
-                <div class="container-fluid localizador">           
-                    <h3 class="titulo-localizador">Encontrá tu tienda más cercana</h3>         
-                </div>
-                <div class="mapa-localizador">            
-                <div class="container container-mapa">                   
-                    <div id="map" class="mapa"></div>
-                    <div class="lista-ubicaciones">
-                        <h2>Tiendas</h2>
-                        <!--añado buscador de tiendas-->
-                        <div class="search-container">
-                            <input type="text" id="location-search" placeholder="Buscar ubicación...">
-                        </div>
-                        <ul id="lista-tiendas">
-                        </ul>
+             <div class="container-fluid seccion">
+                <div class="row">
+                    <div class="col-md-6 d-flex img-seccion">
+                       <img src="assets/d12.jpg" alt="">
+                       <img src="assets/c9.jpg" alt="">
+                    </div>
+                    <div class="col-md-6 texto-seccion">
+                        <h4>Esto es un Titulo</h4>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ducimus perferendis impedit voluptas quod veniam ullam accusamus rem vel assumenda quo architecto quisquam provident deserunt quas reiciendis, in molestiae aut.
+                        </p>
                     </div>
                 </div>
-            
-                <script>
-                    var map = L.map('map').setView([-34.6037, -58.3816], 13);
-            
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                        maxZoom: 20
-                    }).addTo(map);
-            
-                    var ubicaciones = [
-                        { lat: -34.6037, lng: -58.3816, nombre: 'ABASTO 2', direccion: 'Av. Corrientes 3247', telefono: '+54 91144197924' },
-                        { lat: -34.5888, lng: -58.4111, nombre: 'ALTO PALERMO', direccion: 'Santa Fe 3253', telefono: '+54 91144197924' },
-                        { lat: -34.5911, lng: -58.3933, nombre: 'ALTO AVELLANEDA 2', direccion: 'Av. Güemes 897', telefono: '+54 91144197924' },
-                        { lat: -34.5455, lng: -58.4666, nombre: 'ARMENIA', direccion: 'Armenia 1789', telefono: '+54 91144197924' },
-                        { lat: -34.5978, lng: -58.4002, nombre: 'AV. SANTA FE', direccion: 'Av. Santa Fe 2727', telefono: '+54 91144197924' },
-                        { lat: -34.5946, lng: -58.3902, nombre: 'AV. SANTA FE 2', direccion: 'Av. Santa Fe 1287 U.F. 4', telefono: '+54 91144197924' },
-                        { lat: -34.5933, lng: -58.3968, nombre: 'AV. SANTA FE 3', direccion: 'Av. Santa Fe 2441/43 U.F. 1', telefono: '+54 91144197924' },
-                        { lat: -34.5959, lng: -58.3940, nombre: 'AV. SANTA FE 4', direccion: 'Av. Santa Fe 1938', telefono: '+54 91144197924' }
-
-                    ];
-            
-                    var listaTiendas = document.getElementById('lista-tiendas');
-            
-                    ubicaciones.forEach(function(ubicacion) {
-                        var marcador = L.marker([ubicacion.lat, ubicacion.lng]).addTo(map)
-                            .bindPopup(`<b>${ubicacion.nombre}</b><br>${ubicacion.direccion}<br>Teléfono: ${ubicacion.telefono}`);
-            
-                        var li = document.createElement('li');
-                        li.innerHTML = `<b>${ubicacion.nombre}</b><br>${ubicacion.direccion}<br>Teléfono: ${ubicacion.telefono}`;
-                        li.addEventListener('click', function() {
-                            map.setView([ubicacion.lat, ubicacion.lng], 16);
-                            marcador.openPopup();
-                        });
-            
-                        listaTiendas.appendChild(li);
-                    });
-                </script>        
-                
-             </div>
-            </section>         
-                    
-
-        </section>     
+             </div>               
+            </section>
+            <section>
+                <div class="container-fluid seccion">
+                   <div class="row">
+                    <div class="col-md-6 texto-seccion">
+                        <h4>Esto es un Titulo</h4>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ducimus perferendis impedit voluptas quod veniam ullam accusamus rem vel assumenda quo architecto quisquam provident deserunt quas reiciendis, in molestiae aut.
+                        </p>
+                    </div>
+                       <div class="col-md-6 d-flex img-seccion">
+                          <img src="assets/c1.jpg" alt="">
+                          
+                       </div>
+                      
+                   </div>
+                </div>               
+               </section>
+               <section>
+                <div class="container-fluid seccion">
+                   <div class="row">
+                       <div class="col-md-6 d-flex img-seccion">
+                          <img src="assets/c5.jpg" alt="">
+                          <img src="assets/c9.jpg" alt="">
+                       </div>
+                       <div class="col-md-6 texto-seccion">
+                           <h4>Esto es un Titulo</h4>
+                           <p>
+                               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ducimus perferendis impedit voluptas quod veniam ullam accusamus rem vel assumenda quo architecto quisquam provident deserunt quas reiciendis, in molestiae aut.
+                           </p>
+                       </div>
+                   </div>
+                </div>               
+               </section>
+           
     </main>
+<aside>
+    <div class="container-fluid trabaja-con-nosotros">        
+        <div class="row">
+            <div class="col-md-6">
+                <img src="assets/freepik.png" alt="grupo-personas-lentes-sol">
+            </div>            
+            <div class="col-md-6">               
+              <div class="card">               
+                <div class="card-body">                  
+                  <h5 class="card-title">¡Trabajá con nosotros!</h5>
+                  <p class="card-text">¡Formá parte de nuestro equipo!.</p>
+                  <p>Podés aplicar a las búsquedas vigentes
+                    o también dejar tus datos para futuras búsquedas</p>
+                  <a href="#" class="btn btn-primary">aplicar ahora</a>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+
+    </div>
+</aside>
     <div>
         <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" class="whatsapp-button">
             <img src="assets/whatsapp-icon.png" alt="WhatsApp">
         </a>
     </div>
+
 
     <!--------------------------footer------------------------------------------->
     <footer class="bg-dark text-white text-center">
@@ -232,7 +247,8 @@
                     <div class="col-12">
                         <div class="footer-newsletter pb-5 text-dark">
                             <h2 class="footer-suscription">Suscribite a nuestro Newsletter</h2>
-                            <p>Recibe las últimas noticias, ofertas y promociones directamente en tu bandeja de entrada.</p>
+                            <p>Recibe las últimas noticias, ofertas y promociones directamente en tu bandeja de entrada.
+                            </p>
                             <button type="button" class="btn btn-secondary btn-lg">Suscribirme</button>
                         </div>
                     </div>
@@ -268,7 +284,7 @@
                             <h3>Nosotros</h3>
                             <ul>
                                 <li><a href="#">Sobre Nosotros</a></li>
-                                <li><a href="#">Localizador de tiendas</a></li>
+                                <li><a href="localizador.html">Localizador de tiendas</a></li>
                                 <li><a href="#">Preguntas Frecuentes</a></li>
                             </ul>
                         </div>
@@ -284,9 +300,9 @@
                         <div class="footer-column text-center">
                             <h3>Seguinos</h3>
                             <ul class="footer-social d-flex justify-content-around">
-                                <li><a href="#"><i class="fab fa-instagram fa-2x"></i>Instragram</a></li>
-                                <li><a href="#"><i class="fab fa-facebook fa-2x"></i>Facebook</a></li>
-                                <li><a href="#"><i class="fab fa-tiktok fa-2x"></i>Tiktok</a></li>
+                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i>Instragram</a></li>
+                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i>Facebook</a></li>
+                                <li><a href="https://www.Tiktok.com/"><i class="fab fa-tiktok fa-2x"></i>Tiktok</a></li>
                             </ul>
                             <p>Navegando: Argentina</p>
                         </div>
@@ -316,8 +332,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <!--javascript-->
-  
-    <script src="localizador.js"></script>
+
+    <script src="nosotros.js"></script>
 
 </body>
 

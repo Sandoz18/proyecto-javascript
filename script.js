@@ -38,7 +38,7 @@ function crearNavegacion() {
 /**crear un efecto subrayado dinamico para los li de las pages***/
 //primero creo las paginas con una variable.
 
-let paginas = ['Campaña', 'Productos', 'Contacto'];
+let paginas = ['Home', 'Productos', 'Contacto'];
 paginas.forEach((pagina) => {
   const li = document.createElement('li');
   li.textContent = pagina;
