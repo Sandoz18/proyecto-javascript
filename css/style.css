@@ -353,6 +353,7 @@ main .principal .banner .texto_principal sans-serif .card:hover {
 
 .modal-lateral.abierto {
   left: 0;
+ 
 }
 
 .modal-lateral-contenido {
@@ -1150,7 +1151,7 @@ main .principal .banner .texto_principal{
     top: 50%;
     left: -400px;
     /* Oculto inicialmente, ancho de la tarjeta */
-    width: 400px;
+    width: 300px;
     height: 550px;
     /* Alto de la tarjeta */
     transform: translateY(-50%);
@@ -1335,6 +1336,16 @@ main .principal .banner .texto_principal{
 
     .container-nav {    
      width: 30%;
+    }
+
+    .banner {
+      background-image: url(/assets/banner-responsiveDos.jpg);
+      background-size:cover;  
+      background-repeat: no-repeat;  
+      background-position: start;      
+      width: 100%;
+      height: 80vh;
+    
     }
   
   
