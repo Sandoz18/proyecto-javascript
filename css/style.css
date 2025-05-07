@@ -751,9 +751,8 @@ main .principal .banner .texto_principal{
     align-items: center;
     background-image: url(../assets/banner-01.png);
     background-repeat: no-repeat;
-    background-size: cover;
-   
-    max-width: 100%;
+    background-size: cover;   
+    
   } 
   
   .container-texto-principal {
@@ -779,8 +778,7 @@ main .principal .banner .texto_principal{
   
   main .principal .banner .texto_principal {
     position: relative;
-    display: block;
-   
+    display: block;   
     margin-top: 10px;
     z-index: 1000;
     justify-content: center;
@@ -1263,7 +1261,7 @@ main .principal .banner .texto_principal{
   }
 
   .banner {
-    background-image: url(/assets/banner-responsive.jpg);
+    background-image: url(/assets/banner-responsiveDos.jpg);
     background-size:cover;  
     background-repeat: no-repeat;  
     background-position: start;      

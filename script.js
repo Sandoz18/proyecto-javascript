@@ -602,3 +602,5 @@ ubicaciones.forEach(function(ubicacion) {
     L.marker([ubicacion.lat, ubicacion.lng]).addTo(map)
         .bindPopup(ubicacion.nombre);
 });
+
+
