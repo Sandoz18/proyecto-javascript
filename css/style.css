@@ -1342,12 +1342,13 @@ main .principal .banner .texto_principal{
 @media (max-width: 480px) {
   .container-nav {  
    width: 30%;
-  }
+    }
 
   .banner {
-    background-image: url(/assets/banner-01.png);
+    background-image: url(../assets/banner-01.png);
     background-size:cover;  
-    background-repeat: no-repeat;          
+    background-repeat: no-repeat;
+    background-position: start;          
     width: 100%;  
   }
 
@@ -1512,14 +1513,7 @@ main .principal .banner .texto_principal{
 
 /*320*/
 @media (min-width: 320px) and (max-width:479) { 
-
-  .banner {
-    background-image: url(../assets/banner-01.png);
-    background-size:cover;  
-    background-repeat: no-repeat;          
-   
-  }
-
+ 
   .container-texto-principal {
     position: relative;  
     height: auto;   
@@ -1612,6 +1606,7 @@ main .principal .banner .texto_principal{
       top: 50%; 
      /* Oculto inicialmente, ancho de la tarjeta */      
       height:auto;
+      max-height: 90vh;
       /* Alto de la tarjeta */
       transform: translateY(-50%);
       /* Ajusta el centrado vertical */
@@ -1620,11 +1615,12 @@ main .principal .banner .texto_principal{
       transition: left 0.3s ease-in-out;
       z-index: 1050;
       border-radius: 0 10px 10px 0;
+      width: 90%;
+      max-width: 300px;
+      left: -90%;
     } 
 
-    .modal-lateral-contenido {
-      padding: 3px;
-    }
+  
   
     .modal-lateral-cerrar {
       position: absolute;
@@ -1632,7 +1628,8 @@ main .principal .banner .texto_principal{
       right: 10px;
       background: none;
       border: none;
-      font-size: 10px;
+      font-size: 16px;
+      padding: 10px;
       cursor: pointer;
     }
     
