@@ -583,9 +583,9 @@ window.addEventListener('load', () => {
 
 //funcion para crear mapa y simular api rest
 
-var map = L.map('map').setView([-34.603722, -58.381556], 12); // Ajustar zoom para ver más ubicaciones
+//var map = L.map('map').setView([-34.603722, -58.381556], 12); // Ajustar zoom para ver más ubicaciones
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+/*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
@@ -601,6 +601,6 @@ var ubicaciones = [
 ubicaciones.forEach(function(ubicacion) {
     L.marker([ubicacion.lat, ubicacion.lng]).addTo(map)
         .bindPopup(ubicacion.nombre);
-});
+});*/
 
 
