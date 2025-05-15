@@ -1074,18 +1074,18 @@ main .principal .banner .texto_principal{
   }   
 
   .banner {
-    background-image: url(../assets/banner-01.png);
+    background-image: url(../assets/banner-01-01.png);
     background-size:cover;  
     background-repeat: no-repeat;
     background-position:center center; 
-    height: 75vh;
+    height: 100vh;
          
     } 
 
     .responsive{
       display: block;
-      height: 25vh;    
-      background-color: #23272a;
+      height: 30vh;    
+      background-color: none;
       width: 100%;     
     }
     
@@ -1345,7 +1345,7 @@ main .principal .banner .texto_principal{
     }
 
   .banner {
-    background-image: url(../assets/banner-01.png);
+   
     background-size:cover;  
     background-repeat: no-repeat;
     background-position: start;          
@@ -1357,8 +1357,7 @@ main .principal .banner .texto_principal{
     height: auto;   
     justify-content: center;
     align-items: center;
-    margin-top: 35rem;
-    margin-left: 8rem;  
+    
   }
   
   .text-overlay-container{      
@@ -1475,6 +1474,7 @@ main .principal .banner .texto_principal{
   
   .modal-lateral.abierto {
     left: 0;
+    max-width: 90%;
   }
   
   .modal-lateral-contenido {
@@ -1514,11 +1514,28 @@ main .principal .banner .texto_principal{
 /*320*/
 @media (min-width: 320px) and (max-width:479) { 
  
-  .container-texto-principal {
+ .banner {
+    background-image: url(../assets/banner-01.png);
+    background-size:cover;  
+    background-repeat: no-repeat;
+    background-position: start;          
+    width: 100%;
+     }
+
+      .container-texto-principal {
     position: relative;  
     height: auto;   
     justify-content: center;
-    align-items: center;       
+    align-items: center;
+    margin-top: 30rem;
+    margin-left: 6rem;  
+  }
+  
+  .text-overlay-container{      
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */        
+    height: auto;    
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */     
   }
    
     main .principal .banner .texto_principal .text-overlay {
@@ -1620,7 +1637,10 @@ main .principal .banner .texto_principal{
       left: -90%;
     } 
 
-  
+  .modal-lateral.abierto {
+    left: 0;
+   
+  }
   
     .modal-lateral-cerrar {
       position: absolute;
@@ -1629,7 +1649,7 @@ main .principal .banner .texto_principal{
       background: none;
       border: none;
       font-size: 16px;
-      padding: 10px;
+      padding: 5px;
       cursor: pointer;
     }
     
